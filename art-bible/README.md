@@ -24,5 +24,5 @@ Amendments are commits to this folder by the venice lane, and they update the
 affected file whole rather than appending. A change to 00 re-opens every file.
 
 ## Open
-Ethnic variant list is named per realm in 07 as lore is written. The registry
-and the compliance matrix are built against 05 and 06.
+Variant map in 07 is a proposal awaiting confirmation. The registry is built
+next against 05. Anchors generate only after the map is fixed.
