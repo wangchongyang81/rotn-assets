@@ -8,8 +8,8 @@ Measured 2026-11-18 against 00-07. Numbers, not impressions.
 - Gallery code path exists (P4 step 3, claude).
 
 ## Partial
-- Nude coverage 33 of 37. The four role NPCs (sage, merchant, warrior, rogue)
-  share one nude anchor; class reads in cloth, accessory, light and FX.
+- Nude coverage 33 of 37. The player's four classes (sage, merchant, warrior,
+  rogue) share one nude anchor; class reads in cloth, accessory, light and FX.
 - Renderer is a working hand-rolled canvas 2D loop. Functions, but has no
   camera, scene or atlas layer (Q10).
 
