@@ -26,6 +26,9 @@ Measured 2026-11-18 against 00-07. Numbers, not impressions.
 - Ethnic variant anchors.
 - Expression sheets.
 - Asset registry.
+- Mob anchors: 33 realms, own body each, silhouette first.
+- Boss anchors: 33 realms, separate order of threat from the mobs.
+- Mob and boss sprites entirely.
 - AVIF at all. No fallback chain.
 
 ## Risky

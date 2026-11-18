@@ -64,7 +64,33 @@ registry rows.
 Costume, expression sheets and CGs cite the anchor id. A CG whose body does
 not match its anchor fails QC gate 2.
 
+## Mobs
+Realms 1-33 only. Haven (34) is fetch-only at tier D. The four class bodies are
+never reused as mobs.
+
+- One anchor per mob type, `mob-NN-XX`, realm then index.
+- Built from the realm's own climate and labour variant (see Variants),
+  then given its own proportion and silhouette so it reads as that realm.
+- Neutral stance for the sprite, T-pose for the rig. Two masters, same seed.
+- Mobs carry silhouette first: shape, gait, mass. Face detail is secondary.
+- A mob anchor serves one mob type only. Sharing across realms is a reject.
+- Sprite masters at 1024 wide, atlas on export.
+
+## Bosses
+One boss per realm that has one — 33 realms, Haven excepted. Bosses never share
+a body with mobs, the player or another realm's boss.
+
+- Id is `boss-NN`, one only, so a second boss in a realm is a lore change.
+- Built from the realm variant, then exaggerated away from it: mass, reach or
+  height pushed until the silhouette reads as a different order of threat.
+- Silhouette first. Face is a mask and may be non-human.
+- Front, side and three-quarter masters, T-pose for rig, plus one action pose
+  that states the realm's prop or element.
+- Sprite master 1536 wide, atlas on export, separate page from mobs.
+- A boss that could pass for its realm's mob is a reject.
+
 ## Limit
 Anchors are bodies, not characters. Hair, face detail and palette come from the
-character's ref pack and are applied after approval. A single anchor serves many
-characters; that is the point.
+character's ref pack and are applied after approval. A single anchor serves
+many characters; that is the point. Mobs and bosses are the exception: one body
+each, and never reused.
