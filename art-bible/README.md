@@ -11,6 +11,7 @@ Binding art direction. Read in order. 00 governs all; later files refine it.
 | 05-naming.md | id grammar, sizes, directories, formats, registry fields |
 | 06-qc.md | gate order, identity, anatomy, cloth, explicit frames, archive |
 | 07-anchors.md | T/P anchor set, prompt skeleton, lock, approval, derivation |
+| 08-compliance.md | measured gaps, sizes, ratios, missing sets, human calls |
 
 ## Authority
 Nothing in the game ships against this. A conflict between an asset and this
