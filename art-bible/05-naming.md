@@ -12,12 +12,14 @@ New assets extend it; no asset is renamed without a registry migration.
 `cg` story illustration, `env` environment plate, `prop` realm key prop,
 `ui` interface art, `fx` effect sheet,
 `player` the player's own body, one per class,
-`mob` realm enemy, its own body, never shared across realms.
+`mob` realm enemy, its own body, never shared across realms,
+`boss` realm boss, one per realm, its own body, never shared.
 
 ## Subject
 Realm number zero-padded to two for `cg`, `env` and `prop`. Character number
 for `npc`, `bust`, `player` and `expr`. `mob` takes realm number then a
-two-digit mob index, so `mob-07-02` never reads as `cg-07`.
+two-digit mob index, so `mob-07-02` never reads as `cg-07`. `boss` takes
+realm number and the fixed word `boss`, so `boss-07` is one per realm.
 
 ## Variants
 `holy`, `dark`, `nude`, `expr-<name>`, `size-<width>`, `layer-<fg|mg|bg>`.
@@ -25,10 +27,12 @@ Order fixed: variant before size, size last.
 
 ## Sizes
 Masters are never in the app bundle.
+
 | class | master | delivery |
 | cg | 3840 wide | 1280 1920 2560 3840 |
 | npc, bust, player | 2048 | 512 1024 |
 | mob | 1024 | 512 |
+| boss | 1536 | 512 768 |
 | expr | 1024 | 512 |
 | env | 2048 | 1024 2048 |
 | prop | 1024 | 512 |
