@@ -21,7 +21,8 @@ Measured 2026-11-18 against 00-07. Numbers, not impressions.
 - One size per asset. No 1280/1920/2560/3840 ladder, no 512/1024 ladder.
 
 ## Missing
-- Masters. Every existing file is delivery-size; nothing exists to re-derive from.
+- Masters. Every existing file is delivery-size. Master dimensions, seeds and
+  locks are set for all 32 anchors; no image exists at master size yet.
 - T-pose and P-pose anchors, all variants.
 - Ethnic variant anchors.
 - Expression sheets.

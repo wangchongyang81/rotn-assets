@@ -62,6 +62,7 @@ fill at 25 percent. Master 2048 wide. Face, hands and feet in frame.
 ## Lock
 One model, one seed, one sampler per anchor, saved with it. Every later asset
 for that character reuses them. A different seed is a different body.
+The record lives in `master/anchors/<id>/lock.json` beside the prompts.
 
 ## Approval
 Approved on proportion, silhouette, hands and face. A rejected anchor is
