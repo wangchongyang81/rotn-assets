@@ -8,7 +8,7 @@ Proportion, silhouette and pose must not be invented per illustration. An
 anchor fixes all three once, and every later asset references it.
 
 ## The grid
-Anchors are variant x sex x pose. Six variants, two poses, both sexes.
+Anchors are variant x sex x pose. Ten variants, two poses, both sexes.
 
 ## Variants
 Derived from realm climate and labour, not invented. Each names the realms it
@@ -25,8 +25,16 @@ serves.
 - V5 forest — Roots and Rot, Soma's feral groves. Compact, broad, thick forearm.
 - V6 kiln — Anala, Kravya, Jvala, Cold Hearths, The Pledge of Flame. Sinewy,
   ash-grey undertone, scarred hand.
-Mitali is a crossroads; V1 and V4 both pass through it. Dhruva, The Pledge of
-the Moon and The Pledge of Day draw from V1 or V2 by neighbourhood.
+- V7 earth — The Pledge of Earth. The whole body read as the world from space:
+  blue-grey undertone, pale cloud banding across shoulder and flank, heavy
+  shoulder, broad stance.
+- V8 moon — The Pledge of the Moon. Both faces at once: bleached pale skin on
+  the lit side, hard terminator down the body, cold shadow past it, still face.
+- V9 day — The Pledge of Day. Overexposed: sun-bleached, white-gold highlight
+  on every upward plane, narrow eye, hard shadow cast at the feet.
+- V10 pole — Dhruva. Unmoved: square-set, thick neck, planted feet, vertical
+  stance, no sway in the hands.
+Mitali is a crossroads; V1 and V4 both pass through it.
 
 ## Player
 One anchor, both sexes, both poses. Class reads in cloth, accessory, light and
@@ -39,9 +47,9 @@ Two poses per anchor: T-pose and P-pose.
   Reads as alive; the default for portraits and CGs.
 
 ## First batch
-V1 and V2 only, both sexes, both poses. Eight anchors. V3 to V6 follow only
-after V1 and V2 are approved, so a proportion error is caught on two variants
-instead of six.
+V1 and V2 only, both sexes, both poses. Eight anchors. V3 to V10 follow
+only after V1 and V2 are approved, so a proportion error is caught on
+two variants instead of ten.
 
 ## Prompt skeleton
 Fixed order, no variation: variant, sex, age band, build, pose, neutral grey
