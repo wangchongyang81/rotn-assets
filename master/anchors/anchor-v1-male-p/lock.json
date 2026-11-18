@@ -3,7 +3,7 @@
  "variant": "V1",
  "sex": "male",
  "pose": "P",
- "model": "pending: anime sdxl finetune, one per anchor, never swapped",
+ "model": "pending: anime sdxl finetune at the t2i step, one per anchor, never swapped",
  "sampler": "dpmpp_2m",
  "scheduler": "karras",
  "steps": 30,
@@ -18,5 +18,13 @@
   2993
  ],
  "approved": false,
- "note": "seed fixed at first accepted render; a new seed is a new body"
+ "note": "seed fixed at first accepted render; a new seed is a new body",
+ "route": "text-to-image",
+ "sources": [
+  "art-bible 02",
+  "art-bible 07",
+  "realm prose",
+  "world lore",
+  "2025/2026 anime trends"
+ ]
 }
