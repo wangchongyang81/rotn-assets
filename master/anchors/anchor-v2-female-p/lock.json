@@ -27,6 +27,7 @@
   "world lore",
   "2025/2026 anime trends"
  ],
- "controlnet": "NoobAI-XL ControlNet-OPENPOSE, weight 0.8",
- "licence": "master/anchors/licence/RECORD.md"
+ "controlnet": "xinsir/controlnet-openpose-sdxl-1.0, weight 0.8",
+ "licence": "master/anchors/licence/RECORD.md",
+ "controlnet_sha256": "b8524e557a7df60d081f5d4a0eb109967d107df217943bf88c2d99b9ebcc06c5"
 }
