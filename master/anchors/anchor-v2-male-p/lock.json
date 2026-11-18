@@ -1,0 +1,22 @@
+{
+ "id": "anchor-v2-male-p",
+ "variant": "V2",
+ "sex": "male",
+ "pose": "P",
+ "model": "pending: anime sdxl finetune, one per anchor, never swapped",
+ "sampler": "dpmpp_2m",
+ "scheduler": "karras",
+ "steps": 30,
+ "cfg": 6,
+ "seed": 730049,
+ "gen": [
+  832,
+  1216
+ ],
+ "master": [
+  2048,
+  2993
+ ],
+ "approved": false,
+ "note": "seed fixed at first accepted render; a new seed is a new body"
+}

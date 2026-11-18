@@ -1,0 +1,22 @@
+{
+ "id": "anchor-v1-female-t",
+ "variant": "V1",
+ "sex": "female",
+ "pose": "T",
+ "model": "pending: anime sdxl finetune, one per anchor, never swapped",
+ "sampler": "dpmpp_2m",
+ "scheduler": "karras",
+ "steps": 30,
+ "cfg": 6,
+ "seed": 730000,
+ "gen": [
+  832,
+  1216
+ ],
+ "master": [
+  2048,
+  2993
+ ],
+ "approved": false,
+ "note": "seed fixed at first accepted render; a new seed is a new body"
+}
