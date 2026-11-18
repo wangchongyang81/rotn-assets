@@ -14,6 +14,7 @@ Binding art direction. Read in order. 00 governs all; later files refine it.
 | 08-compliance.md | measured gaps, sizes, ratios, missing sets, human calls |
 | 09-replacement.md | ordered queue, props gate cgs, anchors gate portraits |
 | 10-props.md | 34 realm props, usage rules, haven read |
+| 11-refpacks.md | per-character pack, gate, parts, lock, registry |
 
 ## Authority
 Nothing in the game ships against this. A conflict between an asset and this

@@ -41,7 +41,8 @@ Masters are never in the app bundle.
 ## Directories
 `public/assets/cg`, `portraits`, `mobs`, `busts`, `expr`, `env`, `props`,
 `ui`, `fx`.
-Masters live in `rotn-assets` under the same tree, `master/` prefix.
+Masters live in `rotn-assets` under the same tree, `master/` prefix, and
+ref packs under `ref/<character-id>/`. Neither ever ships.
 
 ## Formats
 AVIF then WebP. PNG only for art that needs alpha under 8 colours.
