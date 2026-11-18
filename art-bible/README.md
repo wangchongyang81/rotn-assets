@@ -24,5 +24,5 @@ Amendments are commits to this folder by the venice lane, and they update the
 affected file whole rather than appending. A change to 00 re-opens every file.
 
 ## Open
-Variant map in 07 is a proposal awaiting confirmation. The registry is built
-next against 05. Anchors generate only after the map is fixed.
+Registry build is next, against 05. The variant map is fixed at ten; anchors
+generate from V1 and V2 first, then outward.
