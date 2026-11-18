@@ -13,13 +13,15 @@ New assets extend it; no asset is renamed without a registry migration.
 `ui` interface art, `fx` effect sheet,
 `player` the player's own body, one per class,
 `mob` realm enemy, its own body, never shared across realms,
-`boss` realm boss, one per realm, its own body, never shared.
+`boss` realm boss, one per realm, its own body, never shared,
+`anchor` body master, one per variant, sex and pose.
 
 ## Subject
 Realm number zero-padded to two for `cg`, `env` and `prop`. Character number
 for `npc`, `bust`, `player` and `expr`. `mob` takes realm number then a
 two-digit mob index, so `mob-07-02` never reads as `cg-07`. `boss` takes
 realm number and the fixed word `boss`, so `boss-07` is one per realm.
+`anchor` is one-off and named in full: `anchor-<variant>-<sex>-<pose>`.
 
 ## Variants
 `holy`, `dark`, `nude`, `expr-<name>`, `size-<width>`, `layer-<fg|mg|bg>`.
@@ -33,6 +35,7 @@ Masters are never in the app bundle.
 | npc, bust, player | 2048 | 512 1024 |
 | mob | 1024 | 512 |
 | boss | 1536 | 512 768 |
+| anchor | 2048 | — |
 | expr | 1024 | 512 |
 | env | 2048 | 1024 2048 |
 | prop | 1024 | 512 |

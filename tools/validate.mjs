@@ -1,13 +1,14 @@
 import fs from "node:fs";
 process.chdir("/workspaces/rotn-assets");
 const { rows } = JSON.parse(fs.readFileSync("registry.json", "utf8"));
-const CLASS = new Set(["cg", "npc", "bust", "player", "mob", "boss", "expr", "env", "prop", "ui", "fx"]);
+const CLASS = new Set(["cg", "npc", "bust", "player", "mob", "boss", "expr", "env", "prop", "ui", "fx", "anchor"]);
 const VAR = /^(holy|dark|nude|expr-[a-z0-9]+|size-\d+|layer-(fg|mg|bg))$/;
 const SIZE = {
   cg: [3840, 1280, 1920, 2560], npc: [2048, 512, 1024], bust: [2048, 512, 1024],
   player: [2048, 512, 1024], mob: [1024, 512], boss: [1536, 512, 768],
   expr: [1024, 512], env: [2048, 1024], prop: [1024, 512], ui: [2048, 1024],
   fx: [1024, 512],
+  anchor: [2048],
 };
 const errs = [];
 const seen = new Set();
