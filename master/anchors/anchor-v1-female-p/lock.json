@@ -4,7 +4,7 @@
  "sex": "female",
  "pose": "P",
  "model": "NoobAI-XL-v1.1.safetensors",
- "sampler": "euler_a",
+ "sampler": "euler_ancestral",
  "scheduler": "karras",
  "steps": 24,
  "cfg": 6,
