@@ -2,9 +2,9 @@
 set -uo pipefail
 c=$HOME/.runpod/config.toml
 k=${1:-}
-if [[ -z $k ]]; then
-  read -r -s -p 'RunPod API key: ' k || true; echo
-fi
+if [[ -z $k ]]; then read -r k < /dev/tty || true; fi
+if [[ -z $k && -t 0 ]]; then read -r k || true; fi
+k=${k//[$'\r\n\t ']/}
 [[ -z $k ]] && { echo 'empty, nothing written' >&2; exit 1; }
 python3 - "$c" "$k" <<'PY' || exit 1
 import re,sys
