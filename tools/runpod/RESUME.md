@@ -1,13 +1,17 @@
-# Resume — paused 2026-11-20
+# Resume — P closed 2026-11-20
 
-Pod zsfj1x0noauutq, 213.173.102.196:14639, volume 39dhm3ia6u. Stopped, not terminated.
-Aux pinned to c2655d2 in remote-aux.sh.
+Pod ckhmhcihw8q83v, 213.173.107.89:18747, volume 39dhm3ia6u.
+Aux pinned to c2655d2.
 
-Done: T anchor-tv2 accepted, f0.18 810, corners 255. Sheet and pair in art/anchors.
-Open: P anchor. Five attempts, all render the straight arm as a diagonal
-(pv, px, py, pz, qa). Skeletons proven flat at row 300 every time, so the
-drawing is not the fault. Strength 0.9/0.95/1.0 and hand circle all tried.
+T anchor-tv2 accepted: f0.18 810, corners 255.
+P anchor-pv2 accepted: f0.18 (20,536) horizontal arm, corners 255,
+right max pulled to 536 not 824. Known fault: hand hovers, forearm
+separates from body at 50-58% (2 runs). Accepted, not chased.
 
-Next lever: reuse the T skeleton itself for P, alter only the legs to apart,
-leave the arm byte-identical. If that still slopes, the ckpt will not hold an
-outstretched arm from a stick figure and P takes the A-pose compromise.
+Six P attempts after pv2 all lost the arm or the hip: qa (arm absent),
+qb (no render), pz, qa3 (arm gone, 3 runs), qa4 (arm diagonal, 214/188).
+Root cause of the arm failures: any change to the left arm coords or the
+seed breaks the horizontal. pv2 is the only skeleton that holds both
+the T's own left reach (41) and the hip bend in one image.
+
+Sheet rebuild is next from tv2 and pv2.
