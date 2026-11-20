@@ -15,7 +15,7 @@ Hard filter. A host passes only on all five; fail one and it is out.
 | novita | | ? | ? | ? | ? | ~0.002 | |
 | wavespeed | | ? | ? | ? | ? | ~0.005 | upload path fails: 200 MB cap, 34 shards, no temp disk. Hosted endpoints unaffected |
 | replicate | | | | | | ~0.01 | version pin, cold start |
-| runpod template | | | | | | per minute | pod to manage |
+| runpod pod | Laxhar/noobai-XL-1.1 | PASS | PASS | PASS xinsir on volume | PASS none present | per minute | PASS all five, only candidate. Cost is rent, not per image |
 | modal | | | | | | per second | most setup |
 
 ## Rule
