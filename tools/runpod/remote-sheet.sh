@@ -8,7 +8,7 @@ o=Path('/workspace/comfy/output')
 try: f=ImageFont.load_default(size=26)
 except Exception: f=ImageFont.load_default()
 W,H=832,1216
-names=[('anchor-tv2','T anchor'),('anchor-pv','P anchor'),('skel-tpose','T skeleton'),('skel-ppose','P skeleton')]
+names=[('anchor-tv2','T anchor'),('anchor-pv2','P anchor'),('skel-tpose','T skeleton'),('skel-ppose6','P skeleton')]
 cells=[]
 for n,lab in names:
     p=o/(n+'_00001_.png' if not n.startswith('skel-') else n+'.png')
