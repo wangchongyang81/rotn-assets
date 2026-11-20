@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -uo pipefail
+S=c2655d2
 mkdir -p /opt/ComfyUI/custom_nodes
 cd /opt/ComfyUI/custom_nodes
 [ -d comfyui_controlnet_aux ] || git clone -q https://github.com/Fannovel16/comfyui_controlnet_aux.git
 cd comfyui_controlnet_aux
-echo "head $(git rev-parse --short HEAD)" > /workspace/aux.log
+git checkout -q "$S"
+echo "head $(git rev-parse --short HEAD) pin $S" > /workspace/aux.log
 pip install -q -r requirements.txt >> /workspace/aux.log 2>&1
 echo "req rc=$?" >> /workspace/aux.log
 pip install -q --no-cache-dir --index-url https://download.pytorch.org/whl/cu128 --upgrade torch==2.8.0 torchvision torchaudio >> /workspace/aux.log 2>&1
