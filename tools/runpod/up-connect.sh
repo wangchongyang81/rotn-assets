@@ -11,8 +11,14 @@ done
 echo "$id" > /tmp/pod.id
 for i in $(seq 1 40); do
   bash v2.sh GET "/pods/$id" > /tmp/pod.json
-  read -r ip pt < <(python3 -c 'import json;p=json.load(open("/tmp/pod.json"));e=[x for x in (p.get("runtime") or {}).get("ports",[]) if x.get("private")==22];print((e[0]["ip"],e[0]["public"]) if e else ("",""))')
-  [[ -n ${ip:-} ]] && { echo "SSH $ip $pt"; exit 0; }
+  m=$(python3 - <<'PY'
+import json
+p=json.load(open("/tmp/pod.json"))
+e=[x for x in (p.get("runtime") or {}).get("ports",[]) if x.get("private")==22]
+if e: print(e[0]["ip"], e[0]["public"])
+PY
+)
+  [[ -n $m ]] && { echo "SSH $m"; exit 0; }
   sleep 10
 done
 echo 'no ssh mapping' >&2; exit 1
