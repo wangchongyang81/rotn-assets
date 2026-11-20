@@ -26,6 +26,9 @@ controlnet/openpose-xinsir-sdxl.safetensors
 3. remote-boot.sh, wait for "started"
 4. remote-prep.sh: torch 2.8.0, both symlinks, restart
 5. remote-aux.sh: controlnet_aux pack, re-pin torch after
-6. anchor sheet, seed 7 throughout, strength 0.9:
-   remote-pose.sh, remote-anchor.sh, remote-ppose.sh, remote-anchorp.sh, remote-sheet.sh
+6. anchors: seed 7, strength 0.9, prompts and negative in PROMPTS.md
+   remote-tskel3.sh draws skel-tpose.png and renders anchor-tv2
+   remote-pskel.sh draws skel-ppose.png and renders anchor-pv
+   remote-sheet.sh tiles the four into sheet-final.png
+   gate each render: f0.18 above 700 on T, h within 8%, corners 255
 7. pod-down.sh, volume persists
