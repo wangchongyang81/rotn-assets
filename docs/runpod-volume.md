@@ -10,6 +10,7 @@ Second recovery path: private HF repo.
 runpodctl pod create --name rotn-pilot-3 \
   --network-volume-id 39dhm3ia6u \
   --volume-mount-path /workspace \
+  --container-disk-in-gb 50 \
   --gpu-id "NVIDIA GeForce RTX 4090" \
-  --image-name runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
+  --image runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
 Then `runpodctl pod get <id>` for the SSH port, then comfy with --fp16-unet.
