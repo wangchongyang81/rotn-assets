@@ -1,0 +1,1 @@
+{"name": "probe", "image": "runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04", "gpu": {"id": "NVIDIA GeForce RTX 4090", "count": 1}, "cloud": "COMMUNITY", "ports": ["8188/http", "22/tcp"], "dataCenterIds": ["EU-RO-1"], "mounts": {"network": [{"volumeId": "39dhm3ia6u", "path": "/workspace"}]}}
