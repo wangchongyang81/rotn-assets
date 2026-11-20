@@ -1,11 +1,11 @@
 {
- "name": "rotn-pilot-1",
+ "name": "rotn-pilot-2",
  "image": "runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04",
  "gpu": {
   "id": "NVIDIA GeForce RTX 4090",
   "count": 1
  },
- "cloud": "COMMUNITY",
+ "cloud": "SECURE",
  "ports": [
   "8188/http",
   "22/tcp"
@@ -21,5 +21,6 @@
     "path": "/workspace"
    }
   ]
- }
+ },
+ "disk": 50
 }
