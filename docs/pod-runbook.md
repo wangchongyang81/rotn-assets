@@ -44,3 +44,10 @@ Fresh pod with volume mounted:
   hf buckets sync hf://buckets/wangchongyang81/rotn-bin/snapshots /workspace/images --include '*.tar.gz'
   tar xzf /workspace/images/<newest dated tar> -C /opt
 Checksum round-trip verified on 0213 against the bucket copy.
+
+## Models read path PROVEN 2026-11-21
+Dry-run of the models restore planned 2 downloads at 7105349958 and 2502139104.
+Snapshot read path proven by sha256 round-trip on 0213 (ca4d1ae4...215cb6 both sides).
+Region: non-Team is always US. Local->bucket and bucket->local are fine from any
+region pod; bucket->bucket copies only within a region.
+Mirror pod ee7jaehd9b38to deleted. Volume 39dhm3ia6u persists.
