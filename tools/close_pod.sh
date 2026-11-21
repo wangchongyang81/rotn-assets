@@ -9,7 +9,6 @@ hf buckets sync comfy/models "$B/models" --include '*.safetensors' --plan /root/
 hf buckets sync --apply /root/m.plan
 hf buckets sync images "$B/snapshots" --include '*.tar.gz' --plan /root/s.plan
 hf buckets sync --apply /root/s.plan
-ls -R="$B/models" >/dev/null 2>&1 || true
 REM=$(hf buckets ls -R "$B/models"; hf buckets ls -R "$B/snapshots")
 for p in models/checkpoints/NoobAI-XL-v1.1.safetensors \
          models/controlnet/openpose-xinsir-sdxl.safetensors; do
