@@ -28,3 +28,8 @@
 - Volume is /workspace/comfy. Everything persistent lives there.
 - Never tail a buffered pipe and call it stuck; poll the file count.
 - Untested levers are worse than no levers: dry-run every branch first.
+
+## Departure checklist
+- HF mirror backup every departure (agreed).
+- Restore base from git HEAD, never a .bak.
+- runpodctl pod stop; never terminate.

@@ -3,7 +3,7 @@ set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
 H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
-B=art/prompts/wild/noobai/brown-on/$POSE.txt
+B=/tmp/anc/base.txt
 V=("(lineart:1.4), sharp outlines, no flat shading"
    "flat shading, (lineart:1.6), thick outlines"
    "(heavy lineart:1.7), dark outlines, (dim lighting:1.5)"
@@ -12,6 +12,7 @@ N=("soft shading, blurry, pastel, flat shading"
    "faint lines, blurry, cel shading"
    "washed out, low contrast, soft shading"
    "blurry, gradient shading, flat shading")
+git show HEAD:art/prompts/wild/noobai/brown-on/$POSE.txt > "$B" || { echo NOBASE; exit 1; }
 best=0; keep=""
 [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "rm -f /workspace/comfy/output/$TAG-a*" >/dev/null 2>&1
 for i in $(seq 1 8); do
