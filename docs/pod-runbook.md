@@ -36,3 +36,11 @@ models 9607489074 B and 3 snapshots verified in hf://buckets/wangchongyang81/rot
 via buckets sync --plan then --apply. cp takes no --recursive; sync is the verb.
 Caveat: LATEST.tar.gz is a symlink and syncs as a full copy, so it goes stale.
 Restore ignores it - always pick the newest dated tar.
+
+## Restore from bucket (READ PATH PROVEN 2026-11-21)
+Fresh pod with volume mounted:
+  hf auth login --token "$(cat /root/.hf_tok)"
+  hf buckets sync hf://buckets/wangchongyang81/rotn-bin/models /workspace/comfy/models --include '*.safetensors'
+  hf buckets sync hf://buckets/wangchongyang81/rotn-bin/snapshots /workspace/images --include '*.tar.gz'
+  tar xzf /workspace/images/<newest dated tar> -C /opt
+Checksum round-trip verified on 0213 against the bucket copy.
