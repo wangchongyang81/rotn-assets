@@ -21,7 +21,8 @@ for p in "$@"; do
     st=$([ -n "$R" ] && echo upd || echo new)
     scp $S -P "$P" "art/skeletons/$S1" root@"$H":"$D"/
   fi
-  scp $S -P "$P" "$T/prompt-$p.txt" "$T/neg-$p.txt" root@"$H":"$D"/
+  printf %s "$L" > "$T/sha-$p.txt"
+  scp $S -P "$P" "$T/prompt-$p.txt" "$T/neg-$p.txt" "$T/sha-$p.txt" root@"$H":"$D"/
   echo "ok $p skel=$st"
 done
 echo "pushed $#"

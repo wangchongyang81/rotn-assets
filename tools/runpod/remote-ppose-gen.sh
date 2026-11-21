@@ -4,8 +4,8 @@ set -uo pipefail
 POSE=${1:?pose}; SEED=${2:?seed}; OUT=${3:?out}
 D=/workspace/comfy/input
 skelname(){ case $1 in tpose) echo skel-tpose.png;; *) echo skel-ppose-$1.png;; esac; }
-SK=$D/$(skelname $POSE); PF=$D/prompt-$POSE.txt; NF=$D/neg-$POSE.txt
-for f in "$SK" "$PF" "$NF"; do [ -s "$f" ] || { echo "MISSING $f"; exit 1; }; done
+SK=$D/$(skelname $POSE); PF=$D/prompt-$POSE.txt; NF=$D/neg-$POSE.txt; SF=$D/sha-$POSE.txt
+for f in "$SK" "$PF" "$NF" "$SF"; do [ -s "$f" ] || { echo "MISSING $f"; exit 1; }; done
 curl -s -o /dev/null -w "http %{http_code}\n" http://127.0.0.1:8188/
 python - "$(cat "$PF")" "$(cat "$NF")" "$SK" "$SEED" "$OUT" <<'PY'
 import sys,json,urllib.request
