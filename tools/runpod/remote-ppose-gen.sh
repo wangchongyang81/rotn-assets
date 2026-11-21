@@ -6,6 +6,7 @@ D=/workspace/comfy/input
 skelname(){ case $1 in tpose) echo skel-tpose.png;; *) echo skel-ppose-$1.png;; esac; }
 SK=$D/$(skelname $POSE); PF=$D/prompt-$POSE.txt; NF=$D/neg-$POSE.txt; SF=$D/sha-$POSE.txt
 for f in "$SK" "$PF" "$NF" "$SF"; do [ -s "$f" ] || { echo "MISSING $f"; exit 1; }; done
+[ "$(sha256sum "$SK"|cut -d" " -f1)" = "$(cat "$SF")" ] || { echo "STALE $SK"; exit 1; }
 curl -s -o /dev/null -w "http %{http_code}\n" http://127.0.0.1:8188/
 python - "$(cat "$PF")" "$(cat "$NF")" "$SK" "$SEED" "$OUT" <<'PY'
 import sys,json,urllib.request
