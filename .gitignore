@@ -1,0 +1,5 @@
+*.tar.gz
+*.safetensors
+*.ckpt
+comfy/
+art/**/candidates/
