@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
 V=("(lineart:1.4), sharp outlines, no flat shading"
@@ -15,9 +15,10 @@ N=("soft shading, blurry, pastel, flat shading"
 git show HEAD:art/prompts/wild/noobai/brown-on/$POSE.txt > "$B" || { echo NOBASE; exit 1; }
 best=0; keep=""
 [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "rm -f /workspace/comfy/output/$TAG-a*" >/dev/null 2>&1
-for i in $(seq 1 8); do
+for i in $(seq 1 "$MAX"); do
   v=$(( (i-1)%4 ))
   case $i in 1|2|3|4) cfg=5.0;smp=euler_ancestral;;5|6|7) cfg=6.5;smp=euler_ancestral;;*) cfg=7.5;smp=dpmpp_2m;;esac
+  [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   T="$TAG-a$i"; echo "--- a$i cfg=$cfg smp=$smp var=$v"
   sed -n 's/^P: //p' "$B" > /tmp/anc/p.txt; printf ', %s\n' "${V[$v]}" >> /tmp/anc/p.txt
   sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; printf ', %s\n' "${N[$v]}" >> /tmp/anc/n.txt
