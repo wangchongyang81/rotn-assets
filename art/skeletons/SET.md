@@ -22,6 +22,7 @@ N add: machinery, mecha, robot, industrial, scenery, props, background clutter,
 blurry, soft focus, depth of field, bokeh, gradient background, no humans
 
 ## Notes
+STYLE matches accepted remote-ppose.sh: RGB, head 154 wide from y120, limbs 18, spine 24.
 ppose hips tilted 36px, shoulders counter 22px - do not level them.
 apose-wide is asymmetric on purpose - brace/landing base, not a T.
 

@@ -1,7 +1,7 @@
 import pathlib,sys
 from PIL import Image, ImageDraw
 W,H=832,1216
-HEAD=(370,144,462,236)
+HEAD=(339,120,493,266)
 CORE=[((416,236),(416,300)),((340,310),(492,310)),((416,300),(419,649)),((372,640),(466,658))]
 A={'p1':[((340,310),(318,470),(310,610)),((492,310),(514,470),(522,610))],
 'p2':[((340,310),(292,470),(372,644)),((492,310),(540,470),(466,644))],
@@ -25,8 +25,9 @@ F={'p1':[((364,1128),(334,1146)),((474,1128),(504,1146))],
 'p7':[((368,1128),(338,1146)),((470,1128),(500,1146))],
 'p8':[((356,1128),(326,1146)),((482,1128),(512,1146))]}
 for k in sys.argv[1:]:
-    im=Image.new('L',(W,H),0); d=ImageDraw.Draw(im)
-    d.ellipse(HEAD,outline=255,width=9)
-    for p in CORE+A[k]+L[k]+F[k]: d.line(p,fill=255,width=9,joint='curve')
+    im=Image.new('RGB',(W,H),(0,0,0)); d=ImageDraw.Draw(im)
+    d.ellipse(HEAD,outline=(255,255,255),width=18)
+    for p in CORE+A[k]+L[k]+F[k]: d.line(p,fill=(255,255,255),width=18,joint='curve')
+    d.line(CORE[2],fill=(255,255,255),width=24)
     im.save('art/skeletons/skel-ppose-%s.png'%k)
     print(k,im.size)
