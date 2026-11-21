@@ -58,3 +58,12 @@ Gates: validate_manifests, parity, text mirror, then pod lookup. Text mirrors
 before the lookup, so a bad ID still pushes text and then exits 1 without CLOSED.
 NEVER deletes the pod. UNTESTED end to end against a live pod as of 2026-11-21.
 First run next session is the test.
+
+## HF_TOKEN is now a CLASSIC write token 2026-11-21
+Replaces the OAuth token that expired 2026-12-19. Classic write tokens do not
+expire. Created as rotn-ci on https://huggingface.co/settings/tokens.
+OAuth value parked as HF_TOKEN_OAUTH for rollback.
+Proof: workflow run 44904034246 success immediately after the swap.
+Token creation is web-only - /api/tokens is dead for OAuth, HfApi has no method.
+tools/set_hf_token.sh sets, tests and auto-rolls-back.
+The token appeared in a chat log; revoke on the settings page if that matters.
