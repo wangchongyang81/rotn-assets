@@ -11,14 +11,16 @@ case "$M" in
     while IFS= read -r f; do
       hf upload "$R" "$f" "docs/${f#docs/}"
     done < <(find docs -name '*.md')
-    hf upload "$R" art/realms realms --include '*.png' --include '*.md' 
+    hf upload "$R" art/realms realms --include '*.png' --include '*.md'
+    echo "mirrored text"
     ;;
   models)
     hf buckets sync /workspace/comfy/models "$B/models" --include '*.safetensors' --plan /root/models.plan
+    echo "planned models - apply: hf buckets sync --apply /root/models.plan"
     ;;
   snapshots)
     hf buckets sync /workspace/images "$B/snapshots" --include '*.tar.gz' --plan /root/snaps.plan
+    echo "planned snapshots - apply: hf buckets sync --apply /root/snaps.plan"
     ;;
   *) echo "usage: $0 text|models|snapshots"; exit 1;;
 esac
-echo "planned $M, apply with: hf buckets sync --apply <plan>"
