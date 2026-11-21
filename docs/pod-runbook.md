@@ -30,3 +30,9 @@ volume 39dhm3ia6u mounted, then:
   bash tools/mirror_hf.sh models
   bash tools/mirror_hf.sh snapshots
 Verify with: hf buckets ls -R hf://buckets/wangchongyang81/rotn-bin
+
+## Binaries MIRRORED 2026-11-21
+models 9607489074 B and 3 snapshots verified in hf://buckets/wangchongyang81/rotn-bin
+via buckets sync --plan then --apply. cp takes no --recursive; sync is the verb.
+Caveat: LATEST.tar.gz is a symlink and syncs as a full copy, so it goes stale.
+Restore ignores it - always pick the newest dated tar.
