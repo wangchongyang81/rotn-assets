@@ -51,3 +51,10 @@ Snapshot read path proven by sha256 round-trip on 0213 (ca4d1ae4...215cb6 both s
 Region: non-Team is always US. Local->bucket and bucket->local are fine from any
 region pod; bucket->bucket copies only within a region.
 Mirror pod ee7jaehd9b38to deleted. Volume 39dhm3ia6u persists.
+
+## close_session.sh
+Usage: ./tools/close_session.sh <pod-id>
+Gates: validate_manifests, parity, text mirror, then pod lookup. Text mirrors
+before the lookup, so a bad ID still pushes text and then exits 1 without CLOSED.
+NEVER deletes the pod. UNTESTED end to end against a live pod as of 2026-11-21.
+First run next session is the test.
