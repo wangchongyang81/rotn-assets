@@ -44,6 +44,7 @@ F['apose-wide']=[((310,1128),(280,1146)),((530,1128),(560,1146))]
 POSES=('anchor','tpose','ppose','apose-wide','p1','p2','p3','p4','p5','p7','p8')
 def name(k):
     return 'skel-tpose.png' if k=='tpose' else 'skel-ppose-%s.png'%k
+SEEN=set()
 FLOOR={'tpose':700,'apose-wide':450,'ppose':220}
 for k in POSES:
     for nm,D in (('SH',SH),('HIP',HIP),('A',A),('L',L),('F',F)):
@@ -61,4 +62,8 @@ for k in (sys.argv[1:] or POSES):
         xs=[x for x in range(W) if px[x,y]>20]
         if xs: best=max(best,max(xs)-min(xs))
     assert best>=FLOOR.get(k,150), '%s span %d under %d'%(k,best,FLOOR.get(k,150))
+    SEEN.add(name(k))
+    if len(SEEN)==len(POSES):
+        for f in sorted(pathlib.Path('art/skeletons').glob('skel-*.png')):
+            if f.name not in SEEN: print('EXTRA',f.name)
     print(k,im.size)
