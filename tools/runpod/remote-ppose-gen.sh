@@ -2,6 +2,7 @@
 set -uo pipefail
 # usage: remote-ppose-gen.sh <pose> <seed> <out>
 POSE=${1:?pose}; SEED=${2:?seed}; OUT=${3:?out}
+OUT=${OUT##*/}; OUT=${OUT%.png}
 D=/workspace/comfy/input
 skelname(){ case $1 in tpose) echo skel-tpose.png;; *) echo skel-ppose-$1.png;; esac; }
 SK=$D/$(skelname $POSE); PF=$D/prompt-$POSE.txt; NF=$D/neg-$POSE.txt; SF=$D/sha-$POSE.txt
