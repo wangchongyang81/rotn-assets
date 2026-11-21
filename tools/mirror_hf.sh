@@ -14,11 +14,11 @@ case "$M" in
     hf upload "$R" art/realms realms --include '*.png' --include '*.md' 
     ;;
   models)
-    hf buckets cp /workspace/comfy/models "$B/models" --recursive --include '*.safetensors'
+    hf buckets sync /workspace/comfy/models "$B/models" --include '*.safetensors' --plan /root/models.plan
     ;;
   snapshots)
-    hf buckets cp /workspace/images "$B/snapshots" --recursive --include '*.tar.gz'
+    hf buckets sync /workspace/images "$B/snapshots" --include '*.tar.gz' --plan /root/snaps.plan
     ;;
   *) echo "usage: $0 text|models|snapshots"; exit 1;;
 esac
-echo "mirrored $M"
+echo "planned $M, apply with: hf buckets sync --apply <plan>"
