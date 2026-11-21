@@ -33,3 +33,4 @@
 - HF mirror backup every departure (agreed).
 - Restore base from git HEAD, never a .bak.
 - runpodctl pod stop; never terminate.
+reference: art/prompts/wild/noobai/brown-on/_ref/tpose.txt is the frozen base; loop reads git HEAD
