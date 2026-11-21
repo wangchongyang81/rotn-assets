@@ -45,3 +45,8 @@ Target 150/105/85. Red +4, green +4, blue 0. Accepted.
 Band detector unreliable: figure is full-bleed (top 0, bot 1215) and a soft
 bottom wash widens the run so leg66 samples fall off-skin. Use fixed x for
 tone on this anchor. Border grain = decode noise, cosmetic, not chased.
+
+Fixed-x height map, so future sessions sample correctly:
+30% torso on-skin 154/109/85 | 40% crotch shadow 112/77/46 NOT tone
+58-66% legs on-skin 149-156/108-112/72-78
+Use 30% for torso and 58-66% for legs. Never 40%.
