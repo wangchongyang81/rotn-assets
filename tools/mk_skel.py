@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 W,H=832,1216
 HEAD=(339,120,493,266)
 CORE=[((416,266),(416,300)),((416,300),(419,649))]
-SH={k:((340,310),(492,310)) for k in ('p1','p2','p3','p4','p5','p7','p8')}
+SH={k:((340,310),(492,310)) for k in ('p1','p2','p3','p4','p5','p7','p8','tpose','ppose','apose-wide')}
 SH['anchor']=((340,322),(492,300))
 HIP={k:((372,640),(466,658)) for k in SH if k!='anchor'}
 HIP['anchor']=((372,632),(466,668))
@@ -31,12 +31,34 @@ F={'p1':[((364,1128),(334,1146)),((474,1128),(504,1146))],
 'p7':[((368,1128),(338,1146)),((470,1128),(500,1146))],
 'p8':[((356,1128),(326,1146)),((482,1128),(512,1146))],
 'anchor':[((362,1128),(334,1146)),((500,1092),(530,1108))]}
-for k in sys.argv[1:]:
+A['tpose']=[((340,310),(190,310),(41,310)),((492,310),(642,310),(791,310))]
+L['tpose']=[((372,640),(370,880),(368,1128)),((466,658),(468,880),(470,1128))]
+F['tpose']=[((368,1128),(338,1146)),((470,1128),(500,1146))]
+A['ppose']=[((340,310),(300,430),(372,630)),((492,310),(532,430),(466,650))]
+L['ppose']=[((372,640),(368,880),(364,1128)),((466,658),(470,880),(474,1128))]
+F['ppose']=[((364,1128),(334,1146)),((474,1128),(504,1146))]
+A['apose-wide']=[((340,310),(250,420),(170,520)),((492,310),(582,420),(662,520))]
+L['apose-wide']=[((372,640),(340,880),(310,1128)),((466,658),(500,880),(530,1128))]
+F['apose-wide']=[((310,1128),(280,1146)),((530,1128),(560,1146))]
+
+POSES=('anchor','tpose','ppose','apose-wide','p1','p2','p3','p4','p5','p7','p8')
+def name(k):
+    return 'skel-tpose.png' if k=='tpose' else 'skel-ppose-%s.png'%k
+FLOOR={'tpose':700,'apose-wide':450,'ppose':220}
+for k in POSES:
+    for nm,D in (('SH',SH),('HIP',HIP),('A',A),('L',L),('F',F)):
+        assert k in D, '%s missing %s'%(nm,k)
+for k in (sys.argv[1:] or POSES):
     im=Image.new('RGB',(W,H),(0,0,0)); d=ImageDraw.Draw(im)
     d.ellipse(HEAD,outline=(255,255,255),width=18)
     d.line(SH[k],fill=(255,255,255),width=18)
     d.line(HIP[k],fill=(255,255,255),width=18)
     for p in CORE+A[k]+L[k]+F[k]: d.line(p,fill=(255,255,255),width=18,joint='curve')
     d.line(CORE[1],fill=(255,255,255),width=24)
-    im.save('art/skeletons/skel-ppose-%s.png'%k)
+    im.save('art/skeletons/'+name(k))
+    px=im.convert('L').load(); best=0
+    for y in range(280,900,4):
+        xs=[x for x in range(W) if px[x,y]>20]
+        if xs: best=max(best,max(xs)-min(xs))
+    assert best>=FLOOR.get(k,150), '%s span %d under %d'%(k,best,FLOOR.get(k,150))
     print(k,im.size)
