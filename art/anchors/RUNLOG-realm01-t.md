@@ -37,3 +37,11 @@ blonde hair, bright lighting, high key, grey background, gradient background, vi
 1. Profiler: mtop 0 persists. Threshold 40 -> 80, per-row median bg, keeps contiguous wash out.
 2. Border grain is decode noise, not weight. Not chased further.
 3. Leg74 right sample off-skin (168/132/123), use leg58/66 only.
+
+## ACCEPTED 2026-11-21
+Anchor T = r1t34. Tone verified at fixed x, three passes:
+torso 30% 154/109/85, leg 58% 153/111/75, x380 and x450 both on-skin.
+Target 150/105/85. Red +4, green +4, blue 0. Accepted.
+Band detector unreliable: figure is full-bleed (top 0, bot 1215) and a soft
+bottom wash widens the run so leg66 samples fall off-skin. Use fixed x for
+tone on this anchor. Border grain = decode noise, cosmetic, not chased.
