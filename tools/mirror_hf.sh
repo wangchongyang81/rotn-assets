@@ -11,6 +11,7 @@ case "$M" in
     while IFS= read -r f; do
       hf upload "$R" "$f" "docs/${f#docs/}"
     done < <(find docs -name '*.md')
+    hf upload "$R" art/realms realms --include '*.png' --include '*.md' 
     ;;
   models)
     hf buckets cp /workspace/comfy/models "$B/models" --recursive --include '*.safetensors'
