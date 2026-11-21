@@ -8,6 +8,5 @@ Never edit the .txt files - regenerate.
 Pose tag max 3 of cap 4. Trailing commas 0.
 
 ## Open
-ppose uses contrapposto. No skeleton matches it - either draw one with
-shifted hips or run ppose prompt-only with no ControlNet. p1 is now narrow
-A, so ppose and p1 are distinct and neither is a duplicate.
+RESOLVED 2026-11-21: skel-ppose.png drawn by tools/mk_skel.py. Hips tilted
+36px, shoulders counter 22px. Do not level them.
