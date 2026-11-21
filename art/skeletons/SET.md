@@ -10,6 +10,7 @@ skel-ppose-p3.png   one arm raised, wave
 skel-ppose-p4.png   arms crossed under chest
 skel-ppose-p5.png   combat guard, fists up
 skel-apose-wide.png  wide stance, left arm horizontal, right arm 45 deg down
+skel-ppose.png       contrapposto, weight left, right knee in, foot splayed
 skel-ppose-p7.png   hands clasped in front
 skel-ppose-p8.png   one hand on hip, one arm down
 
@@ -21,6 +22,7 @@ N add: machinery, mecha, robot, industrial, scenery, props, background clutter,
 blurry, soft focus, depth of field, bokeh, gradient background, no humans
 
 ## Notes
+ppose hips tilted 36px, shoulders counter 22px - do not level them.
 apose-wide is asymmetric on purpose - brace/landing base, not a T.
 
 ## Acceptance
