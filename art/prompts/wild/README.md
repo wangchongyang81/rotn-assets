@@ -8,5 +8,5 @@ Never edit the .txt files - regenerate.
 Pose tag max 3 of cap 4. Trailing commas 0.
 
 ## Open
-RESOLVED 2026-11-21: skel-ppose.png drawn by tools/mk_skel.py. Hips tilted
+RESOLVED 2026-11-21: skel-ppose-anchor.png drawn by tools/mk_skel.py. Hips tilted
 36px, shoulders counter 22px. Do not level them.

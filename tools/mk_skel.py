@@ -9,5 +9,5 @@ L=[ [(416,236),(416,300)], [(340,322),(492,300)],
  [(466,668),(450,870),(500,1092)], [(500,1092),(530,1108)] ]
 d.ellipse([370,144,462,236],outline=255,width=9)
 for p in L: d.line(p,fill=255,width=9,joint='curve')
-im.save('art/skeletons/skel-ppose.png')
+im.save('art/skeletons/skel-ppose-anchor.png')
 print('wrote', im.size)
