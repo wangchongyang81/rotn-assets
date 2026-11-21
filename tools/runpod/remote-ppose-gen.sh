@@ -12,13 +12,13 @@ curl -s -o /dev/null -w "http %{http_code}\n" http://127.0.0.1:8188/
 python - "$(cat "$PF")" "$(cat "$NF")" "$SK" "$SEED" "$OUT" <<'PY'
 import sys,json,urllib.request
 P,N,SK,SEED,OUT=sys.argv[1:6]
-C="checkpoints/NoobAI-XL-v1.1.safetensors"
+C="NoobAI-XL-v1.1.safetensors"
 w={"1":{"class_type":"CheckpointLoaderSimple","inputs":{"ckpt_name":C}},
 "2":{"class_type":"CLIPTextEncode","inputs":{"text":P,"clip":["1",1]}},
 "3":{"class_type":"CLIPTextEncode","inputs":{"text":N,"clip":["1",1]}},
 "4":{"class_type":"LoadImage","inputs":{"image":SK.split('/')[-1]}},
 "5":{"class_type":"EmptyLatentImage","inputs":{"width":832,"height":1216,"batch_size":1}},
-"6":{"class_type":"ControlNetLoader","inputs":{"control_net_name":"controlnet/openpose-xinsir-sdxl.safetensors"}},
+"6":{"class_type":"ControlNetLoader","inputs":{"control_net_name":"openpose-xinsir-sdxl.safetensors"}},
 "7":{"class_type":"ControlNetApplyAdvanced","inputs":{"positive":["2",0],"negative":["3",0],"control_net":["6",0],"image":["4",0],"strength":0.9,"start_percent":0.0,"end_percent":1.0,"vae":["1",2]}},
 "8":{"class_type":"KSampler","inputs":{"model":["1",0],"positive":["7",0],"negative":["7",1],"latent_image":["5",0],"seed":int(SEED),"steps":28,"cfg":5.0,"sampler_name":"euler_ancestral","scheduler":"normal","denoise":1.0}},
 "9":{"class_type":"VAEDecode","inputs":{"samples":["8",0],"vae":["1",2]}},
