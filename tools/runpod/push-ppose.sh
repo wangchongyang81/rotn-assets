@@ -8,7 +8,7 @@ D=/workspace/comfy/input; T=/tmp/pp
 mkdir -p "$T"
 ssh $S -p "$P" root@"$H" "mkdir -p $D"
 for p in "$@"; do
-  F=art/prompts/wild/illus/brown-on/$p.txt
+  F=art/prompts/wild/noobai/brown-on/$p.txt
   [ -s "$F" ] || { echo "NOPROMPT $p"; exit 1; }
   sed -n 's/^P: //p' "$F" > "$T/prompt-$p.txt"
   sed -n 's/^N: //p' "$F" > "$T/neg-$p.txt"

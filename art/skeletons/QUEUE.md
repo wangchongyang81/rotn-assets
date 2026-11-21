@@ -15,5 +15,5 @@ Pod down. Nothing runs until up-connect.sh maps SSH.
 Stop at 0 if edge_mean < 18 or bg_clean false. Skeletons built on a soft
 recipe are soft and the whole set gets thrown away.
 
-OPEN: push reads illus/brown-on but ckpt is NoobAI-XL. Decide noobai/brown-on
-before item 0 or the model and its quality tags disagree.
+CLOSED 2026-11-21: push reads noobai/brown-on. noobai key carries absurdres, anime
+style, flat colour, flat shading, cel shading from the accepted ppose6 recipe.
