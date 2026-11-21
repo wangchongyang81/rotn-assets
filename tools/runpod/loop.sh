@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
 V=("(lineart:1.4), sharp outlines, no flat shading"
@@ -18,6 +18,7 @@ best=0; keep=""
 for i in $(seq 1 "$MAX"); do
   v=$(( (i-1)%4 ))
   case $i in 1|2|3|4) cfg=5.0;smp=euler_ancestral;;5|6|7) cfg=6.5;smp=euler_ancestral;;*) cfg=7.5;smp=dpmpp_2m;;esac
+  [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   T="$TAG-a$i"; echo "--- a$i cfg=$cfg smp=$smp var=$v"
   sed -n 's/^P: //p' "$B" > /tmp/anc/p.txt; printf ', %s\n' "${V[$v]}" >> /tmp/anc/p.txt
