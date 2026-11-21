@@ -11,7 +11,9 @@ reject - never reuse a rejected seed.
 7  p5 combat guard, fists up
 Renderer: tools/runpod/remote-ppose-gen.sh <pose> <seed> <out>  CN 0.9
 Upload:   tools/runpod/push-ppose.sh <host> <port> <pose>...  files+prompts together
-Pod down. Nothing runs until up-connect.sh maps SSH.
+negatives carry the proven ppose6 tail (shade, body, fit, censor) on every file.
+pose.neg.ppose adds anti-a-pose on ppose only - p3 keeps its raised arm.
+Skeletons and prompts ready. Pod down. Nothing runs until up-connect.sh maps SSH.
 Stop at 0 if edge_mean < 18 or bg_clean false. Skeletons built on a soft
 recipe are soft and the whole set gets thrown away.
 

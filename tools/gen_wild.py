@@ -16,7 +16,9 @@ for p in POSES:
     if HR=='on': parts.append(get('hair'))
     parts+=[get('face'),get('light'),get('bg.pos')]
     pos=', '.join(x for x in parts if x).rstrip(', ')
-    neg=', '.join([get('artifact.neg'),get('layout.neg'),get('bg.neg'),get('censor.neg')])
+    NK=['artifact.neg','layout.neg','bg.neg','shade.neg','body.neg','fit.neg','censor.neg']
+    if get('pose.neg.'+p): NK.insert(3,'pose.neg.'+p)
+    neg=', '.join(get(k) for k in NK if get(k))
     s=pos+neg; bad=[]
     if len(get('pose.'+p).split(','))>4: bad.append('pose>4')
     for a,b in BAD:
