@@ -18,3 +18,15 @@ Binaries: tools/mirror_hf.sh models|snapshots -> hf://buckets/wangchongyang81/ro
 Bucket address form is the full hf://buckets/ URI. -R lists recursively.
 CI: .github/workflows/mirror-hf.yml runs text mode on manifest/doc push, secret HF_TOKEN.
 HF_TOKEN is an OAuth token, expires 2026-12-19. Re-set from `hf auth token` before then.
+
+## CI mirror PROVEN 2026-11-21
+Workflow mirror-hf run 44901526888 completed success in 16s on push.
+Secret HF_TOKEN set, trigger on art/manifests/** and docs/** paths.
+Text mode is automatic and verified.
+
+## OPEN: binaries never mirrored
+models (9.0G) and snapshots have no bucket copy yet. Needs a pod with
+volume 39dhm3ia6u mounted, then:
+  bash tools/mirror_hf.sh models
+  bash tools/mirror_hf.sh snapshots
+Verify with: hf buckets ls -R hf://buckets/wangchongyang81/rotn-bin
