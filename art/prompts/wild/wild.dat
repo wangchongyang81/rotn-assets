@@ -1,0 +1,52 @@
+[quality.illus]
+masterpiece (quality), best quality
+[quality.noobai]
+masterpiece, best quality
+[anatomy]
+1girl, solo, female adult mid-twenties, medium build, head to body ratio 1 to 7
+[frame]
+full body, standing
+[body.nude]
+completely nude, uncensored, breasts, nipples, navel, vagina, labia
+[body.topless]
+topless, breasts, nipples, navel
+[light]
+(dim lighting:1.2), sharp focus, crisp lineart, clean silhouette
+[bg.pos]
+(solid white background:1.6)
+[bg.neg]
+machinery, mecha, robot, industrial, scenery, props, background clutter, gradient background, bokeh, depth of field, blurry, soft focus
+[censor.neg]
+bar censor, mosaic censoring, pixelated, censored, light censor
+[artifact.neg]
+worst quality, bad quality, low quality, lowres, displeasing, very displeasing, bad anatomy, bad hands, extra digits, fewer digits, scan artifacts, jpeg artifacts, signature, twitter username, guro
+[layout.neg]
+comic, multiple views, 2koma, 4koma, split screen, reference sheet, character sheet
+[skin.brown]
+(brown skin:1.3)
+[skin.dark]
+(dark skin:1.4)
+[hair]
+[face]
+red bindi
+long black hair, hair between eyes
+[pose.tpose]
+t-pose, front view
+[pose.ppose]
+contrapposto, arms at sides, front view
+[pose.apose-wide]
+wide stance, arms out, front view
+[pose.p1]
+arms slightly out, front view
+[pose.p2]
+hands on hips, front view
+[pose.p3]
+one arm up, front view
+[pose.p4]
+arms crossed, front view
+[pose.p5]
+fists up, front view
+[pose.p7]
+hands clasped, front view
+[pose.p8]
+hand on hip, front view
