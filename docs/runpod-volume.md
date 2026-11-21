@@ -18,3 +18,8 @@ Then `runpodctl pod get <id>` for the SSH port, then comfy with --fp16-unet.
 ## Cost
 Network volume 39dhm3ia6u bills ~0.19 USD/day (~5.70/month, ~3.8% of the 150 budget).
 Pods deleted 2026-11-20, compute at 0.00. This line is the only residual charge.
+
+## Resume PROVEN 2026-11-21
+Pod kc45pk4bayvjfh, host 213.173.102.196, port 33616.
+Volume remounted: NoobAI-XL-v1.1.safetensors 7105349958 bytes, controlnet present, 4090 live.
+Port 22/tcp and 8188/http published at create via --ports. Attach flag is --network-volume-id.
