@@ -83,3 +83,13 @@ Median-3 drop is uniform (34.1/31.2/33.8/33.7%) and relative sd is unchanged (24
 the filter is a constant tax, not a discriminator. Do not add it to ranking.
 a1 is always SEED+(1-1)*SS = SEED, so stop-on-first-PASS always keeps seed 7. NOSTOP=1 for any
 seed comparison; best-of-N already picks the best frame regardless of order.
+
+## L19 — gate is weaker than seed variance; edge inflates on a collapsed box
+
+Pooled o2+o3, 8 seeds, fixed cfg 5.0 / euler: mean 4.05, sd 1.44. GE 3.0 passes 6/8, GE 4.0 passes 5/8.
+One set cannot set a gate; two sets disagree on level (3.67 vs 4.43) while agreeing on spread.
+edge is a MEAN over the content box, so a CROP shrinks the denominator and inflates it: o3-a4 scored
+edge 5.4 at bot 554 / fill 9.6 while being visibly broken. The bot gate is what catches it, not edge.
+dark is bimodal: 4 seeds under 3.8, 4 over 15.8, none between. GD=1.5 clears every frame and
+decides nothing; it must sit in the gap or be dropped.
+Seed variance at 1.44 sd dominates gate choice. Best-of-N is the mechanism; the gate only trims.
