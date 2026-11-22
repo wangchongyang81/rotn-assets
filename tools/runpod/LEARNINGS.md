@@ -73,3 +73,13 @@ CORRECTION: L9 base.txt is git show of $POSE.txt, rebuilt each run, byte-identic
 s6 CFGPIN works: all cfg 5.0. s6-a1/a2 identical to s5-a1/a2, determinism holds under pin. THREE FAULTS: L16+L17 duplicate cfg pin, smp never pins (a5-a7 euler). V=() N=() empty, var is a label with no variation. a8 dark 96.9 mean 18.2, CROP checks bot only so near-black not caught there. p5 floor: seed8 12.2, seeds 8-11 12.2/7.9/8.9/5.4, 12-15 4.4/3.6/6.0/4.6.
 grep [venice] matches BARE tags only; L14 [venice, claude] and L17 [claude, venice] never match. tags_total 7 = 6 P5 + spine L13. Print bound is P5-only so spine L13 is safe; a 7th working-copy line would be dropped.
 Weekly default is split: HF-only deletes (proven, extra 0 missing 0), pod path stays dry until the volume section runs live once. prune-weekly.sh launches in background from up-connect.sh after SSH; there is no cron in a Codespace.
+
+## L18 — edge gate sits above the distribution (o2, 4 seeds, fixed cfg 5.0 / euler)
+
+Scores at identical settings, only seed varying: 4.8/15.8, 2.9/2.6, 4.0/3.6, 3.0/2.4.
+edge mean 3.67 sd 0.90; gate GE=4.0 is ABOVE the mean, so a fresh seed passes ~1 in 4.
+Local rescore matches the pod line for line: the scorer is deterministic, the spread is image noise.
+Median-3 drop is uniform (34.1/31.2/33.8/33.7%) and relative sd is unchanged (24.5 -> 22.8%):
+the filter is a constant tax, not a discriminator. Do not add it to ranking.
+a1 is always SEED+(1-1)*SS = SEED, so stop-on-first-PASS always keeps seed 7. NOSTOP=1 for any
+seed comparison; best-of-N already picks the best frame regardless of order.
