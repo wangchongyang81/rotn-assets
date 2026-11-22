@@ -5,6 +5,20 @@ CLI only. One in-DC card. Human role = veto, not generation.
 - Scorer quality is the ceiling. No batch before it is calibrated.
 - Hash every artefact. A prompt edit invalidates only what it should.
 - Hard gates. No phase starts until the prior gate passes.
+## Pins
+
+`CFGPIN` and `SMPIN` both default to 0, leaving the case block free.
+
+- `CFGPIN=<cfg>` fixes cfg. Proven by s6: a1-a2 byte-identical to s5-a1-a2.
+- `SMPIN=<sampler>` fixes sampler_name. Proven by zsmp at cfg 5.0, euler_ancestral:
+  8.3/16.6/1199/91.3/200.2, PASS on every gate.
+- Read back from the PNG prompt chunk, not the log: gen.sh swallows its JSON into
+  `J=$(...)` so the sampler never reaches stdout.
+- Until SMPIN existed, the case block moved smp with cfg, so any cfg comparison was
+  also a sampler comparison. A cfg sweep is only a cfg sweep with SMPIN set.
+- Retry seed is `SEED+1000+i`, clear of the primary `SEED+(i-1)*SS` stride, so a
+  retry cannot land on the next attempt's seed.
+
 ## P0 Probe — 0.5d, ~$2
 Recreate as RTX PRO 6000 in EU-RO-1, volume attached.
 Gate: one render completes, SDPA fallback works, no node crash. Fail => stay on 4090.
