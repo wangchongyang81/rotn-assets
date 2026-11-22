@@ -66,3 +66,4 @@ seed7 across 9 poses: edge 4.9-15.2 (ppose 4.9 apose 5.9 p2 5.2 p8 7.2 p1 8.2 p3
 edge = FIND_EDGES inside bbox only (score.py L7), stable 15.2 twice; full-frame dilutes to 4.9. Skeleton ink 960-967k, 0.7% spread, dead normaliser. Within-pose fill is constant so per-pose scan is comparable without normalisation.
 skelbox identical all 10 (top 0 bot 1215 fill 99.8): skeleton predicts nothing. gap table p4=1 jammed, p5=755 floating, others 14-79. Framing must come from the prompt.
 framing tail only in tpose.txt, 9 others lack it: p4 gap 1 feet clipped, p5 gap 755 waist-up. Tail appended to all 9.
+framing tail on all 9: p5 755->21, p4 1->18, p1 78->20, p7 77->19, all gaps 3-32. bot>=1200 proxy dead, replaced with bot band 1100-1216.
