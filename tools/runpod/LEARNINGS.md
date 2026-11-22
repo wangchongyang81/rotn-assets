@@ -54,3 +54,4 @@ probe verdict: p6000a edge 5.4 > t1-best 3.9, bot 1.00 vs t1-a8 0.04. Sharp, unc
 sweep cfg5.0 x4: edge 2.6-2.9 flat, fill 74-80%, a3 CROP at 99.8. kept a1 2.7. Loop edge scale matches ImageStat; probe 5.4 was base-only.
 framing tail fixes bot 0.06->0.96-1.00, edge 5.3-5.5 both samplers. Pin dpmpp_2m. Warm render ~7s vs 86s cold.
 score thr 235->120: idp1 99.8->81.8 bot 1215->1156. seed 11 blank twice mean 251 sd 0.3. WASH retries once at SEED+i+50.
+gate fixed: thr 120, idp1/b7 both PASS. dark rose to 3.1-3.6. seeds 8-11 sweep exercises WASH retry on 11.
