@@ -58,3 +58,4 @@ gate fixed: thr 120, idp1/b7 both PASS. dark rose to 3.1-3.6. seeds 8-11 sweep e
 sweep o4: PASS a1 first try but edge 4.1, floor 4, refs 5.2-5.6. Thin pass, broke before other seeds.
 gate calibrated: GE 4.8 rejects o4a1 4.1, ceiling 226 rejects 228.9, 7/8 refs pass. ieu on boundary 4.8, b21 fill 91.6 near cap.
 NOSTOP ok, retry ok. But 3/4 seeds edge 4.1-4.4, fill fell 99.8->84: framing tail suspected, floor 4.8 calibrated pre-framing.
+A/B seed7: framed 5.4, unframed 5.3, b7 5.2. Framing innocent. euler 3.1 vs dpmpp 5.3 same seed. Seed dominates: 7->5.4, 8-10->4.1-4.4, 11 blank. Floor 4.0, seeds x17.
