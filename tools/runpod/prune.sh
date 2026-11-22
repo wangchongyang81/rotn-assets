@@ -28,16 +28,21 @@ PY
 else echo "skipped no host"; fi
 echo "== hf"
 python - "$R" "$DRY" <<'PYX'
-import subprocess,sys
+import os,subprocess,sys
 from huggingface_hub import HfApi
 R=sys.argv[1]; dry=sys.argv[2]=='1'; KEEP={'.gitattributes','README.md'}
-loc={f.removeprefix('art/') for f in subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split()}
+loc=set(subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split())
+stripped={f.removeprefix('art/') for f in loc}
 api=HfApi(); rem=set(api.list_repo_files(R,repo_type='model'))
-stripped={f.removeprefix('art/') for f in rem}
-ex=sorted(f for f in rem if f not in KEEP and f.removeprefix('art/') not in loc)
-miss=sorted(loc-stripped-KEEP); print('extra',len(ex),'missing',len(miss))
-for f in ex[:10]: print('  ',f)
+def orphan(f):
+    if f in KEEP: return False
+    if f.startswith('art/'): return f.removeprefix('art/') in rem
+    return f not in stripped and not os.path.exists(f) and not os.path.exists('art/'+f)
+ex=sorted(f for f in rem if orphan(f))
+miss=sorted(f for f in stripped if f not in rem)
+print('extra',len(ex),'missing',len(miss))
+for f in ex[:8]: print('  ',f)
 open('/tmp/hfdel.txt','w').write('\n'.join(ex)+'\n' if ex else '')
-if dry or not ex: print('hf', 'dry' if dry else 'none'); raise SystemExit
-api.delete_files(R,ex,repo_type='model',commit_message='prune orphans'); print('hf deleted',len(ex))
+if dry or not ex: print('hf','dry' if dry else 'none'); raise SystemExit
+api.delete_files(R,ex,repo_type='model',commit_message='prune orphan duplicates'); print('hf deleted',len(ex))
 PYX

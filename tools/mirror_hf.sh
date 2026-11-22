@@ -5,9 +5,16 @@ B=hf://buckets/wangchongyang81/rotn-bin
 M=${1:-text}
 case "$M" in
   text)
-    while IFS= read -r f; do
-      hf upload "$R" "$f" "${f#art/}"
-    done < <(find art/manifests art/realms art/labels docs tools/runpod -type f)
+    python - "$R" <<'PYX'
+import sys,pathlib
+from huggingface_hub import HfApi,CommitOperationAdd
+ops=[]
+for d in ('art','docs','tools/runpod'):
+    for f in pathlib.Path(d).rglob('*'):
+        if f.is_file(): ops.append(CommitOperationAdd(f.as_posix().removeprefix('art/'),f.as_posix()))
+print('ops',len(ops))
+if ops: print(HfApi().create_commit(sys.argv[1],ops,repo_type='model',commit_message='mirror text').commit_id[:9])
+PYX
     echo "mirrored text"
     ;;
   models)
