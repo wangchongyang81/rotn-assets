@@ -1,0 +1,6 @@
+1. Anchor specification recorded; gate calibrated on real frames, not fixtures. [venice]
+2. Framing tail on all 10 poses; p5 gap 755->21, p4 1->18. [venice]
+3. Protocol master record committed at `rotn-assets/docs/anchor-lock-protocol.md`. [venice]
+4. Per-pose scan seeds 7-15; only tpose locked. [venice]
+5. Open faults: smp pin, empty V/N arrays, dark term in CROP, p5 floor. [venice]
+6. Prune scripted, DRY default; dry run pending next bring-up. [venice]
