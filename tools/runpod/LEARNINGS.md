@@ -49,3 +49,4 @@ departure 2026-11-22: pod hu71k90wajsl8o stopped, mirror exact (extra .gitattrib
   fall back to SDPA; SageAttention needs source build. Probe before commit.
 - 96GB does NOT fix the gate. Switch when the VLM judge lands.
 gen.sh: CFG and SMP share one line, so grep -c yields 1 not 2. probe: driver 595, torch 2.8.0+cu128, 97GB, sm120 ok.
+probe PRO 6000: render 87s vs 4090 60-90s. secure $2.69 vs $0.89 => ~3-4x cost/image. Card is for judge VRAM, not speed. cfg 5.0 pin defaults correctly.
