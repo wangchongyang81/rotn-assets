@@ -53,3 +53,4 @@ probe PRO 6000: render 87s vs 4090 60-90s. secure $2.69 vs $0.89 => ~3-4x cost/i
 probe verdict: p6000a edge 5.4 > t1-best 3.9, bot 1.00 vs t1-a8 0.04. Sharp, uncropped, prompt 418B positive only. sm120 quality pass, 85.76s exec.
 sweep cfg5.0 x4: edge 2.6-2.9 flat, fill 74-80%, a3 CROP at 99.8. kept a1 2.7. Loop edge scale matches ImageStat; probe 5.4 was base-only.
 framing tail fixes bot 0.06->0.96-1.00, edge 5.3-5.5 both samplers. Pin dpmpp_2m. Warm render ~7s vs 86s cold.
+score thr 235->120: idp1 99.8->81.8 bot 1215->1156. seed 11 blank twice mean 251 sd 0.3. WASH retries once at SEED+i+50.
