@@ -12,7 +12,7 @@ mapfile -t H < <(have)
 a(){ read -r -p "$1 ($2): " v; case " $2 " in *" $v "*) printf '%s' "$v";; *) printf '?%s' "$v";; esac; }
 n=0
 for f in "${A[@]}"; do
-  printf '%s\n' "${H[@]:-}" | grep -qxF "$f" && continue
+  printf '%s\n' "${H[@]:-}" | grep -qxF "${f%.png}" && continue
   n=$((n+1)); echo "=== $n | $f"; echo "file: $D/$f"
   p=$(a pose "t h x"); v=$(a verdict "p f"); h=$(a hands "o b"); l=$(a limbs "o e m")
   fa=$(a face "o b"); nu=$(a nudity "f p c"); cr=$(a crop "n f h s"); st=$(a style "l m g")

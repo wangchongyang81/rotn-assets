@@ -3,3 +3,4 @@
 *.ckpt
 comfy/
 art/**/candidates/
+art/labels/src/*.png
