@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-6};GD=${GD:-4};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
 V=("(lineart:1.4), sharp outlines, no flat shading"
@@ -26,7 +26,7 @@ for i in $(seq 1 "$MAX"); do
   if [ "$DRY" = "1" ]; then FN=/tmp/anc/b.png; else
     scp $S -P "$P" /tmp/anc/p.txt root@"$H":/workspace/comfy/input/prompt-$POSE.txt >/dev/null 2>&1
     scp $S -P "$P" /tmp/anc/n.txt root@"$H":/workspace/comfy/input/neg-$POSE.txt >/dev/null 2>&1
-    ssh $S -p "$P" root@"$H" "bash /root/gen.sh $POSE $SEED $T $cfg $smp" >/dev/null 2>&1
+    ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /root/gen.sh $POSE $T $SEED" >/dev/null 2>&1
     FN=""; for t in $(seq 1 15); do FN=$(ssh $S -p "$P" root@"$H" "ls -t /workspace/comfy/output/$T* 2>/dev/null|head -1"); [ -n "$FN" ] && break; sleep 4; done
   fi
   [ -n "$FN" ] || { echo "a$i nofile"; continue; }
