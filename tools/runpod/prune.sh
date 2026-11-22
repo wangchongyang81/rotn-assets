@@ -25,9 +25,10 @@ for f in open('/tmp/cand.txt'):
     if not f: continue
     if f.split('/')[-1].split('_')[0] in keys: keep+=1
     else: out.append(f)
-if keep+len(out) and not keep: out=[]; print('ZERO MATCH - keep all')
+abort=bool(keep+len(out)) and not keep and __import__('os').environ.get('FORCE')!='1'
+if abort: out=[]; print('ZERO MATCH - keep all')
 open('/tmp/del.txt','w').write('\n'.join(out)+'\n' if out else '')
-print('candidates',keep+len(out),'referenced',keep,'orphans',len(out)) if keep else print('candidates',len(out),'referenced 0 orphans 0 ABORTED')
+print('candidates',keep+len(out),'referenced',keep,'orphans',len(out),'ABORTED' if abort else '')
 PY
   head -5 /tmp/del.txt
   if [ "$DRY" != 1 ]; then while read -r f; do [ -n "$f" ] && ssh -n $S -p "$P" root@"$H" "rm -f '$f'"; done < /tmp/del.txt; fi
