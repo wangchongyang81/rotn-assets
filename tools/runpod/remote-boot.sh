@@ -6,9 +6,9 @@ cd /opt
 [ -d ComfyUI ] || git clone -q https://github.com/comfyanonymous/ComfyUI.git
 cd ComfyUI
 git checkout -q 8f40b43e0204d5b9780f3e9618e140e929e80594
-pip install -q -r requirements.txt
+pip install -q --break-system-packages -r requirements.txt
 python -c "import torch,torchaudio,sys;sys.exit(0 if torch.__version__.startswith('2.8') else 1)" 2>/dev/null || \
-  pip install -q --index-url https://download.pytorch.org/whl/cu128 torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0
+  pip install -q --break-system-packages --index-url https://download.pytorch.org/whl/cu128 torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0
 for d in models/checkpoints models/controlnet models/loras output input; do rm -rf "$d"; done
 ln -sfnT $V/models/checkpoints models/checkpoints
 ln -sfnT $V/models/controlnet models/controlnet

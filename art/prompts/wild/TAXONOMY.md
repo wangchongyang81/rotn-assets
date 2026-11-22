@@ -65,7 +65,7 @@ tan skin 1.3 is the neighbouring rung and goes in the negative if not wanted.
 orange skin is a hue error, always negative at 1.5.
 
 ## hair.pos - keep to two
-long black hair, hair between eyes
+long black hair
 One length, one colour, one optional detail. Three hair tags smear the head.
 
 ## anatomy.pos - fixed, never varies by pose
