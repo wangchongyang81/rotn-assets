@@ -119,3 +119,12 @@ crop, so the ceiling stays at 98 and the floor guards the other end.
 Mean shifts +0.87 (4.06 -> 4.92), so every gate needs recalibrating. Spread is unchanged.
 Decisive point: both crops ALREADY fail on bot (554) and fill (99.8), and keep now carries the gate,
 so an inflated em cannot promote a crop. Hold score.py; calibrate on human labels first.
+
+## L24 — 1152x1664 is not a drop-in; em and dark are scale-dependent
+
+tpose, 4 attempts, RW=1152 RH=1664. 0/4 pass. bot normalised fine (1193/1150/1203/1150) so the y1
+basis works, but fill fell to 31/59/64/71 (gate 75) and dark to 2.3/1.6/1.4/1.8 (gate 3.0).
+fill is a ratio, so the drop is the model drawing a smaller figure on a taller canvas, not a
+measurement artefact. dark is partly real and partly FIND_EDGES spreading over 1.9x pixels, so em
+and dark are scale-dependent and the 832 gates do not transfer. bot is the only invariant field.
+1664 needs its own gate set, calibrated from scratch. bindi count on the 4 frames still unverified.
