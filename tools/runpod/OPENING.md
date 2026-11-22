@@ -6,7 +6,7 @@ Pod hu71k90wajsl8o is stopped; IP and SSH port change every start.
    read publicIp and the 22xx key of portMappings
 2. Connect and verify before any render:
    - readlink -f on all five /opt/ComfyUI links, must be /workspace/comfy
-   - grep -c 'CFG=\|SMP=' /root/gen.sh, must be 2
+   - grep -c 'CFG=\|SMP=' /workspace/gen.sh, must be 2
    - ship base from git HEAD to prompt-tpose.txt, never a .bak
    - sha256 skel-tpose.png must equal sha-tpose.txt
    - bash /root/restart.sh, poll http 200

@@ -21,7 +21,7 @@ sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ',
   if [ "$DRY" = "1" ]; then FN=/tmp/anc/b.png; else
     scp $S -P "$P" /tmp/anc/p.txt root@"$H":/workspace/comfy/input/prompt-$POSE.txt >/dev/null 2>&1
     scp $S -P "$P" /tmp/anc/n.txt root@"$H":/workspace/comfy/input/neg-$POSE.txt >/dev/null 2>&1
-    ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /root/gen.sh $POSE $T $((SEED+(i-1)*SS))" >/dev/null 2>/tmp/err-${POSE}.log
+    ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /workspace/gen.sh $POSE $T $((SEED+(i-1)*SS))" >/dev/null 2>/tmp/err-${POSE}.log
     FN=""; for t in $(seq 1 15); do FN=$(ssh $S -p "$P" root@"$H" "ls -t /workspace/comfy/output/$T* 2>/dev/null|head -1"); [ -n "$FN" ] && break; sleep 4; done
   fi
   [ -n "$FN" ] || { echo "a$i nofile $(ssh $S -p "$P" root@"$H" "tail -1 /tmp/err-$POSE.log" 2>/dev/null | cut -c1-60)"; continue; }
@@ -29,7 +29,7 @@ sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ',
   read em dk bot fil mn < <(python tools/score.py /tmp/anc/try.png)
   if [ "$em" = "0" ]; then
     echo "a$i WASH retry"
-    ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /root/gen.sh $POSE $T $((SEED+1000+i))" >/dev/null 2>/tmp/err-${POSE}.log
+    ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /workspace/gen.sh $POSE $T $((SEED+1000+i))" >/dev/null 2>/tmp/err-${POSE}.log
     FN=""; for t in $(seq 1 15); do FN=$(ssh $S -p "$P" root@"$H" "ls -t /workspace/comfy/output/$T* 2>/dev/null|head -1"); [ -n "$FN" ] && break; sleep 4; done
     [ -n "$FN" ] && scp $S -P "$P" "root@$H:$FN" /tmp/anc/try.png >/dev/null 2>&1
     read em dk bot fil mn < <(python tools/score.py /tmp/anc/try.png)
