@@ -13,22 +13,19 @@ echo "== volume"
 if [ -n "$H" ]; then
   ssh $S -p "$P" root@"$H" "find /workspace/comfy/output -name '*.png' -mtime +$DAYS" > /tmp/cand.txt 2>/dev/null
   python - <<'PY'
-import json
-keys=set()
-for l in open('art/labels/attempts.jsonl'):
-    try:
-        d=json.loads(l); keys.add(d['tag']); keys.add(d['id'])
-    except Exception: pass
+import os,subprocess
+loc=set(subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split())
+have={f.rsplit('/',1)[-1] for f in loc}
 out=[]; keep=0
 for f in open('/tmp/cand.txt'):
     f=f.strip()
     if not f: continue
-    if f.split('/')[-1].split('_')[0] in keys: keep+=1
-    else: out.append(f)
-abort=bool(keep+len(out)) and not keep and __import__('os').environ.get('FORCE')!='1'
-if abort: out=[]; print('ZERO MATCH - keep all')
+    if f.rsplit('/',1)[-1] in have: out.append(f)
+    else: keep+=1
+abort=bool(keep+len(out)) and not out and __import__('os').environ.get('FORCE')!='1'
+if abort: out=[]; print('NOTHING TRACKED - keep all')
 open('/tmp/del.txt','w').write('\n'.join(out)+'\n' if out else '')
-print('candidates',keep+len(out),'referenced',keep,'orphans',len(out),'ABORTED' if abort else '')
+print('candidates',keep+len(out),'tracked',len(out),'kept',keep,'ABORTED' if abort else '')
 PY
   head -5 /tmp/del.txt
   if [ "$DRY" != 1 ]; then while read -r f; do [ -n "$f" ] && ssh -n $S -p "$P" root@"$H" "rm -f '$f'"; done < /tmp/del.txt; fi
