@@ -57,3 +57,4 @@ score thr 235->120: idp1 99.8->81.8 bot 1215->1156. seed 11 blank twice mean 251
 gate fixed: thr 120, idp1/b7 both PASS. dark rose to 3.1-3.6. seeds 8-11 sweep exercises WASH retry on 11.
 sweep o4: PASS a1 first try but edge 4.1, floor 4, refs 5.2-5.6. Thin pass, broke before other seeds.
 gate calibrated: GE 4.8 rejects o4a1 4.1, ceiling 226 rejects 228.9, 7/8 refs pass. ieu on boundary 4.8, b21 fill 91.6 near cap.
+NOSTOP ok, retry ok. But 3/4 seeds edge 4.1-4.4, fill fell 99.8->84: framing tail suspected, floor 4.8 calibrated pre-framing.
