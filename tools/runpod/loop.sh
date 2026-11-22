@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-4};GD=${GD:-1.5};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-4.8};GD=${GD:-1.5};CFGPIN=${CFGPIN:-0};MAX=${MAX:-8}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
 V=("")
@@ -25,17 +25,17 @@ sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ',
   fi
   [ -n "$FN" ] || { echo "a$i nofile"; continue; }
   if [ "$DRY" = "1" ]; then cp /tmp/anc/b.png /tmp/anc/try.png; else scp $S -P "$P" "root@$H:$FN" /tmp/anc/try.png >/dev/null 2>&1; fi
-  read em dk bot fil < <(python tools/score.py /tmp/anc/try.png)
+  read em dk bot fil mn < <(python tools/score.py /tmp/anc/try.png)
   if [ "$em" = "0" ]; then
     echo "a$i WASH retry"
     ssh $S -p "$P" root@"$H" "CFG=$cfg SMP=$smp bash /root/gen.sh $POSE $T $((SEED+i+50))" >/dev/null 2>&1
     FN=""; for t in $(seq 1 15); do FN=$(ssh $S -p "$P" root@"$H" "ls -t /workspace/comfy/output/$T* 2>/dev/null|head -1"); [ -n "$FN" ] && break; sleep 4; done
     [ -n "$FN" ] && scp $S -P "$P" "root@$H:$FN" /tmp/anc/try.png >/dev/null 2>&1
-    read em dk bot fil < <(python tools/score.py /tmp/anc/try.png)
+    read em dk bot fil mn < <(python tools/score.py /tmp/anc/try.png)
     [ "$em" = "0" ] && { echo "a$i WASH again"; continue; }
   fi
   echo "a$i edge=$em dark=$dk bot=$bot fill=$fil $([ "$bot" -ge 1200 ] && echo CROP || echo ok)"
-  if [ "$(python -c "print(1 if $em>$best and $bot<1200 and $bot>300 and $fil<95 else 0)")" = "1" ]; then best=$em;keep=$FN;fi
-  [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1200 and $fil<95 else 0)")" = "1" ] && { echo "PASS a$i";break; }
+  if [ "$(python -c "print(1 if $em>$best and $bot<1200 and $bot>300 and $fil<95 and $mn<226 else 0)")" = "1" ]; then best=$em;keep=$FN;fi
+  [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1200 and $fil<95 and $mn<226 else 0)")" = "1" ] && { echo "PASS a$i"; [ "${NOSTOP:-0}" = "1" ] || break; }
 done
 [ -n "$keep" ] && { [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "cp $keep /workspace/comfy/output/$TAG-best.png"; echo "kept $keep edge=$best"; }
