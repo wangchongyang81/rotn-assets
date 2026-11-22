@@ -111,3 +111,11 @@ fill is one-sided (ceiling only), so a tiny subject passed everything. Observed 
 Floor 75 sits 0.4 under it: fails 0/15 now, bites on a smaller subject. 76 fails 1/15 and would be
 tuned to a 15-frame sample. High fill correlates with bot (mean 1212 vs 1148): fill >=98 is a bottom
 crop, so the ceiling stays at 98 and the floor guards the other end.
+
+## L23 — fixed-window em: fixes the tiny box, misses the full-frame crop, buys no spread
+
+16 frames, box and delta measured. o3-a4 (box 97375) is the only negative: 5.41 -> 3.25. o4-a4
+(box 1009665) goes UP 4.56 -> 4.77, because a centred window sits inside a frame-filling subject.
+Mean shifts +0.87 (4.06 -> 4.92), so every gate needs recalibrating. Spread is unchanged.
+Decisive point: both crops ALREADY fail on bot (554) and fill (99.8), and keep now carries the gate,
+so an inflated em cannot promote a crop. Hold score.py; calibrate on human labels first.
