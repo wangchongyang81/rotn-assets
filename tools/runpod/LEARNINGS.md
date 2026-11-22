@@ -93,3 +93,9 @@ edge 5.4 at bot 554 / fill 9.6 while being visibly broken. The bot gate is what 
 dark is bimodal: 4 seeds under 3.8, 4 over 15.8, none between. GD=1.5 clears every frame and
 decides nothing; it must sit in the gap or be dropped.
 Seed variance at 1.44 sd dominates gate choice. Best-of-N is the mechanism; the gate only trims.
+
+## L20 — the keep line did not carry the gate
+
+L40 tested only em>0, dk<=50, mn>=150 before comparing to best. It never saw bot, fil, mn<235, GE or GD,
+so any frame that rendered was eligible for best. o4-a4 was promoted at fil 99.8 / bot 1215 while failing
+the gate. The keep line now repeats the full gate condition, so only a PASSing frame can be best.

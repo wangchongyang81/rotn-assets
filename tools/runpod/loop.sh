@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-3.0};GD=${GD:-1.5};CFGPIN=${CFGPIN:-0};SMPIN=${SMPIN:-0};MAX=${MAX:-8};SS=${SS:-17}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};GE=${GE:-3.0};GD=${GD:-3.0};CFGPIN=${CFGPIN:-0};SMPIN=${SMPIN:-0};MAX=${MAX:-8};SS=${SS:-17}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
 V=("")
@@ -37,7 +37,7 @@ sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ',
   fi
   if [ "$bot" -ge 1216 ] || [ "$bot" -le 1100 ]; then echo "a$i edge=$em dark=$dk bot=$bot fill=$fil CROP"; continue; fi
   echo "a$i edge=$em dark=$dk bot=$bot fill=$fil ok"
-  if [ "$(python -c "print(1 if $em>0 and $dk<=50 and $mn>=150 and ($em>$best or ($em==$best and $mn<$bestmn)) else 0)")" = "1" ]; then best=$em;bestmn=$mn;keep=$FN;fi
+  if [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1216 and $bot>1100 and $fil<98 and $mn<235 and $dk<=50 and $mn>=150 and ($em>$best or ($em==$best and $mn<$bestmn)) else 0)")" = "1" ]; then best=$em;bestmn=$mn;keep=$FN;fi
   [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1216 and $bot>1100 and $fil<98 and $mn<235 and $dk<=50 and $mn>=150 else 0)")" = "1" ] && { echo "PASS a$i"; [ "${NOSTOP:-0}" = "1" ] || break; }
 done
 if [ -n "$keep" ]; then [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "cp $keep /workspace/comfy/output/$TAG-best.png"; echo "kept $keep edge=$best"; fi
