@@ -11,7 +11,7 @@ best=0; keep=""
 [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "rm -f /workspace/comfy/output/$TAG-a*" >/dev/null 2>&1
 for i in $(seq 1 "$MAX"); do
   v=$(( (i-1)%4 ))
-  case $i in 1|2|3|4) cfg=5.0;smp=euler_ancestral;;5|6|7) cfg=6.5;smp=euler_ancestral;;*) cfg=7.5;smp=dpmpp_2m;;esac
+  case $i in 1|2|3|4) cfg=5.0;smp=dpmpp_2m;;5|6|7) cfg=6.5;smp=euler_ancestral;;*) cfg=7.5;smp=dpmpp_2m;;esac
   [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   T="$TAG-a$i"; echo "--- a$i cfg=$cfg smp=$smp var=$v"
