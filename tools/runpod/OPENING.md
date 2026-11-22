@@ -1,8 +1,8 @@
 # Next session, first box
-Pod hu71k90wajsl8o is stopped; IP and SSH port change every start.
+Pod p7quivi0xehoiw is stopped; IP and SSH port change every start.
 1. Start and poll:
-   runpodctl pod start hu71k90wajsl8o
-   repeat `runpodctl pod get hu71k90wajsl8o | grep runtimeStatus` until running
+   runpodctl pod start p7quivi0xehoiw
+   repeat `runpodctl pod get p7quivi0xehoiw | grep runtimeStatus` until running
    read publicIp and the 22xx key of portMappings
 2. Connect and verify before any render:
    - readlink -f on all five /opt/ComfyUI links, must be /workspace/comfy
