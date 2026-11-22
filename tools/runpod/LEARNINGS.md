@@ -104,3 +104,10 @@ the gate. The keep line now repeats the full gate condition, so only a PASSing f
 
 The gate condition sat on three lines (ok/weak echo, keep, PASS). Any change had to hit all three.
 It is now one `g=$(...)` with three short users, so the condition exists once.
+
+## L22 — fill floor at 75, ceiling at 98 confirmed
+
+fill is one-sided (ceiling only), so a tiny subject passed everything. Observed min 75.4 over 15.
+Floor 75 sits 0.4 under it: fails 0/15 now, bites on a smaller subject. 76 fails 1/15 and would be
+tuned to a 15-frame sample. High fill correlates with bot (mean 1212 vs 1148): fill >=98 is a bottom
+crop, so the ceiling stays at 98 and the floor guards the other end.
