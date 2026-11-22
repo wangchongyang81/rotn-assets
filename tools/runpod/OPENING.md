@@ -9,6 +9,6 @@ Pod hu71k90wajsl8o is stopped; IP and SSH port change every start.
    - grep -c 'CFG=\|SMP=' /workspace/gen.sh, must be 2
    - ship base from git HEAD to prompt-tpose.txt, never a .bak
    - sha256 skel-tpose.png must equal sha-tpose.txt
-   - bash /root/restart.sh, poll http 200
+   - bash /workspace/boot.sh, poll http 200
 3. First sweep: MAX=4 CFGPIN=5.0 bash tools/runpod/loop.sh H P tpose o1 7
    Sampler changes moved edge 1.4 in total; cfg is the only live lever.
