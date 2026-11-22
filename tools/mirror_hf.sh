@@ -6,12 +6,8 @@ M=${1:-text}
 case "$M" in
   text)
     while IFS= read -r f; do
-      hf upload "$R" "$f" "manifests/${f#art/manifests/}"
-    done < <(find art/manifests -name '*.jsonl')
-    while IFS= read -r f; do
-      hf upload "$R" "$f" "docs/${f#docs/}"
-    done < <(find docs -name '*.md')
-    hf upload "$R" art/realms realms --include '*.png' --include '*.md'
+      hf upload "$R" "$f" "${f#art/}"
+    done < <(find art/manifests art/realms art/labels docs tools/runpod -type f)
     echo "mirrored text"
     ;;
   models)

@@ -2,7 +2,7 @@ name: mirror-hf
 on:
   push:
     branches: [main]
-    paths: ['art/manifests/**', 'docs/**', 'art/realms/**/*.png']
+    paths: ['art/**', 'docs/**', 'tools/runpod/**', '.github/workflows/**']
   workflow_dispatch:
 jobs:
   mirror:

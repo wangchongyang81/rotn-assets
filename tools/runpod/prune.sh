@@ -27,12 +27,17 @@ PY
   if [ "$DRY" != 1 ]; then while read -r f; do [ -n "$f" ] && ssh $S -p "$P" root@"$H" "rm -f '$f'"; done < /tmp/del.txt; fi
 else echo "skipped no host"; fi
 echo "== hf"
-python - "$R" <<'PY'
+python - "$R" "$DRY" <<'PYX'
 import subprocess,sys
 from huggingface_hub import HfApi
-loc=set(subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split())
-ex=sorted(set(HfApi().list_repo_files(sys.argv[1],repo_type='model'))-loc)
-print('extra',len(ex)); [print('  ',f) for f in ex[:10]]
-open('/tmp/hfdel.txt','w').write('\n'.join(ex))
-PY
-if [ "$DRY" != 1 ] && [ -s /tmp/hfdel.txt ]; then while read -r f; do hf repo-files delete "$R" "$f" --repo-type model -y >/dev/null 2>&1; done < /tmp/hfdel.txt; fi
+R=sys.argv[1]; dry=sys.argv[2]=='1'; KEEP={'.gitattributes','README.md'}
+loc={f.removeprefix('art/') for f in subprocess.run(['git','ls-files'],capture_output=True,text=True).stdout.split()}
+api=HfApi(); rem=set(api.list_repo_files(R,repo_type='model'))
+stripped={f.removeprefix('art/') for f in rem}
+ex=sorted(f for f in rem if f not in KEEP and f.removeprefix('art/') not in loc)
+miss=sorted(loc-stripped-KEEP); print('extra',len(ex),'missing',len(miss))
+for f in ex[:10]: print('  ',f)
+open('/tmp/hfdel.txt','w').write('\n'.join(ex)+'\n' if ex else '')
+if dry or not ex: print('hf', 'dry' if dry else 'none'); raise SystemExit
+api.delete_files(R,ex,repo_type='model',commit_message='prune orphans'); print('hf deleted',len(ex))
+PYX
