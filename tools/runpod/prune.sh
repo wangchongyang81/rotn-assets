@@ -4,22 +4,28 @@ cd "$(dirname "$0")/../.."
 DRY=${DRY:-1}; DAYS=${DAYS:-7}; H=${1:-}; P=${2:-}; R=wangchongyang81/rotn-pilot
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=20"
 echo "== container DRY=$DRY"
-[ -n "$H" ] && ssh $S -p "$P" root@"$H" 'ls -d /tmp/anc /workspace/*.out /workspace/*.sh 2>/dev/null | wc -l' || echo "skipped no host"
+if [ -n "$H" ]; then
+  C=$(ssh $S -p "$P" root@"$H" "ls -d /workspace/*.out 2>/dev/null | wc -l")
+  echo "out_files $C"
+  [ "$DRY" != 1 ] && [ "$C" -gt 0 ] && ssh $S -p "$P" root@"$H" "find /workspace -maxdepth 1 -name '*.out' -mtime +$DAYS -delete"
+else echo "skipped no host"; fi
 echo "== volume"
 if [ -n "$H" ]; then
   ssh $S -p "$P" root@"$H" "find /workspace/comfy/output -name '*.png' -mtime +$DAYS" > /tmp/cand.txt 2>/dev/null
   python - <<'PY'
 import json
-ids=set()
+keys=set()
 for l in open('art/labels/attempts.jsonl'):
-    try: ids.add(json.loads(l)['id'])
+    try:
+        d=json.loads(l); keys.add(d['tag']); keys.add(d['id'])
     except Exception: pass
 out=[]; keep=0
 for f in open('/tmp/cand.txt'):
     f=f.strip()
     if not f: continue
-    if f.split('/')[-1].split('_')[0] in ids: keep+=1
+    if f.split('/')[-1].split('_')[0] in keys: keep+=1
     else: out.append(f)
+if keep+len(out) and not keep: out=[]; print('ZERO MATCH - keep all')
 open('/tmp/del.txt','w').write('\n'.join(out)+'\n' if out else '')
 print('candidates',keep+len(out),'referenced',keep,'orphans',len(out))
 PY
