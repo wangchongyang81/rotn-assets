@@ -62,3 +62,4 @@ A/B seed7: framed 5.4, unframed 5.3, b7 5.2. Framing innocent. euler 3.1 vs dpmp
 s2 SS=1 but case block confounded cfg/smp: a1-a4 cfg5 dpm, a5-a7 cfg6.5 euler, a8-a9 cfg7.5. Seed7 5.4 third time, byte-identical to f7. a9 dark 95.3 mean 18.4 near-black, passes GD min-only.
 seed7 determinism PROVEN: 3 renders, pixel hash 2992a154314d identical, metrics identical. File hashes differ (PNG metadata only). Lock justified.
 skel-p1 full-bleed 831x1215 fill 99.8, not a normaliser. man7 render box 217x1040 fill 22.3 edge 8.2 mean 225.64. p3 edge 9.9. Edge rises as figure narrows: edge/fill pose-dependent, gate cannot be global.
+seed7 across 9 poses: edge 4.9-15.2 (ppose 4.9 apose 5.9 p2 5.2 p8 7.2 p1 8.2 p3 9.9 p5 10.0 p4 11.9 p7 15.2). p2/p4/p8 CROP bot>=1200. p5 bot 461 legs missing. p1 fill 22.3 edge 8.2 vs p7 fill 22.5 edge 15.2: fill is not the normaliser. Seed7 NOT project-wide.
