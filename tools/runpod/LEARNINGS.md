@@ -69,3 +69,4 @@ framing tail only in tpose.txt, 9 others lack it: p4 gap 1 feet clipped, p5 gap 
 framing tail on all 9: p5 755->21, p4 1->18, p1 78->20, p7 77->19, all gaps 3-32. bot>=1200 proxy dead, replaced with bot band 1100-1216.
 ft2 all 9 gaps 3-32 after tail. edge 4.4-10.9 pose-driven, seed7 not project-wide. apose mean 231.8, p3 fill 95.0 wrongly rejected: mean_max 235, fill_max 98, bot_max 1216.
 s5 NOT a p5 test: loop reads B=/tmp/anc/base.txt L19, overwrites prompt-p5.txt L22. CFGPIN unset so cfg/smp vary a1-a4 5.0, a5-a7 6.5 euler, a8 7.5. Fills 23.7-99.8 chaotic.
+CORRECTION: L9 base.txt is git show of $POSE.txt, rebuilt each run, byte-identical to p5.txt. s5 WAS a real p5 test with tail. Only cfg/smp confound stands.
