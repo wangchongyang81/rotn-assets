@@ -27,3 +27,9 @@
 - nw5-a6 and nw5-a7 ACCEPTABLE by eye. 2 of 8. Draws but marginal at 1.3, so 1.3 is a floor not a fix.
 - b1664 four frames still unscored for the bindi; resolution effect unknown.
 - a6 and a7 both passed the gate, so the gate and the eye agree on the acceptable pair.
+
+## Pod state at close
+- pod 8m62wybg8zan1j (rotn-pilot-3, RTX PRO 4500) STOPPED, status EXITED.
+- volume holds the 90 outputs; storage bills at the small rate.
+- restart with runpodctl pod start 8m62wybg8zan1j, then re-run remote-boot.sh.
+- the deprecated form is 'runpodctl pod stop <id>', not 'runpodctl stop pod'.
