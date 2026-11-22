@@ -33,3 +33,11 @@
 - volume holds the 90 outputs; storage bills at the small rate.
 - restart with runpodctl pod start 8m62wybg8zan1j, then re-run remote-boot.sh.
 - the deprecated form is 'runpodctl pod stop <id>', not 'runpodctl stop pod'.
+
+## Pin and variant mechanism, resolved by reading
+- line 6 passes six args ($I $P $T $SD $CFG $SMP), line 9 takes six names (i,p,t,sd,cfg,smp); call and unpack match. The earlier "three values" reading missed the CFG=/SMP= env prefix.
+- CFG/SMP reach by env -> line 4 ${CFG:-5.0} -> line 6 argv -> line 9. Lines 16/17 sit after the case on 15, so pins apply and ordering is sound. No plumbing fault.
+- real defect: CFGPIN/SMPIN are scalars, so a pin flattens the 5.0/6.5/7.5 ladder to one value for all eight attempts.
+- W/H reach by os.environ at 17, cfg/smp by argv. Two mechanisms, both work, unify later.
+- V=("") and N=("") are one-element arrays of empty string. v=$(( (i-1)%4 )) cycles 0-3 correctly; there is nothing to index. Cycle fine, tables empty.
+- fix shape for both: four-slot V/N tables, and per-attempt cfg/smp rows a pin overrides per index rather than wholesale.
