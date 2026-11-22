@@ -13,7 +13,7 @@ for d in ('art','docs','tools/runpod'):
     for f in pathlib.Path(d).rglob('*'):
         if f.is_file(): ops.append(CommitOperationAdd(f.as_posix().removeprefix('art/'),f.as_posix()))
 print('ops',len(ops))
-if ops: print(HfApi().create_commit(sys.argv[1],ops,repo_type='model',commit_message='mirror text').commit_id[:9])
+if ops: print(HfApi().create_commit(sys.argv[1],ops,repo_type='model',commit_message='mirror text').oid[:9])
 PYX
     echo "mirrored text"
     ;;
