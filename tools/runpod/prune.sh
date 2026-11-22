@@ -5,9 +5,9 @@ DRY=${DRY:-1}; DAYS=${DAYS:-7}; H=${1:-}; P=${2:-}; R=wangchongyang81/rotn-pilot
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=20"
 echo "== container DRY=$DRY"
 if [ -n "$H" ]; then
-  C=$(ssh $S -p "$P" root@"$H" "ls -d /workspace/*.out 2>/dev/null | wc -l")
+  C=$(ssh -n $S -p "$P" root@"$H" "find /workspace -maxdepth 1 -name '*.out' -mtime +$DAYS | wc -l")
   echo "out_files $C"
-  [ "$DRY" != 1 ] && [ "$C" -gt 0 ] && ssh $S -p "$P" root@"$H" "find /workspace -maxdepth 1 -name '*.out' -mtime +$DAYS -delete"
+  [ "$DRY" != 1 ] && [ "$C" -gt 0 ] && ssh -n $S -p "$P" root@"$H" "find /workspace -maxdepth 1 -name '*.out' -mtime +$DAYS -delete"
 else echo "skipped no host"; fi
 echo "== volume"
 if [ -n "$H" ]; then
@@ -27,10 +27,10 @@ for f in open('/tmp/cand.txt'):
     else: out.append(f)
 if keep+len(out) and not keep: out=[]; print('ZERO MATCH - keep all')
 open('/tmp/del.txt','w').write('\n'.join(out)+'\n' if out else '')
-print('candidates',keep+len(out),'referenced',keep,'orphans',len(out))
+print('candidates',keep+len(out),'referenced',keep,'orphans',len(out)) if keep else print('candidates',len(out),'referenced 0 orphans 0 ABORTED')
 PY
   head -5 /tmp/del.txt
-  if [ "$DRY" != 1 ]; then while read -r f; do [ -n "$f" ] && ssh $S -p "$P" root@"$H" "rm -f '$f'"; done < /tmp/del.txt; fi
+  if [ "$DRY" != 1 ]; then while read -r f; do [ -n "$f" ] && ssh -n $S -p "$P" root@"$H" "rm -f '$f'"; done < /tmp/del.txt; fi
 else echo "skipped no host"; fi
 echo "== hf"
 python - "$R" "$DRY" <<'PYX'
