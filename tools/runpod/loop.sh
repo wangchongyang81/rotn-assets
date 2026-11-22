@@ -15,8 +15,8 @@ for i in $(seq 1 "$MAX"); do
   [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   [ "$CFGPIN" != "0" ] && cfg=$CFGPIN
   T="$TAG-a$i"; echo "--- a$i cfg=$cfg smp=$smp var=$v"
-  sed -n 's/^P: //p' "$B" > /tmp/anc/p.txt; printf ', %s\n' "${V[$v]}" >> /tmp/anc/p.txt
-  sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; printf ', %s\n' "${N[$v]}" >> /tmp/anc/n.txt
+sed -n 's/^P: //p' "$B" > /tmp/anc/p.txt; if [ -n "${V[$v]:-}" ]; then printf ', %s\n' "${V[$v]}" >> /tmp/anc/p.txt; fi
+sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ', %s\n' "${N[$v]}" >> /tmp/anc/n.txt; fi
   if [ "$DRY" = "1" ]; then FN=/tmp/anc/b.png; else
     scp $S -P "$P" /tmp/anc/p.txt root@"$H":/workspace/comfy/input/prompt-$POSE.txt >/dev/null 2>&1
     scp $S -P "$P" /tmp/anc/n.txt root@"$H":/workspace/comfy/input/neg-$POSE.txt >/dev/null 2>&1
