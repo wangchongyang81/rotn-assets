@@ -51,3 +51,4 @@ departure 2026-11-22: pod hu71k90wajsl8o stopped, mirror exact (extra .gitattrib
 gen.sh: CFG and SMP share one line, so grep -c yields 1 not 2. probe: driver 595, torch 2.8.0+cu128, 97GB, sm120 ok.
 probe PRO 6000: render 87s vs 4090 60-90s. secure $2.69 vs $0.89 => ~3-4x cost/image. Card is for judge VRAM, not speed. cfg 5.0 pin defaults correctly.
 probe verdict: p6000a edge 5.4 > t1-best 3.9, bot 1.00 vs t1-a8 0.04. Sharp, uncropped, prompt 418B positive only. sm120 quality pass, 85.76s exec.
+sweep cfg5.0 x4: edge 2.6-2.9 flat, fill 74-80%, a3 CROP at 99.8. kept a1 2.7. Loop scale ~2x lower than ImageStat.
