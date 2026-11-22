@@ -61,3 +61,4 @@ NOSTOP ok, retry ok. But 3/4 seeds edge 4.1-4.4, fill fell 99.8->84: framing tai
 A/B seed7: framed 5.4, unframed 5.3, b7 5.2. Framing innocent. euler 3.1 vs dpmpp 5.3 same seed. Seed dominates: 7->5.4, 8-10->4.1-4.4, 11 blank. Floor 4.0, seeds x17.
 s2 SS=1 but case block confounded cfg/smp: a1-a4 cfg5 dpm, a5-a7 cfg6.5 euler, a8-a9 cfg7.5. Seed7 5.4 third time, byte-identical to f7. a9 dark 95.3 mean 18.4 near-black, passes GD min-only.
 seed7 determinism PROVEN: 3 renders, pixel hash 2992a154314d identical, metrics identical. File hashes differ (PNG metadata only). Lock justified.
+skel-p1 full-bleed 831x1215 fill 99.8, not a normaliser. man7 render box 217x1040 fill 22.3 edge 8.2 mean 225.64. p3 edge 9.9. Edge rises as figure narrows: edge/fill pose-dependent, gate cannot be global.
