@@ -37,3 +37,14 @@ reference: art/prompts/wild/noobai/brown-on/_ref/tpose.txt is the frozen base; l
 mirror: tools/hf/mirror.sh, hf CLI uses `repos` not `repo` (v2.4.0). Private repo pages 404 to anonymous scrape by design. 1TB private quota.
 hf CLI v2.4.0: no `repos info`; use `hf repos list` or HfApi().repo_info().
 departure 2026-11-22: pod hu71k90wajsl8o stopped, mirror exact (extra .gitattributes only), tree clean at f1d8c08.
+## GPU decision 2026-11-22
+- Pick: RTX PRO 6000 96GB, $1.69 com, EU-RO-1 **High**.
+  Same DC as volume => no re-upload, checkpoint and outputs stay.
+- Over A100 80GB $1.19: +42% cost, +16GB, fp8, High vs Low stock.
+- Over B200 $5.98: 3.5x cheaper, capacity SDXL never fills.
+- Dead: 6000 Ada (US-WA-1 only), L40S (no EU-RO-1), WK (2 DCs, Low).
+- Half-measure: PRO 4500 32GB secure $0.72, MIG 48GB $1.39 secure.
+- Tooling: torch 2.8.0+cu128 already pinned = sm120 capable. Base image
+  cuda12.4 is fine, wheels bundle runtime. Risks: xformers/flash-attn lag,
+  fall back to SDPA; SageAttention needs source build. Probe before commit.
+- 96GB does NOT fix the gate. Switch when the VLM judge lands.
