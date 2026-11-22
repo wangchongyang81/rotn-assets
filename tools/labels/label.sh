@@ -11,6 +11,6 @@ for f in "${A[@]}"; do
   grep -qxF "${f%.png}" <(printf '%s\n' "${H[@]:-}") && continue
   n=$((n+1)); echo "=== $n | $f"; echo "file: $D/$f"
   read -r -p "pose verdict hands limbs face nudity crop style notes: " p v h l fa nu cr st nt
-  printf '{"id":"%s","pose":"%s","verdict":"%s","hands":"%s","limbs":"%s","face":"%s","nudity":"%s","crop":"%s","style":"%s","notes":"%s"}\n' "$f" "$p" "$v" "$h" "$l" "$fa" "$nu" "$cr" "$st" "${nt:-}" >> "$O"
+  printf '{"id":"%s","pose":"%s","verdict":"%s","hands":"%s","limbs":"%s","face":"%s","nudity":"%s","crop":"%s","style":"%s","notes":"%s"}\n' "${f%.png}" "$p" "$v" "$h" "$l" "$fa" "$nu" "$cr" "$st" "${nt:-}" >> "$O"
 done
 echo "total=$(wc -l < "$O")"
