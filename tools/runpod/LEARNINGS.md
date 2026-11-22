@@ -67,3 +67,4 @@ edge = FIND_EDGES inside bbox only (score.py L7), stable 15.2 twice; full-frame 
 skelbox identical all 10 (top 0 bot 1215 fill 99.8): skeleton predicts nothing. gap table p4=1 jammed, p5=755 floating, others 14-79. Framing must come from the prompt.
 framing tail only in tpose.txt, 9 others lack it: p4 gap 1 feet clipped, p5 gap 755 waist-up. Tail appended to all 9.
 framing tail on all 9: p5 755->21, p4 1->18, p1 78->20, p7 77->19, all gaps 3-32. bot>=1200 proxy dead, replaced with bot band 1100-1216.
+ft2 all 9 gaps 3-32 after tail. edge 4.4-10.9 pose-driven, seed7 not project-wide. apose mean 231.8, p3 fill 95.0 wrongly rejected: mean_max 235, fill_max 98, bot_max 1216.
