@@ -22,3 +22,8 @@
 
 ## Pod
 - 4500 up, $0.72/hr, /tmp/pod.env.
+
+## Bindi verdict (832, weight 1.3)
+- nw5-a6 and nw5-a7 ACCEPTABLE by eye. 2 of 8. Draws but marginal at 1.3, so 1.3 is a floor not a fix.
+- b1664 four frames still unscored for the bindi; resolution effect unknown.
+- a6 and a7 both passed the gate, so the gate and the eye agree on the acceptable pair.
