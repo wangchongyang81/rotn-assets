@@ -99,3 +99,8 @@ Seed variance at 1.44 sd dominates gate choice. Best-of-N is the mechanism; the 
 L40 tested only em>0, dk<=50, mn>=150 before comparing to best. It never saw bot, fil, mn<235, GE or GD,
 so any frame that rendered was eligible for best. o4-a4 was promoted at fil 99.8 / bot 1215 while failing
 the gate. The keep line now repeats the full gate condition, so only a PASSing frame can be best.
+
+## L21 — gate computed once
+
+The gate condition sat on three lines (ok/weak echo, keep, PASS). Any change had to hit all three.
+It is now one `g=$(...)` with three short users, so the condition exists once.

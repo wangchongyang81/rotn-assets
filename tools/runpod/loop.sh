@@ -36,9 +36,10 @@ sed -n 's/^N: //p' "$B" > /tmp/anc/n.txt; if [ -n "${N[$v]:-}" ]; then printf ',
     [ "$em" = "0" ] && { echo "a$i WASH again"; continue; }
   fi
   if [ "$bot" -ge 1216 ] || [ "$bot" -le 1100 ]; then echo "a$i edge=$em dark=$dk bot=$bot fill=$fil CROP"; continue; fi
-  echo "a$i edge=$em dark=$dk bot=$bot fill=$fil ok"
-  if [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1216 and $bot>1100 and $fil<98 and $mn<235 and $dk<=50 and $mn>=150 and ($em>$best or ($em==$best and $mn<$bestmn)) else 0)")" = "1" ]; then best=$em;bestmn=$mn;keep=$FN;fi
-  [ "$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1216 and $bot>1100 and $fil<98 and $mn<235 and $dk<=50 and $mn>=150 else 0)")" = "1" ] && { echo "PASS a$i"; [ "${NOSTOP:-0}" = "1" ] || break; }
+  g=$(python -c "print(1 if $em>=$GE and $dk>=$GD and $bot<1216 and $bot>1100 and $fil<98 and $mn<235 and $dk<=50 and $mn>=150 else 0)")
+  if [ "$g" = "1" ]; then echo "a$i edge=$em dark=$dk bot=$bot fill=$fil ok"; else echo "a$i edge=$em dark=$dk bot=$bot fill=$fil weak"; fi
+  [ "$g" = "1" ] && [ "$(python -c "print(1 if $em>$best or ($em==$best and $mn<$bestmn) else 0)")" = "1" ] && { best=$em;bestmn=$mn;keep=$FN; }
+  [ "$g" = "1" ] && { echo "PASS a$i"; [ "${NOSTOP:-0}" = "1" ] || break; }
 done
 if [ -n "$keep" ]; then [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "cp $keep /workspace/comfy/output/$TAG-best.png"; echo "kept $keep edge=$best"; fi
 echo done
