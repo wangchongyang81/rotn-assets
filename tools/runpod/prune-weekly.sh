@@ -7,5 +7,5 @@ if [ -f "$ST" ]; then
 fi
 H=$(awk 'NR==1{print $2}' /tmp/pod.env 2>/dev/null); P=$(awk 'NR==1{print $3}' /tmp/pod.env 2>/dev/null)
 if [ -n "${H:-}" ] && [ -n "${P:-}" ]; then DRY=${DRY:-1} DAYS=7 bash tools/runpod/prune.sh "$H" "$P"
-else echo 'prune: no pod, hf only'; DRY=${DRY:-1} DAYS=7 bash tools/runpod/prune.sh "" ""; fi
+else echo 'prune: no pod, hf only'; DRY=${DRY:-0} DAYS=7 bash tools/runpod/prune.sh "" ""; fi
 echo "$NOW" > "$ST"
