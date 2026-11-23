@@ -9,7 +9,7 @@ const wf = {
   "3": { class_type: "CLIPTextEncode", inputs: { text: neg, clip: ["1", 1] } },
   "4": { class_type: "LoadImage", inputs: { image: "tpose-832x1216.png" } },
   "5": { class_type: "ControlNetLoader", inputs: { control_net_name: "openpose-xinsir-sdxl.safetensors" } },
-  "6": { class_type: "ControlNetApplyAdvanced", inputs: { positive: ["2",0], negative: ["3",0], control_net: ["5",0], image: ["4",0], strength: 0.8, start_percent: 0.0, end_percent: 1.0 } },
+  "6": { class_type: "ControlNetApplyAdvanced", inputs: { positive: ["2",0], negative: ["3",0], control_net: ["5",0], image: ["4",0], strength: 0.85, start_percent: 0.0, end_percent: 1.0 } },
   "7": { class_type: "EmptyLatentImage", inputs: { width: 832, height: 1216, batch_size: 1 } },
   "8": { class_type: "KSampler", inputs: { model: ["1",0], seed: 730000, steps: 24, cfg: 6, sampler_name: "euler_ancestral", scheduler: "karras", positive: ["6",0], negative: ["6",1], latent_image: ["7",0], denoise: 1.0 } },
   "9": { class_type: "VAEDecode", inputs: { samples: ["8",0], vae: ["1",2] } },

@@ -16,3 +16,11 @@ OOM on 7.9 GB RAM. Untested output. Local abandoned for throughput.
 ## fal
 Same JSON. Replace LoadImage and the two loader nodes with uploaded file URLs.
 Confirm the endpoint accepts seed, negative and safety off before trusting it.
+
+## Departure state 11-23
+Render 16 best of run: face, eyes, small areola, straight level arms, level hips, no
+belly smear, bust medium. Open: legs out of frame, no feet, lineart soft (edge 3.1
+vs 1.5 plate). Plate hands fanned five with thumb; legs end 1055, feet 1078.
+Strength 0.85. Prompt rewritten whole at render 13 after five string-miss patches.
+Next: feet clearance (legs to 1030), edge back up (raise ink linework weight, drop
+soft airbrush), re-smoke, then the ten other poses.
