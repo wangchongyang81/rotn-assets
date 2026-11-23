@@ -3,7 +3,7 @@
 Gate 2 starts here. An anchor passes only on all six, and only whole.
 
 ## Pass
-1. Proportion — seven and a half to eight heads, shoulders two head-widths,
+1. Proportion — seven heads, shoulders two head-widths,
    fingertips reach mid-thigh.
 2. Hands — five fingers each, thumb on the inner side, no fusion, no extra.
 3. Feet — both planted and visible, correct count, no melt.
