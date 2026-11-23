@@ -15,3 +15,6 @@ for f in pathlib.Path('art/manifests').rglob('*.jsonl'):
             if r.get('edge_mean',0)<18: print(f'{f}: edge {r["edge_mean"]} under 18'); bad+=1
             if r.get('bg_frac',0)<0.55: print(f'{f}: bg_frac {r["bg_frac"]} under 0.55'); bad+=1
 print('bad',bad); sys.exit(1 if bad else 0)
+
+# lock schema gate
+import validate_locks  # noqa: E402,F401

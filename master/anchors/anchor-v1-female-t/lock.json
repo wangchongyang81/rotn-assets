@@ -18,7 +18,7 @@
   2993
  ],
  "approved": false,
- "note": "body seed 7, the PROMPTS.md proven seed, set 2026-11-23. 730007 never rendered; the accepted render came from an unrecorded seed and stands as the reference to diff against.",
+ "note": "body seed 7, the PROMPTS.md proven seed, set 2026-11-23. 7 never rendered; the accepted render came from an unrecorded seed and stands as the reference to diff against. v2 seed 7, same as v1, so v1/v2 differ only in prompt.",
  "route": "text-to-image",
  "sources": [
   "art-bible 02",

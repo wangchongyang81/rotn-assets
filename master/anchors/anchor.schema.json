@@ -1,0 +1,86 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "anchor lock",
+ "type": "object",
+ "additionalProperties": true,
+ "required": [
+  "id",
+  "variant",
+  "sex",
+  "pose",
+  "model",
+  "sampler",
+  "scheduler",
+  "steps",
+  "cfg",
+  "seed",
+  "strength",
+  "skeleton",
+  "approved"
+ ],
+ "properties": {
+  "id": {
+   "type": "string"
+  },
+  "variant": {
+   "enum": [
+    "V1",
+    "V2"
+   ]
+  },
+  "sex": {
+   "enum": [
+    "female",
+    "male"
+   ]
+  },
+  "pose": {
+   "enum": [
+    "T",
+    "P"
+   ]
+  },
+  "model": {
+   "type": "string",
+   "pattern": "\\.safetensors$"
+  },
+  "sampler": {
+   "type": "string"
+  },
+  "scheduler": {
+   "type": "string"
+  },
+  "steps": {
+   "type": "integer",
+   "minimum": 1
+  },
+  "cfg": {
+   "type": "number",
+   "minimum": 0
+  },
+  "seed": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "strength": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "skeleton": {
+   "enum": [
+    "skel-tpose.png",
+    "skel-ppose.png"
+   ]
+  },
+  "approved": {
+   "type": "boolean"
+  },
+  "gen": {
+   "type": "array"
+  },
+  "master": {
+   "type": "array"
+  }
+ }
+}

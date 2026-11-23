@@ -26,3 +26,8 @@ and flat shading. Saturation is now unanchored; watch for wash.
 Seed is 7, the PROMPTS.md proven body, not 730010. The lock note claiming 730010
 as body seed was wrong. Render prefix is v1-f-t-front-s7 so new output cannot
 collide with the s7300xx reject history.
+
+## v2 seed, 2026-11-23
+v2 takes seed 7 like v1. Own seeds made body and prompt move together, the
+same confound that sank the wai renders. Shared seed means v1 and v2 differ
+only in prompt text. No v2 render existed to orphan.

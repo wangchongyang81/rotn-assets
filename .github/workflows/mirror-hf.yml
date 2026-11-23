@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install -q "huggingface_hub[cli]"
+      - run: pip install -q "huggingface_hub[cli]" jsonschema
       - run: python tools/validate_manifests.py
       - run: bash tools/mirror_hf.sh text
         env:
