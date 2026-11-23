@@ -5,18 +5,18 @@
 | scene key | realm | pack | character |
 |---|---|---|---|
 | dhara | 1 | ref/ash-widow/ | 1 |
-| cart-woman | 2 | — | unassigned |
-| well-keeper | 3 | — | unassigned |
-| slab-squatter | 4 | — | unassigned |
-| pledge-reader | 5 | — | unassigned |
-| surveyor | 6 | — | unassigned |
-| board-keeper | 7 | — | unassigned |
-| drowned-thing | 8 | — | unassigned |
-| watcher | 9 | — | unassigned |
-| rope-mender | 10 | — | unassigned |
-| the-twice-heard | 12 | — | unassigned |
-| lamp-lighter | 13 | — | unassigned |
-| shadow-watcher | 19 | — | unassigned |
+| cart-woman | 2 | ref/cart-woman/ | 16 |
+| well-keeper | 3 | ref/well-keeper/ | 17 |
+| slab-squatter | 4 | ref/slab-squatter/ | 18 |
+| pledge-reader | 5 | ref/pledge-reader/ | 19 |
+| surveyor | 6 | ref/surveyor/ | 20 |
+| board-keeper | 7 | ref/board-keeper/ | 21 |
+| drowned-thing | 8 | ref/drowned-thing/ | 22 |
+| watcher | 9 | ref/watcher/ | 23 |
+| rope-mender | 10 | ref/rope-mender/ | 24 |
+| the-twice-heard | 12 | ref/the-twice-heard/ | 25 |
+| lamp-lighter | 13 | ref/lamp-lighter/ | 26 |
+| shadow-watcher | 19 | ref/shadow-watcher/ | 27 |
 | pledge-keeper | 15 20 25 30 | ref/pledge-keeper/ | 15 |
 ## Rules
 - A scene keeps its slug. Only this table records the pack dir.
