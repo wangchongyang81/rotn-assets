@@ -1,19 +1,21 @@
-# Realm 1 identity prompt set. Fill [SLOTS] from realm-01.json first.
-# SLOTS: ETHNICITY HAIR EYES AGE MARKING LIGHT PROP
-# Wrapped lines join as spaces. Record seed, prompt and sha256 for every kept frame.
-## HERO 1024x1024 seed=recorded 12 candidates keep 1
-P: raw photo, photo of a 27 year old [ETHNICITY] woman, [HAIR], [EYES], (red bindi:1.3),
-neutral expression, mouth closed, looking at camera, head and shoulders, soft window light
-from the left, [LIGHT], 85mm, f2.0, shallow depth of field, visible skin texture, pores,
-fine vellus hair, catchlight in both eyes, no makeup, no glasses, hair clear of the face,
-[PROP] hinted at the shoulder edge
-N: plastic skin, airbrushed, waxy, cgi, 3d render, cartoon, anime, illustration, oversharpened,
-doll, mirror-symmetrical eyes, cross eye, asymmetrical jaw, double chin, long neck, tiny head,
-blurry, soft focus, jpeg artifacts, watermark, text, glasses, heavy makeup, gloss lips,
-hair over face, cropped forehead, cropped chin, extra fingers, hand
-## ANGLE NEGATIVE add to N above
+# Realm 1 — Dhara. Bare identity set. Never reroll identity; img2img from hero only.
+# LOCKED: brown skin, dark brown hair loose high knot front strands left, large brown
+# eyes thick lashes, round soft face, red elongated bindi. No pubic hair. Nothing worn.
+## HERO 1024x1024 seed=recorded 12 candidates keep 1 CodeFormer 0.4
+P: raw photo, photo of a 23 year old South Asian woman, (brown skin:1.3), long dark brown
+hair, loose high knot, front strands over the left shoulder, large brown eyes, thick dark
+lashes, round soft face, small nose, full lower lip, (red elongated bindi:1.4), neutral
+expression, mouth closed, looking at camera, head and shoulders, soft even light, plain
+white background, 85mm, f2.0, shallow depth of field, visible skin texture, pores,
+catchlight in both eyes, no makeup, no glasses, hair clear of the face
+N: plastic skin, airbrushed, waxy, cgi, 3d render, cartoon, anime, illustration,
+oversharpened, doll, mirror-symmetrical eyes, cross eye, asymmetrical jaw, double chin,
+long neck, tiny head, blurry, soft focus, jpeg artifacts, watermark, text, glasses, heavy
+makeup, gloss lips, hair over face, cropped forehead, cropped chin, hand, jewellery,
+earrings, necklace, bracelet, clothing, background detail, scenery
+## ANGLE NEGATIVE add to N
 N: looking away, closed eyes, blink, extreme perspective, fisheye, dutch angle, motion blur
-## PLATE NEGATIVE, body shots only
-N: cropped feet, out of frame, half body, seated, crossed legs, twisted torso, extra limbs,
-fused fingers, malformed hands, six fingers, warped hips, oversized breasts, tiny waist,
-child proportions, big head, clothing, shoes
+## PLATE NEGATIVE, body only
+N: cropped feet, out of frame, half body, twisted torso, extra limbs, fused fingers,
+malformed hands, six fingers, warped hips, oversized breasts, tiny waist, child
+proportions, big head, pubic hair, shoes
