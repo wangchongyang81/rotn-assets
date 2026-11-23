@@ -12,3 +12,6 @@ NoobAI-XL-v1.1 is the model. It matches every lock.json. The wai-Illustrious
 renders on the Venice host were a substitution and stay as history in render/,
 not as locks. A model change fails gate 2, so wai output cannot approve an anchor.
 Re-render at the recorded seed on NoobAI.
+The 16 wai renders and their attempt notes moved to reject/front-wai-NN. History
+kept whole; render/ stays empty until a NoobAI view passes. 730010 is a fresh
+body, not a diff against the unrecorded-seed accept.
