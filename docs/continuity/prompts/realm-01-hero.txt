@@ -1,8 +1,10 @@
-# Realm 1 — Dhara. Bare identity set. Never reroll identity; img2img from hero only.
+# Realm 1 — Dhara. Bare identity set.
+# Variant V1 plains, warm-neutral, medium build, heavy work posture. Mid-thirties.
+# GATE: no pack part starts until anchor-v1-female-p/-t is approved (07, 11). Never reroll identity; img2img from hero only.
 # LOCKED: brown skin, dark brown hair loose high knot front strands left, large brown
 # eyes thick lashes, round soft face, red elongated bindi. No pubic hair. Nothing worn.
 ## HERO 1024x1024 seed=recorded 12 candidates keep 1 CodeFormer 0.4
-P: raw photo, photo of a 23 year old South Asian woman, (brown skin:1.3), long dark brown
+P: raw photo, photo of a woman in her mid-thirties, South Asian, (brown skin:1.3), warm-neutral undertone, medium build, long dark brown
 hair, loose high knot, front strands over the left shoulder, large brown eyes, thick dark
 lashes, round soft face, small nose, full lower lip, (red elongated bindi:1.4), neutral
 expression, mouth closed, looking at camera, head and shoulders, soft even light, plain
