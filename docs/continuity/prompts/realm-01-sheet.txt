@@ -1,0 +1,27 @@
+## SETTINGS
+| shot | size | steps | cfg | denoise | control | face fix |
+| hero | 1024x1024 | 32 | 5.0 | 1.0 | none | CodeFormer 0.4 |
+| angle | 1024x1024 | 30 | 4.5 | 0.45 | openpose 0.70 end 0.75 | CodeFormer 0.4 |
+| plate | 832x1216 hires 1.5 | 30 | 4.5 | 0.35 | openpose 0.90 end 0.90 | none |
+## ANGLES, img2img on hero, same seed, change only the angle line
+A01: front, straight on, level camera
+A02: three quarter left, chin level, left ear visible
+A03: three quarter right, chin level, right ear visible
+A04: profile left, full jawline, ear centred
+A05: profile right, full jawline, ear centred
+A06: back three quarter left, nape and left cheek edge
+A07: back three quarter right, nape and right cheek edge
+A08: back, nape, hair parted, shoulders square
+A09: low angle, chin slightly raised, jaw underslung
+A10: high angle, forehead forward, eyes up to camera
+A11: tilt down, eyes closed, lashes down
+A12: tilt up, chin high, nostril and jaw base visible
+## PLATES, openpose skeleton, geometry only, no face fix
+P: raw photo, full body, standing, (t-pose:1.2), arms out, feet apart, [ETHNICITY] woman,
+[HAIR], completely nude, uncensored, breasts, nipples, navel, vagina, labia, (red bindi:1.3),
+neutral expression, flat even light, solid grey background, sharp focus, whole figure
+P: raw photo, full body, standing, (p-pose:1.2), contrapposto, weight on left leg, feet in
+frame, [ETHNICITY] woman, [HAIR], completely nude, uncensored, breasts, nipples, navel,
+vagina, labia, (red bindi:1.3), neutral expression, flat even light, solid grey background
+## LOCK RECORD
+seed: / prompt sha256: / hero sha256: / model: / date:
