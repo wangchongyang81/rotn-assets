@@ -5,7 +5,7 @@ translation is a later separate step.
 ## Cast
 | slot | slug | status |
 |------|------|--------|
-| 1 | | |
+| 1 | ira | hero pending |
 | 2 | | |
 | 3 | | |
 ## Per character, in order
