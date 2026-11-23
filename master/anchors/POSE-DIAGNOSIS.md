@@ -21,3 +21,8 @@ LEARNINGS named cel shading the blocker: it removes ink, so appended lineart
 cannot win. Base dropped `cel shading` and `anime coloring`, held `crisp
 lineart, clean lineart`, added `ink linework, defined outline`, negated cel
 and flat shading. Saturation is now unanchored; watch for wash.
+
+## Seed, 2026-11-23
+Seed is 7, the PROMPTS.md proven body, not 730010. The lock note claiming 730010
+as body seed was wrong. Render prefix is v1-f-t-front-s7 so new output cannot
+collide with the s7300xx reject history.

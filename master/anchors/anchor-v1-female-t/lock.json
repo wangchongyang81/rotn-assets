@@ -8,7 +8,7 @@
  "scheduler": "karras",
  "steps": 24,
  "cfg": 6,
- "seed": 730010,
+ "seed": 7,
  "gen": [
   832,
   1216
@@ -18,7 +18,7 @@
   2993
  ],
  "approved": false,
- "note": "body seed 730010 set 2026-11-20. 730007 never rendered; the accepted render came from an unrecorded seed and stands as the reference to diff against.",
+ "note": "body seed 7, the PROMPTS.md proven seed, set 2026-11-23. 730007 never rendered; the accepted render came from an unrecorded seed and stands as the reference to diff against.",
  "route": "text-to-image",
  "sources": [
   "art-bible 02",
