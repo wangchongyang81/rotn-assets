@@ -6,9 +6,9 @@
  "model": "NoobAI-XL-v1.1.safetensors",
  "sampler": "euler_ancestral",
  "scheduler": "karras",
- "steps": 24,
+ "steps": 28,
  "cfg": 6,
- "seed": 730010,
+ "seed": 7,
  "gen": [
   832,
   1216
@@ -29,5 +29,7 @@
  ],
  "controlnet": "xinsir/controlnet-openpose-sdxl-1.0, weight 0.8",
  "licence": "master/anchors/licence/RECORD.md",
- "controlnet_sha256": "b8524e557a7df60d081f5d4a0eb109967d107df217943bf88c2d99b9ebcc06c5"
+ "controlnet_sha256": "b8524e557a7df60d081f5d4a0eb109967d107df217943bf88c2d99b9ebcc06c5",
+ "strength": 0.9,
+ "skeleton": "skel-ppose.png"
 }
