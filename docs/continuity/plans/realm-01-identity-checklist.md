@@ -2,6 +2,9 @@
 Realism does not lock identity. A seed, a fixed prompt, a hero hash and a trained
 LoRA do. Realistic plates are identity source and geometry source both. Anime
 translation is a later separate step.
+## Asset root
+chars/dhara/   realm art at realms/realm-01-dhara/
+
 ## Cast
 | slot | slug | status |
 |------|------|--------|
