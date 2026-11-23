@@ -1,4 +1,4 @@
-# Realm 1 — Dhara. ira. Bare identity set. Never reroll identity; img2img from hero only.
+# Realm 1 — Dhara. Bare identity set. Never reroll identity; img2img from hero only.
 # LOCKED: brown skin, dark brown hair loose high knot front strands left, large brown
 # eyes thick lashes, round soft face, red elongated bindi. No pubic hair. Nothing worn.
 ## HERO 1024x1024 seed=recorded 12 candidates keep 1 CodeFormer 0.4
