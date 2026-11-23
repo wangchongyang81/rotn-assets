@@ -15,3 +15,9 @@ Re-render at the recorded seed on NoobAI.
 The 16 wai renders and their attempt notes moved to reject/front-wai-NN. History
 kept whole; render/ stays empty until a NoobAI view passes. 730010 is a fresh
 body, not a diff against the unrecorded-seed accept.
+
+## Lineart, 2026-11-23
+LEARNINGS named cel shading the blocker: it removes ink, so appended lineart
+cannot win. Base dropped `cel shading` and `anime coloring`, held `crisp
+lineart, clean lineart`, added `ink linework, defined outline`, negated cel
+and flat shading. Saturation is now unanchored; watch for wash.
