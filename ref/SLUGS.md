@@ -4,7 +4,7 @@
 `dhara` is also the realm name, so scene key and pack dir differ on purpose.
 | scene key | realm | pack | character |
 |---|---|---|---|
-| dhara | 1 | ref/ash-widow/ | unassigned |
+| dhara | 1 | ref/ash-widow/ | 1 |
 | cart-woman | 2 | — | unassigned |
 | well-keeper | 3 | — | unassigned |
 | slab-squatter | 4 | — | unassigned |
@@ -17,7 +17,7 @@
 | the-twice-heard | 12 | — | unassigned |
 | lamp-lighter | 13 | — | unassigned |
 | shadow-watcher | 19 | — | unassigned |
-| pledge-keeper | 15 20 25 30 | ref/pledge-keeper/ | unassigned |
+| pledge-keeper | 15 20 25 30 | ref/pledge-keeper/ | 15 |
 ## Rules
 - A scene keeps its slug. Only this table records the pack dir.
 - pledge-keeper crosses four realms and keeps its original variant, V8. Closed by 11.

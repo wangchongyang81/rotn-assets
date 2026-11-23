@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install -q "huggingface_hub[cli]" jsonschema
-      - run: python tools/validate_manifests.py
+      - run: bash tools/validate_all.sh
       - run: bash tools/mirror_hf.sh text
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
