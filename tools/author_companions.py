@@ -1,10 +1,9 @@
 import pathlib,json
 A=pathlib.Path('master/anchors'); p=A/'companions-1-8.json'; d={}
 for l in p.read_text().split('\n'):
-    l=l.strip().rstrip(',')
-    if not l: continue
-    l=l[1:-1]; k,v=l.split(':',1)
-    d[int(k.strip().strip('"'))]=json.loads(v)
+for l in p.read_text().split("\n"):
+    l=l.strip().rstrip(",")
+    if l: d.update({int(k):v for k,v in json.loads(l).items()})
 T={l.split('|')[2].strip():l.split('|')[3].strip() for l in (A/'companions-table.md').read_text().split('\n')[2:] if l.count('|')>10}
 N={'V1':'pale skin|slender frame','V2':'warm skin|broad build','V3':'heavy build|warm damp skin','V4':'dry skin|narrow hip','V5':'slender|pale skin','V6':'pale clean skin|slim arms','V7':'slender frame|warm tone','V8':'warm tone|soft curve','V9':'cool shadow|matte skin','V10':'slouch|narrow shoulder'}
 for k in N: N[k]=N[k].split('|')
