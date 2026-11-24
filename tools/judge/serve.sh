@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-exec vllm serve Qwen/Qwen2.5-VL-7B-Instruct-AWQ \
+exec vllm serve "${MODEL:-Qwen/Qwen2.5-VL-7B-Instruct-AWQ}" \
   --served-model-name judge \
   --quantization awq \
   --max-model-len 8192 \
