@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-N=rotn-render; DC=${DC:-EU-CZ-1}; G=${G:-NVIDIA RTX PRO 6000 Blackwell Server Edition}; V=${V:-}
+N=rotn-render; DC=${DC:-EU-CZ-1}; G=${G:-NVIDIA RTX PRO 6000 Blackwell Workstation Edition}; V=${V:-}
 KEY=$HOME/.ssh/id_ed25519
 if { runpodctl pod list 2>/dev/null; runpodctl get pod 2>/dev/null; } | grep -q '"name": "rotn-render"'; then echo already_exists; exit 1; fi
 JID=$(bash tools/hf/judge-id.sh)
@@ -11,14 +11,19 @@ if test -z "$V"; then
   O=$(runpodctl network-volume create --name rotn-vol-cz --size 150 --data-center-id "$DC" -o json)
   V=$(python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])' <<<"$O"); echo "volume_created $V"
 fi
-echo "creating $N on $V ($DC, $G)"
-runpodctl pod create --name "$N" --image runpod/pytorch:1.0.3-cu1281-torch291-ubuntu2404 \
-  --gpu-id "$G" --gpu-count 1 --cloud-type COMMUNITY --data-center-ids "$DC" \
-  --network-volume-id "$V" --volume-mount-path /workspace --container-disk-in-gb 60 \
-  --ports '8002/http,22/tcp' --ssh --env "{\"HF_TOKEN\":\"$TOK\"}" \
-  -o json > /tmp/render-create.json
-ID=$(python3 -c 'import json;print(json.load(open("/tmp/render-create.json"))["id"])'); echo "created $ID"
-IP=""
+echo "creating $N on $V ($DC, $G)"; ID=""
+for t in $(seq 6); do
+  if runpodctl pod create --name "$N" --image runpod/pytorch:1.0.3-cu1281-torch291-ubuntu2404 \
+    --gpu-id "$G" --gpu-count 1 --cloud-type COMMUNITY --data-center-ids "$DC" \
+    --network-volume-id "$V" --volume-mount-path /workspace --container-disk-in-gb 60 \
+    --ports '8002/http,22/tcp' --ssh --env "{\"HF_TOKEN\":\"$TOK\"}" \
+    -o json > /tmp/render-create.json 2>/tmp/render-err.json; then
+    ID=$(python3 -c 'import json;print(json.load(open("/tmp/render-create.json"))["id"])'); break
+  fi
+  echo "try_$t no_stock"; sleep 20
+done
+test -n "$ID" || { echo "create_failed $G $DC"; exit 1; }
+echo "created $ID"; IP=""
 for i in $(seq 40); do
   IP=$(runpodctl pod get "$ID" 2>/dev/null | python3 -c 'import json,sys;s=json.load(sys.stdin).get("ssh") or {};print(s.get("ip") or "")' || echo "")
   test -n "$IP" && { echo "ssh_up $IP"; break; }; echo "wait_ssh $i"; sleep 6
