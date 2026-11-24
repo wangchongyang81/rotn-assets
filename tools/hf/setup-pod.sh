@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ID=${1:?pod id}; ROLE=${2:?render|judge}
+ID=${1:?pod id}; ROLE=${2:?render|judge}; KEY=${3:-$HOME/.ssh/id_ed25519}
 case "$ROLE" in
   render) PORT=8188; HEALTH=/system_stats; BOOT=tools/hf/boot-render.sh ;;
   judge)  PORT=8001; HEALTH=/v1/models;    BOOT=tools/hf/boot-judge.sh ;;
@@ -10,21 +10,22 @@ J=$(runpodctl pod get "$ID")
 read -r IP SPORT <<<"$(printf '%s' "$J" | python3 -c "
 import json,sys
 s=json.load(sys.stdin).get('ssh') or {}
-print(s.get('ip') or s.get('host') or s.get('publicIp') or '', s.get('port') or s.get('sshPort') or 22)")"
-echo "pod $ID ssh $IP:$SPORT role $ROLE"
+print(s.get('ip') or '', s.get('port') or 22)")"
 [ -n "$IP" ] || { echo "no ssh endpoint"; exit 1; }
-SSH="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -p $SPORT root@$IP"
+SSH="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i $KEY -p $SPORT root@$IP"
+echo "pod $ID $ROLE $IP:$SPORT key $KEY"
 $SSH 'mkdir -p /workspace/rotn-assets'
 tar -czf - --exclude=.git --exclude=node_modules . | $SSH 'tar -xzf - -C /workspace/rotn-assets'
 $SSH 'chmod +x /workspace/rotn-assets/tools/hf/*.sh'
-$SSH 'test -n "${HF_TOKEN:-}"' || { echo "HF_TOKEN missing on pod"; exit 1; }
-echo "hf_token present"
+if ! $SSH 'test -s /workspace/.hf_token || test -n "${HF_TOKEN:-}"'; then
+  T=$(cat ~/.cache/huggingface/token 2>/dev/null || true)
+  [ -n "$T" ] || { echo "no token local"; exit 1; }
+  printf '%s' "$T" | $SSH 'cat > /workspace/.hf_token'; echo "token written"
+fi
 $SSH "cd /workspace/rotn-assets && nohup bash $BOOT > /workspace/boot.log 2>&1 &"
 echo "boot started, polling $PORT$HEALTH"
 for i in $(seq 40); do
-  if $SSH "curl -sf --max-time 4 http://127.0.0.1:$PORT$HEALTH >/dev/null"; then
-    echo "healthy after $i"; exit 0
-  fi
+  $SSH "curl -sf --max-time 4 http://127.0.0.1:$PORT$HEALTH >/dev/null" && { echo "healthy $i"; exit 0; }
   sleep 10
 done
-echo "unhealthy, boot.log tail:"; $SSH 'tail -20 /workspace/boot.log'; exit 1
+echo unhealthy; $SSH 'tail -20 /workspace/boot.log'; exit 1
