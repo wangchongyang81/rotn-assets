@@ -3,8 +3,8 @@
 import sys, os, json, base64, pathlib, urllib.request
 H = pathlib.Path(__file__).parent
 R = pathlib.Path(sys.argv[1]); C = int(sys.argv[2])
-B = pathlib.Path("art-bible/02-anime-character.md").read_text()
-sec = B.split(f"### {C} ")[1].split("\n### ")[0]
+T = pathlib.Path("master/anchors/companions-table.md").read_text().split("\n")
+sec = T[0] + "\n" + [l for l in T if l.startswith(f"| {C} |")][0]
 chk = pathlib.Path(sys.argv[3]).read_text() if len(sys.argv) > 3 and pathlib.Path(sys.argv[3]).exists() else "{}"
 sysp = H.joinpath("contract.md").read_text().split("## System prompt")[1].split("## Axes")[0].strip()
 mime = "image/webp" if R.suffix == ".webp" else "image/png"
