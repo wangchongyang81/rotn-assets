@@ -1,6 +1,8 @@
 from author_companions import A, B
 HEAD = "female adult mid-twenties, {b}, (medium breasts:1.1), (small nipples:1.2), (tiny areola:1.4), head to body ratio 1 to 7"
 for k, body in B.items():
+    if k in ("V1", "V2"):
+        continue
     for pose in "tp":
         dst = A / ("anchor-" + k.lower() + "-female-" + pose)
         dst.mkdir(exist_ok=True)

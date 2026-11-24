@@ -1,6 +1,4 @@
-(t-pose:1.5), masterpiece, best quality, very aesthetic, absurdres, solo, 1girl, anime style, crisp lineart, clean lineart, nude, completely nude, pussy, labia, navel
-detailed face, (detailed eyes:1.2), eyelashes, short hair, arms straight out horizontal level with shoulders, straight elbows, hands open at arm ends, five fingers, face unobstructed, ink linework, defined outline
-standing straight, legs together parallel, feet visible, toes visible, straight-on front view, head level
-female adult mid-twenties, lean, long limb, dry skin, (medium breasts:1.1), (small nipples:1.2), (tiny areola:1.4), head to body ratio 1 to 7
-(light grey background:1.7), flat even backdrop, (soft key light 45 degrees:0.9), (shaded skin:1.2), soft form shading
-negative: mannequin, 3d render, base mesh, featureless, bald, flat chest, (small breasts:0.8), stretch marks, skin creases, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, ground shadow, rim light, glow, orange glow, red tint, blue tint, watermark, text, clothing, arms down, (arms angled down:1.2), a-pose, crossed ankles, cropped feet, out of frame, (halo:1.4), (cel shading:0.5), flat shading, flat colour, soft airbrush, overexposed, blown highlights, blurry lineart, sketchy lineart, cross above head, small head, long torso, long neck, profile view, side view, (oversized breasts:0.7), white background, simple background
+female adult mid-twenties, lean, long limb, dry skin, plateau build, head to body ratio 1 to 7.
+arms level and straight out to the sides, legs neutral, palms forward, T-pose. front view, facing camera.
+neutral grey seamless backdrop, no floor shadow, full body in frame, face hands and feet visible, even soft key light 45 degrees, fill 25 percent, flat even lighting.
+negative: malformed hands, extra fingers, fused fingers, inconsistent proportions, distorted face, chibi, painterly, western comic, 3d render, (white background:1.4), white backdrop, floor shadow, watermark, text, props

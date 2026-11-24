@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-NS=${HF_NS:?}; C=/workspace/ComfyUI; O=/workspace/out
+NS=${HF_NS:?}
+: "${HF_TOKEN:?HF_TOKEN unset}"; C=/workspace/ComfyUI; O=/workspace/out
 mkdir -p "$O" "$C/models/checkpoints"
 python -m pip install -q huggingface_hub
 if [ ! -d "$C/.git" ]; then
