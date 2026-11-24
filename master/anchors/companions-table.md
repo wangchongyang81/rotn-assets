@@ -1,0 +1,37 @@
+| # | realm | name | title | disposition | element | form | skin | hair | style | attire | accent | motif | headpiece | detail | scene slugs |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Dhara | Mitali | the terrace gardener | Warm, grounded, quietly stubborn | earth | human | #9b6548 | #211a19 | braid | #8c4938 | #b9d77a | seed | Leaf diadem | Terracotta garden drape | dhara |
+| 2 | Dhruva | Nila | the star-reader | Cool, precise, secretly romantic | aether | celestial | #8a674f | #e8edf2 | bob | #263b69 | #cce9ff | stars | Silver star tilaka | Astronomer's orbiting charts | cart-woman |
+| 3 | Soma | Chandini | the soma-distiller | Serene, mischievous, luminous | water | naga | #528c83 | #d9e6e8 | waves | #31576b | #e6f5ff | moon | Triple-moon pearls | Silver-scaled soma veil | well-keeper |
+| 4 | Ahas | Diva | the dawn-rider | Bold, sunlit, competitive | air | human | #a96f45 | #753a26 | wind | #a45a2d | #ffe295 | sun | Dawn-rider circlet | Sun disc and riding leathers | slab-squatter |
+| 5 | Anila | Vayuni | the gale-weaver | Restless, playful, free | air | celestial | #7c5847 | #eef6f4 | cloud | #4f8299 | #ffffff | wind | Gale feather crown | Apsara-like feather mantle | pledge-reader |
+| 6 | Anala | Jvala | the flame-keeper | Fierce, warm-hearted, blunt | fire | human | #9a4f37 | #2c1918 | ember | #742e28 | #ffb24f | flame | Flame tilaka | Keeper's hearth-gold torque | surveyor |
+| 7 | Pratyusha | Ushasvi | the dawn-singer | Gentle, radiant, hopeful | holy | dryad | #93624f | #d8849e | petals | #657445 | #ffd1ba | hymn | Rose-dawn halo | Petal hair and living hymn-rose | board-keeper |
+| 8 | Prabhasa | Prabha | the mirror-warden | Honest, wry, quietly lonely | holy | crystal | #9c94bc | #d7d4e8 | geometric | #525875 | #f4efff | prism | Prismatic mirror veil | Faceted warden silhouette | drowned-thing |
+| 9 | Manyu | Raudri | the war-just | Disciplined, dry-humored, intense | fire | human | #6f4635 | #201b1d | topknot | #6e3030 | #e5a36e | swords | War-just command band | Scarred commander and memorial swords | watcher |
+| 10 | Manu | Vidhi | the law-scribe | Precise, secretly passionate | earth | human | #9a775c | #e2ddd3 | bun | #64666c | #eee4cf | script | First-law brow script | Ink stole and marble bun | rope-mender |
+| 11 | Mahinasa | Nishitha | the lamp-keeper | Melancholy, wry, tender | water | spectral | #53677c | #172733 | wet | #273f52 | #b9dcef | lamps | Lamp-keeper nose ring | Canal cloak and twin lamps | - |
+| 12 | Mahan | Mahati | the ossuary monk | Vast-minded, gentle, funny | aether | human | #a88764 | #4b3b32 | shaved | #6d5c4b | #eadbb9 | bones | Ossuary bone beads | Titan-bone shoulder mantle | the-twice-heard |
+| 13 | Shiva | Gauri | the balance-keeper | Calm, strong, quietly merry | holy | human | #7e7b78 | #202329 | center | #455e69 | #f2e5c8 | balance | Crescent balance bindi | Center bead and balanced jewels | lamp-lighter |
+| 14 | Rtudhvaja | Rutu | the season-turner | Changeable, vivid, warm beneath it all | air | dryad | #8e6855 | #71865a | seasons | #667b58 | #f2d6e2 | seasons | Four-season crown | Quartered seasonal drape | - |
+| 15 | Ugraretas | Ugra | the spark-smith | Blunt, brilliant, unexpectedly soft | fire | human | #714533 | #b75f32 | coils | #51372f | #ffc278 | hammer | Spark-smith copper coils | Forge apron and spark halo | pledge-keeper |
+| 16 | Bhava | Bhavani | the becoming-gardener | Nurturing, wild, joyful | earth | dryad | #4f8058 | #30573c | vines | #315e3e | #b8ed93 | moths | Living vine crown | Moth wings and becoming-leaves | - |
+| 17 | Kala | Kalyani | the hour-keeper | Wry, ancient-eyed, fiercely alive | dark | human | #7a5744 | #c7c2bd | silver | #464552 | #dfcf9b | clock | Hourkeeper clock halo | Silver streak and time chain | - |
+| 18 | Vamadeva | Vama | the spring-sister | Soothing, frank, sensual | water | human | #598a82 | #9fd2cb | water | #3f716c | #d9f5e9 | spring | Pearl spring veil | Healer's water-wave hair | - |
+| 19 | Dhrtavrata | Vrata | the vow-keeper | Steadfast, dry, slow-burning | holy | human | #8b654f | #2d2526 | severe | #655545 | #f2dca9 | candles | Vow-spire candles | Oath-script and severe braid | shadow-watcher |
+| 20 | Dhatr | Dhata | the order-warden | Sensible, dry-witted, devoted | earth | human | #a47b51 | #3f3326 | survey | #7c6b35 | #f2d98c | wheat | Surveyor's chain bun | Wheat sash and measured mantle | pledge-keeper |
+| 21 | Aryaman | Arya | the seal-bearer | Sharp, elegant, unexpectedly romantic | holy | human | #845c49 | #25212b | loops | #455d70 | #f4ddb0 | seal | Wax-seal diadem | Looping hair and contract stole | - |
+| 22 | Mitra | Maitri | the bridge-keeper | Warm, loyal, brave | holy | human | #9a684d | #372421 | twins | #527363 | #ffe0a1 | bridge | Bridge-bell earrings | Twin braids and two-city shawl | - |
+| 23 | Varuna | Varuni | the tide-judge | Commanding, salt-humored, deep | water | naga | #315d79 | #a9d8d5 | seafoam | #24475e | #b9e9f2 | tide | Coral tide-judge crown | Seafoam hair and ocean scales | - |
+| 24 | Indra | Sachi | the storm-sovereign | Regal, daring, electric | air | celestial | #4f5268 | #dce7f2 | lightning | #3c4962 | #fff1a1 | storm | Thunder sovereign crown | Lightning hair and roc mantle | - |
+| 25 | Bhaga | Bhagya | the fortune-weigher | Shrewd, generous, flirtatious | earth | human | #a16f43 | #5a3422 | curls | #79512d | #ffda77 | scales | Fortune scale earrings | Coin curls and merchant veil | pledge-keeper |
+| 26 | Vivasvan | Varchas | the sun-witness | Radiant, honest to a fault, warm | fire | celestial | #ad774c | #d5a34b | straight | #9b6632 | #fff5bd | mirror | Sun-witness mirror fan | Solar halo and radiant linen | - |
+| 27 | Pushan | Pushpa | the road-shepherd | Kind, wandering, storytelling | earth | human | #8a674e | #40312b | travel | #6c6449 | #e8d6a5 | roads | Road-shepherd map scarf | Map marks and guide staff | - |
+| 28 | Savitr | Savitri | the life-priestess | Fervent, tender, unshakable | holy | human | #a35d3d | #cc722c | marigold | #8a4f35 | #ffeda5 | fruit | Marigold sun-thread crown | Life-thread and fruit mantle | - |
+| 29 | Tvashtr | Takshi | the master artificer | Inventive, blunt, devoted | earth | human | #77533f | #3a2d2a | mechanical | #53483c | #efbd78 | gears | Artificer brass goggles | Mechanical braid and artisan apron | - |
+| 30 | Vishnu | Vaishnavi | the dream-keeper | Serene, profound, surprising | aether | celestial | #75618d | #292746 | starry | #4f5177 | #f1d8ef | lotus | Dream-lotus crown | Starry hair and floating lotus | pledge-keeper |
+| 31 | Vamana | Vamika | the stride-keeper | Modest, witty, enormous-hearted | air | tiny | #916449 | #4a2f25 | flowers | #667744 | #eef0b2 | mushroom | Tiny royal flower crown | Mushroom throne and stride measure | - |
+| 32 | Prajapati | Prakriti | the shape-keeper | Primal, curious, absolute | aether | primal | #8e715a | #58483c | clay | #667052 | #f0e2bd | clay | Creation-clay halo | Primal arms and living clay | - |
+| 33 | Vashatkara | Vasha | the offering-bearer | Ancient, sacrificial, hopeful | dark | celestial | #514568 | #e2dfea | white | #3f3455 | #d9bdf2 | offerings | Blue-flame offering crown | White hair and thirty-three lamps | - |
+
+Slugs are joined by realm, not by companion: 13 distinct slugs over 35 scenes for 33 companions, so rows share and the append keys on name.
