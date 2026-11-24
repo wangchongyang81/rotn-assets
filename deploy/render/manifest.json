@@ -22,5 +22,7 @@
   "token_file": "/workspace/.hf_token",
   "serve_script": "deploy/render/serve-render.sh",
   "health": "GET 8188/queue body has queue_remaining",
-  "open": "comfyui ref unpinned, controlnet stack unproven, judge schema unwritten"
+  "open": "comfyui ref unpinned, controlnet stack unproven",
+  "judge_discrimination": "2026-11-24: pass on solid red 448+64, fail on red|blue split naming both",
+  "judge_schema": "deploy/judge/verdict-schema.json"
 }
