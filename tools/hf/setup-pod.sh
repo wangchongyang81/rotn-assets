@@ -15,7 +15,13 @@ print(s.get('ip') or '', s.get('port') or 22)")"
 SSH="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -i $KEY -p $SPORT root@$IP"
 echo "pod $ID $ROLE $IP:$SPORT key $KEY"
 $SSH 'mkdir -p /workspace/rotn-assets'
-tar -czf - --exclude=.git --exclude=node_modules . | $SSH 'tar -xzf - -C /workspace/rotn-assets'
+set +o pipefail
+tar -czf - --exclude=.git --exclude=node_modules --exclude=archive . \
+  | $SSH 'tar -xzf - --no-same-owner -C /workspace/rotn-assets'
+RC=${PIPESTATUS[0]}
+set -o pipefail
+[ "$RC" -le 2 ] || { echo "tar failed rc=$RC"; exit 1; }
+$SSH 'test -f /workspace/rotn-assets/tools/hf/boot-judge.sh' || { echo "tree missing"; exit 1; }
 $SSH 'chmod +x /workspace/rotn-assets/tools/hf/*.sh'
 if ! $SSH 'test -s /workspace/.hf_token || test -n "${HF_TOKEN:-}"'; then
   T=$(cat ~/.cache/huggingface/token 2>/dev/null || true)
