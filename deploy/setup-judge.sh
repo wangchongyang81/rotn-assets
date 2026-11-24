@@ -3,7 +3,7 @@ set -euo pipefail
 R=/workspace/rotn-assets; T=/workspace/models/judge; L=/workspace/serve-run.log; KEY=$HOME/.ssh/id_ed25519
 ID=${1:-$(bash tools/hf/judge-id.sh)}
 read -r IP SPORT <<<"$(runpodctl pod get "$ID" | python3 -c "import json,sys;s=json.load(sys.stdin)['ssh'];print(s['ip'],s['port'])")"
-S="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=8 -i $KEY -p $SPORT root@$IP"
+S="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=8 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -i $KEY -p $SPORT root@$IP"
 say(){ echo "[$(date +%T)] $*"; }; say "setup-judge $ID $IP:$SPORT"
 $S 'nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader'
 $S 'test -s /workspace/.hf_token' || { echo no_token; exit 1; }

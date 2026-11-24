@@ -2,7 +2,7 @@
 set -euo pipefail
 KEY=$HOME/.ssh/id_ed25519; ID=${1:?pod id}
 read -r IP SPORT <<<"$(runpodctl pod get "$ID" | python3 -c "import json,sys;s=json.load(sys.stdin)['ssh'];print(s['ip'],s['port'])")"
-S="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=8 -i $KEY -p $SPORT root@$IP"
+S="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=8 -o ServerAliveInterval=15 -o ServerAliveCountMax=3 -i $KEY -p $SPORT root@$IP"
 $S 'vllm serve --help=all' > /tmp/all.txt 2>&1
 grep -oE '\-\-[a-z0-9-]+' /tmp/all.txt | sort -u > /tmp/names.txt
 BAD=0
