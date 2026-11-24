@@ -7,7 +7,7 @@ read -r JIP JSPORT <<<"$(runpodctl pod get "$JID" | python3 -c "import json,sys;
 TOK=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -i $KEY -p $JSPORT root@$JIP 'cat /workspace/.hf_token')
 test -n "$TOK" || { echo no_token; exit 1; }
 echo "creating $N on $V (reused, EU-RO-1)"
-runpodctl create pod --name "$N" \
+runpodctl pod create --name "$N" \
   --imageName runpod/pytorch:1.0.3-cu1281-torch291-ubuntu2404 \
   --gpuType 'NVIDIA A100-SXM4-80GB' --gpuCount 1 --communityCloud \
   --dataCenterId EU-RO-1 --networkVolumeId "$V" --volumePath /workspace \
