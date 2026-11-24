@@ -7,12 +7,18 @@ case "$ROLE" in
   *) echo "role must be render or judge"; exit 1 ;;
 esac
 J=$(runpodctl pod get "$ID")
-read -r IP SPORT <<<"$(printf '%s' "$J" | python3 -c "import json,sys;d=json.load(sys.stdin)['ssh'];print(d['ip'],d['port'])")"
+read -r IP SPORT <<<"$(printf '%s' "$J" | python3 -c "
+import json,sys
+s=json.load(sys.stdin).get('ssh') or {}
+print(s.get('ip') or s.get('host') or s.get('publicIp') or '', s.get('port') or s.get('sshPort') or 22)")"
 echo "pod $ID ssh $IP:$SPORT role $ROLE"
+[ -n "$IP" ] || { echo "no ssh endpoint"; exit 1; }
 SSH="ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -p $SPORT root@$IP"
 $SSH 'mkdir -p /workspace/rotn-assets'
 tar -czf - --exclude=.git --exclude=node_modules . | $SSH 'tar -xzf - -C /workspace/rotn-assets'
 $SSH 'chmod +x /workspace/rotn-assets/tools/hf/*.sh'
+$SSH 'test -n "${HF_TOKEN:-}"' || { echo "HF_TOKEN missing on pod"; exit 1; }
+echo "hf_token present"
 $SSH "cd /workspace/rotn-assets && nohup bash $BOOT > /workspace/boot.log 2>&1 &"
 echo "boot started, polling $PORT$HEALTH"
 for i in $(seq 40); do
