@@ -1,6 +1,6 @@
-(p-pose:1.2), masterpiece, best quality, very aesthetic, absurdres, solo, 1girl, anime style, anime coloring, cel shading, nude, completely nude
-detailed face, detailed eyes, eyelashes, short hair, arms 20 degrees from the body, palms back, weight on one hip, relaxed A-pose, five fingers, face unobstructed
-standing, front view, facing camera, head level
-female adult mid-twenties, warm-neutral skin, medium build, moderate natural bust, head to body ratio 1 to 7
-simple background, dark grey background, even flat light
-negative: mannequin, 3d render, 3d model, base mesh, faceless, no face, featureless, bald, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, (ground shadow:1.5), watermark, text, props, helmet, armor, clothing, t-pose, arms level, straight elbows, crossed ankles, cropped feet, out of frame, hands in front of face, (halo:1.4), cross above head, gradient shading, small head, long torso, profile view, side view, oversized breasts, blue tint, black background
+(p-pose:1.2), masterpiece, best quality, very aesthetic, absurdres, solo, 1girl, anime style, crisp lineart, clean lineart, nude, completely nude, pussy, labia, navel
+detailed face, (detailed eyes:1.2), eyelashes, short hair, arms 20 degrees from the body, palms back, weight on one hip, relaxed A-pose, five fingers, face unobstructed, ink linework, defined outline
+standing, front view, facing camera, feet visible, toes visible, head level
+female adult mid-twenties, (warm-neutral skin:1.1), medium build, heavy work posture, (medium breasts:1.1), (small nipples:1.2), (tiny areola:1.4), head to body ratio 1 to 7
+(light grey background:1.7), flat even backdrop, (soft key light 45 degrees:0.9), (shaded skin:1.2), soft form shading
+negative: mannequin, 3d render, base mesh, featureless, bald, flat chest, (small breasts:0.8), stretch marks, skin creases, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, ground shadow, rim light, glow, orange glow, red tint, blue tint, watermark, text, clothing, arms down, (arms angled down:1.2), a-pose, crossed ankles, cropped feet, out of frame, (halo:1.4), (cel shading:0.5), flat shading, flat colour, soft airbrush, overexposed, blown highlights, blurry lineart, sketchy lineart, cross above head, small head, long torso, long neck, profile view, side view, (oversized breasts:0.7), white background, simple background, t-pose, arms level, straight elbows
