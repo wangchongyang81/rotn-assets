@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 N=rotn-render; V=39dhm3ia6u; KEY=$HOME/.ssh/id_ed25519
-if runpodctl get pod 2>/dev/null | grep -q "\"name\": \"$N\""; then echo already_exists; exit 1; fi
+if { runpodctl pod list 2>/dev/null; runpodctl get pod 2>/dev/null; } | grep -q rotn-render; then echo already_exists; exit 1; fi
 JID=$(bash tools/hf/judge-id.sh)
 read -r JIP JSPORT <<<"$(runpodctl pod get "$JID" | python3 -c "import json,sys;s=json.load(sys.stdin)['ssh'];print(s['ip'],s['port'])")"
 TOK=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -i $KEY -p $JSPORT root@$JIP 'cat /workspace/.hf_token')
