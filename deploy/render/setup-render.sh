@@ -19,7 +19,7 @@ $S "cd $C && python3 -m pip install -q -r requirements.txt --break-system-packag
 bash $R/deploy/render/verify-render.sh "$ID" || { echo flag_mismatch; exit 1; }
 say nginx; $S 'command -v nginx >/dev/null || { apt-get update -qq && apt-get install -y -qq nginx; }'
 $S 'test -f /etc/nginx/sites-enabled/render || cat > /etc/nginx/sites-enabled/render <<NG'
-server { listen 8002; location / { proxy_pass http://127.0.0.1:8188; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection upgrade; } }
+server { listen 8002; location / { proxy_pass http://127.0.0.1:8188; proxy_http_version 1.1; proxy_set_header Upgrade \$http_upgrade; proxy_set_header Connection upgrade; } }
 NG'
 $S 'nginx -t && nginx -s reload'
 say weights
