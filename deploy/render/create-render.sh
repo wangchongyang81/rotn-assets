@@ -8,8 +8,8 @@ read -r JIP JSPORT <<<"$(runpodctl pod get "$JID" | python3 -c "import json,sys;
 TOK=$(ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -i $KEY -p $JSPORT root@$JIP 'cat /workspace/.hf_token')
 test -n "$TOK" || { echo no_token; exit 1; }
 if test -z "$V"; then
-  O=$(runpodctl network-volume create --name rotn-vol-cz --size 150 --dataCenterId "$DC" -o json 2>/dev/null \
-    || runpodctl create network-volume --name rotn-vol-cz --size 150 --dataCenterId "$DC" -o json)
+  O=$(runpodctl network-volume create --name rotn-vol-cz --size 150 --data-center-id "$DC" -o json)
+  V=$(python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])' <<<"$O"); echo "volume_created $V"
   V=$(python3 -c 'import json,sys;print(json.load(sys.stdin)["id"])' <<<"$O"); echo "volume_created $V"
 fi
 echo "creating $N on $V ($DC, $G)"
