@@ -11,4 +11,4 @@ fi
 [ -s "$V/config.json" ] || { echo "no weights after pull"; exit 1; }
 export MODEL="$V"
 cd "$R"
-exec bash tools/judge/serve.sh
+exec bash tools/judge/serve-fp16.sh
