@@ -1,0 +1,6 @@
+# 2026-11-24 judge pin proven, render boot blocked
+
+Landed: xgrammar pin present in engine non-default args; schema enforcement proven (prose on free call, strict JSON under schema, parsed clean); discrimination proven (pass on solid red 448 and 64, fail on red|blue naming both); verdict schema, prompts and eval tool mirrored to rotn-judge-env (judge 2 files).
+Fixed: the ssh wedge was a hung command, not a dead link - ServerAliveInterval cannot catch it. Cure is a pod-side runner, timeout-capped polls, -n for polls, separate pipe-safe ssh for tar. nginx site moved inside the quotes with a quoted heredoc. runpodctl: pod create is kebab (--image, --gpu-id, --data-center-ids, --cloud-type COMMUNITY), network-volume create takes --data-center-id, `create network-volume` is no verb, --env takes JSON.
+Stock: per-DC stockStatus sits under dataCenterAvailability on the GPU list; the datacenter list carries no available key, so it cannot answer stock at all.
+Open: no render pod. EU-CZ-1 and EU-RO-1 both Low for Workstation Edition, create failed twice. glq31itpgv (150GB CZ) idle, delete after a successful EU-RO-1 boot. Judge scores absent content 10/10. ComfyUI unpinned at master, ControlNet unproven, no render has run. Server Edition exists only in US-PA-1.
