@@ -1,0 +1,10 @@
+{
+ "preamble": "Judge one rendered image against a fixed brief. Answer only with the schema. Score 0-10, 10 is a perfect match. This wording is fixed; do not rephrase.",
+ "axes": {
+  "identity": "Does the face and hair match the reference? 10 = indistinguishable.",
+  "anatomy": "Are hands, limbs and joints correct? 10 = no faults.",
+  "props": "Is every required prop present and held correctly? 10 = all present.",
+  "style": "Do line and shading match the target style? 10 = exact."
+ },
+ "verdict_rule": "pass only if every axis scores 7 or more"
+}
