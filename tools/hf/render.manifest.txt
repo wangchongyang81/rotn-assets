@@ -1,0 +1,2 @@
+noobaiXL.safetensors
+lora/

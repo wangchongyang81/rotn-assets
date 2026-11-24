@@ -1,7 +1,6 @@
 import pathlib,json
 A=pathlib.Path('master/anchors'); p=A/'companions-1-8.json'; d={}
 for l in p.read_text().split('\n'):
-for l in p.read_text().split("\n"):
     l=l.strip().rstrip(",")
     if l: d.update({int(k):v for k,v in json.loads(l).items()})
 T={l.split('|')[2].strip():l.split('|')[3].strip() for l in (A/'companions-table.md').read_text().split('\n')[2:] if l.count('|')>10}
