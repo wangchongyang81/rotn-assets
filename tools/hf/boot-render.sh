@@ -2,7 +2,9 @@
 set -euo pipefail
 V=/workspace/models/render; M=/workspace/ComfyUI/models/checkpoints
 R=/workspace/rotn-assets
-: "${HF_TOKEN:?HF_TOKEN unset}"
+[ -n "${HF_TOKEN:-}" ] || HF_TOKEN=$(cat /workspace/.hf_token 2>/dev/null || true)
+[ -n "${HF_TOKEN:-}" ] || { echo "HF_TOKEN unset"; exit 1; }
+export HF_TOKEN
 [ -d "$R/tools/hf" ] || { echo "clone rotn-assets to $R"; exit 1; }
 mkdir -p "$V" "$M"
 if [ ! -s "$V/noobaiXL.safetensors" ] || [ "${FORCE_PULL:-0}" = 1 ]; then
