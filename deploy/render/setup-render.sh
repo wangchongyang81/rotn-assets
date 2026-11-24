@@ -11,7 +11,7 @@ $S "mkdir -p $R/deploy/render /workspace/render-out /workspace/anchors /workspac
 set +o pipefail; tar -czf - deploy tools | $S "tar -xzf - --no-same-owner -C $R"; set -o pipefail
 $S "chmod +x $R/deploy/render/*.sh $R/tools/hf/*.sh"
 say comfyui
-REF=$(cd $R && git show HEAD:deploy/render/pin.txt 2>/dev/null || echo main)
+REF=$(cd $R && git show HEAD:deploy/render/pin.txt 2>/dev/null || echo master)
 $S "test -d $C/.git || git clone -q https://github.com/comfyanonymous/ComfyUI $C"
 $S "cd $C && git fetch -q --all && git checkout -q $REF"
 $S "cd $C && git rev-parse --short HEAD"
