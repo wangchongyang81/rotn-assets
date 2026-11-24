@@ -1,0 +1,632 @@
+{
+ "1": {
+  "variant": "V1",
+  "name": "Mitali",
+  "add": [
+   "leaf diadem",
+   "dark brown braid",
+   "terracotta garden drape",
+   "seed pouch",
+   "warm brown skin",
+   "calloused palms",
+   "soil on knees",
+   "sun-warmed sweat",
+   "heavy breasts",
+   "soft belly",
+   "dark pubic hair",
+   "erect nipples",
+   "wet pussy",
+   "broad hips",
+   "thick thighs",
+   "inviting spread"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "2": {
+  "variant": "V2",
+  "name": "Nila",
+  "add": [
+   "silver star tilaka",
+   "white bob",
+   "navy astronomer robe",
+   "star charts orbiting",
+   "cool rim highlight",
+   "lean torso",
+   "long limbs",
+   "dry skin",
+   "small breasts",
+   "sharp hipbones",
+   "silver jewellery",
+   "slick inner thigh"
+  ],
+  "neg": [
+   "warm skin",
+   "broad build"
+  ]
+ },
+ "3": {
+  "variant": "V1",
+  "name": "Chandini",
+  "add": [
+   "naga",
+   "teal-green skin",
+   "silver scales along hip and tail-line",
+   "triple-moon pearls",
+   "silver soma veil",
+   "luminous sheen",
+   "wet skin",
+   "dripping nectar",
+   "slit pupils",
+   "forked tongue",
+   "heavy breasts",
+   "scaled thighs",
+   "mischievous eyes"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "4": {
+  "variant": "V1",
+  "name": "Diva",
+  "add": [
+   "dawn-rider circlet",
+   "sun disc",
+   "auburn windblown hair",
+   "riding leathers",
+   "bare midriff",
+   "cinched belt",
+   "athletic build",
+   "muscular back",
+   "strong thighs",
+   "rider stance",
+   "sweat sheen",
+   "sunburn blush",
+   "competitive grin"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "5": {
+  "variant": "V3",
+  "name": "Vayuni",
+  "add": [
+   "apsara",
+   "gale feather crown",
+   "feather mantle",
+   "floating hair",
+   "wind-lifted cloth",
+   "weightless pose",
+   "lean body",
+   "long limbs",
+   "dry skin",
+   "small high breasts",
+   "playful grin",
+   "chapped lip"
+  ],
+  "neg": [
+   "heavy build",
+   "warm damp skin"
+  ]
+ },
+ "6": {
+  "variant": "V6",
+  "name": "Jvala",
+  "add": [
+   "flame tilaka",
+   "hearth-gold torque",
+   "ember hair",
+   "ash-grey undertone",
+   "sinewy arms",
+   "scarred hands",
+   "soot smudges",
+   "sweat beads",
+   "firelight on skin",
+   "heavy breasts",
+   "strong forearms",
+   "blunt grin"
+  ],
+  "neg": [
+   "pale clean skin",
+   "slim arms"
+  ]
+ },
+ "7": {
+  "variant": "V2",
+  "name": "Ushasvi",
+  "add": [
+   "rose-dawn halo",
+   "petal hair",
+   "living hymn-rose",
+   "dryad",
+   "bark texture at joints",
+   "soft radiance",
+   "freckles",
+   "long limbs",
+   "small breasts",
+   "gentle eyes",
+   "dewy petals on skin"
+  ],
+  "neg": [
+   "warm skin",
+   "broad build"
+  ]
+ },
+ "8": {
+  "variant": "V2",
+  "name": "Prabha",
+  "add": [
+   "crystal facets",
+   "prismatic mirror veil",
+   "faceted skin highlights",
+   "lavender-grey skin",
+   "geometric hair",
+   "lean torso",
+   "long limbs",
+   "cool highlight",
+   "wry half-smile",
+   "small breasts"
+  ],
+  "neg": [
+   "warm skin",
+   "broad build"
+  ]
+ },
+ "9": {
+  "variant": "V6",
+  "name": "Raudri",
+  "add": [
+   "scarred face",
+   "topknot",
+   "command band",
+   "memorial swords",
+   "bare scarred arms",
+   "athletic",
+   "ash undertone",
+   "soot smudge",
+   "heavy breasts",
+   "wary eyes"
+  ],
+  "neg": [
+   "pale clean skin",
+   "slim arms"
+  ]
+ },
+ "10": {
+  "variant": "V7",
+  "name": "Vidhi",
+  "add": [
+   "first-law brow script",
+   "marble bun",
+   "ink stole",
+   "heavy shoulder",
+   "cloud banding",
+   "broad stance",
+   "grey tone",
+   "dry lips",
+   "small breasts",
+   "ink-stained fingers"
+  ],
+  "neg": [
+   "slender frame",
+   "warm tone"
+  ]
+ },
+ "11": {
+  "variant": "V4",
+  "name": "Nishitha",
+  "add": [
+   "lamp-keeper nose ring",
+   "wet black hair",
+   "canal cloak",
+   "twin lamps",
+   "spectral blue-grey skin",
+   "strong calf",
+   "softer belly",
+   "damp sheen",
+   "heavy breasts"
+  ],
+  "neg": [
+   "dry skin",
+   "narrow hip"
+  ]
+ },
+ "12": {
+  "variant": "V7",
+  "name": "Mahati",
+  "add": [
+   "ossuary bone beads",
+   "shaved head",
+   "titan-bone mantle",
+   "broad shoulder",
+   "cloud banding",
+   "weathered tan",
+   "muscled back",
+   "heavy breasts",
+   "huge hands"
+  ],
+  "neg": [
+   "slender frame",
+   "warm tone"
+  ]
+ },
+ "13": {
+  "variant": "V8",
+  "name": "Gauri",
+  "add": [
+   "crescent balance bindi",
+   "centre-parted black hair",
+   "balanced jewels",
+   "bleached lit flank",
+   "hard terminator",
+   "grey skin",
+   "still face",
+   "medium breasts"
+  ],
+  "neg": [
+   "warm tone",
+   "soft curve"
+  ]
+ },
+ "14": {
+  "variant": "V5",
+  "name": "Rutu",
+  "add": [
+   "four-season crown",
+   "quartered drape",
+   "leaf-green hair",
+   "bark at joints",
+   "compact broad body",
+   "thick forearm",
+   "freckled green skin",
+   "small breasts"
+  ],
+  "neg": [
+   "slender",
+   "pale skin"
+  ]
+ },
+ "15": {
+  "variant": "V6",
+  "name": "Ugra",
+  "add": [
+   "spark-smith copper coils",
+   "forge apron",
+   "bare soot-streaked torso",
+   "sinewy arms",
+   "scarred knuckles",
+   "ash undertone",
+   "firelight on skin",
+   "heavy breasts"
+  ],
+  "neg": [
+   "pale clean skin",
+   "slim arms"
+  ]
+ },
+ "16": {
+  "variant": "V5",
+  "name": "Bhavani",
+  "add": [
+   "living vine crown",
+   "moth wings",
+   "vines in hair",
+   "green skin",
+   "compact body",
+   "moss on shoulder",
+   "bare hips",
+   "soft belly",
+   "medium breasts"
+  ],
+  "neg": [
+   "slender",
+   "pale skin"
+  ]
+ },
+ "17": {
+  "variant": "V10",
+  "name": "Kalyani",
+  "add": [
+   "hourkeeper clock halo",
+   "silver streak in black hair",
+   "time chain",
+   "square-set frame",
+   "thick neck",
+   "planted feet",
+   "medium breasts",
+   "unreadable eyes"
+  ],
+  "neg": [
+   "slouch",
+   "narrow shoulder"
+  ]
+ },
+ "18": {
+  "variant": "V4",
+  "name": "Vama",
+  "add": [
+   "pearl spring veil",
+   "water-wave teal hair",
+   "healer's wrap",
+   "strong calf",
+   "softer hips",
+   "wet skin",
+   "dripping water",
+   "heavy breasts",
+   "frank eyes"
+  ],
+  "neg": [
+   "dry skin",
+   "narrow hip"
+  ]
+ },
+ "19": {
+  "variant": "V1",
+  "name": "Vrata",
+  "add": [
+   "vow-spire candles",
+   "oath script on skin",
+   "severe black braid",
+   "warm brown skin",
+   "heavy breasts",
+   "straight shoulders",
+   "scarred palm"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "20": {
+  "variant": "V1",
+  "name": "Dhata",
+  "add": [
+   "surveyor chain bun",
+   "wheat sash",
+   "measured mantle",
+   "warm tan",
+   "broad hip",
+   "thick waist",
+   "heavy breasts",
+   "sun-lined eyes"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "21": {
+  "variant": "V1",
+  "name": "Arya",
+  "add": [
+   "wax-seal diadem",
+   "looping black hair",
+   "contract stole",
+   "warm brown skin",
+   "heavy breasts",
+   "elegant collarbone",
+   "half-lidded eyes"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "22": {
+  "variant": "V1",
+  "name": "Maitri",
+  "add": [
+   "bridge-bell earrings",
+   "twin braids",
+   "two-city shawl",
+   "warm tan",
+   "soft belly",
+   "heavy breasts",
+   "kind eyes"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "23": {
+  "variant": "V1",
+  "name": "Varuni",
+  "add": [
+   "naga",
+   "deep blue scales",
+   "coral tide-judge crown",
+   "seafoam hair",
+   "warm teal skin",
+   "heavy breasts",
+   "slit pupils",
+   "commanding stare"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "24": {
+  "variant": "V9",
+  "name": "Sachi",
+  "add": [
+   "thunder crown",
+   "lightning-white hair",
+   "roc mantle",
+   "sun-bleach",
+   "narrow eye",
+   "sunburn blush",
+   "regal stance",
+   "heavy breasts",
+   "hard shadow"
+  ],
+  "neg": [
+   "cool shadow",
+   "matte skin"
+  ]
+ },
+ "25": {
+  "variant": "V1",
+  "name": "Bhagya",
+  "add": [
+   "fortune scale earrings",
+   "coin curls",
+   "merchant veil",
+   "warm brown skin",
+   "heavy breasts",
+   "soft belly",
+   "shrewd eyes",
+   "gold rings"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "26": {
+  "variant": "V9",
+  "name": "Varchas",
+  "add": [
+   "sun-witness mirror fan",
+   "solar halo",
+   "golden straight hair",
+   "radiant linen",
+   "sun-bleached skin",
+   "white-gold highlight",
+   "medium breasts"
+  ],
+  "neg": [
+   "cool shadow",
+   "matte skin"
+  ]
+ },
+ "27": {
+  "variant": "V1",
+  "name": "Pushpa",
+  "add": [
+   "road-shepherd map scarf",
+   "map marks on skin",
+   "guide staff",
+   "warm tan",
+   "travel-worn",
+   "heavy breasts",
+   "dirt on knees"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "28": {
+  "variant": "V1",
+  "name": "Savitri",
+  "add": [
+   "marigold sun-thread crown",
+   "life-thread sash",
+   "marigold hair",
+   "red-brown skin",
+   "heavy breasts",
+   "soft belly",
+   "fervent eyes"
+  ],
+  "neg": [
+   "pale skin",
+   "slender frame"
+  ]
+ },
+ "29": {
+  "variant": "V6",
+  "name": "Takshi",
+  "add": [
+   "artificer brass goggles",
+   "mechanical braid",
+   "artisan apron",
+   "bare grease-streaked torso",
+   "sinewy arms",
+   "ash undertone",
+   "small breasts"
+  ],
+  "neg": [
+   "pale clean skin",
+   "slim arms"
+  ]
+ },
+ "30": {
+  "variant": "V8",
+  "name": "Vaishnavi",
+  "add": [
+   "dream-lotus crown",
+   "starry indigo hair",
+   "floating lotus",
+   "bleached lit flank",
+   "terminator",
+   "cold shadow",
+   "medium breasts",
+   "drowsy eyes"
+  ],
+  "neg": [
+   "warm tone",
+   "soft curve"
+  ]
+ },
+ "31": {
+  "variant": "V5",
+  "name": "Vamika",
+  "add": [
+   "tiny",
+   "mushroom throne",
+   "royal flower crown",
+   "flower hair",
+   "compact short body",
+   "round belly",
+   "small breasts",
+   "bare thighs"
+  ],
+  "neg": [
+   "slender",
+   "pale skin"
+  ]
+ },
+ "32": {
+  "variant": "V7",
+  "name": "Prakriti",
+  "add": [
+   "creation-clay halo",
+   "living clay arms",
+   "clay skin",
+   "heavy shoulder",
+   "blue-grey undertone",
+   "cloud banding",
+   "heavy breasts"
+  ],
+  "neg": [
+   "slender frame",
+   "warm tone"
+  ]
+ },
+ "33": {
+  "variant": "V6",
+  "name": "Vasha",
+  "add": [
+   "blue-flame offering crown",
+   "white hair",
+   "thirty-three lamps",
+   "ash undertone",
+   "sinewy",
+   "firelight",
+   "heavy breasts",
+   "solemn eyes"
+  ],
+  "neg": [
+   "pale clean skin",
+   "slim arms"
+  ]
+ }
+}

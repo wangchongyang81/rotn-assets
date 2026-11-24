@@ -37,7 +37,7 @@ def render(prompt, neg, seed):
 
 def main():
     c = int(sys.argv[1]); pose = sys.argv[2] if len(sys.argv) > 2 else "p"
-    J = json.loads(A.joinpath("companions-1-8.json").read_text())[str(c)]
+    J = json.loads(A.joinpath("companions.json").read_text())[str(c)]
     add = list(J["add"]); neg = list(J["neg"]) + [GUARD]; w = {}
     var = J["variant"].lower(); body = A.joinpath(f"anchor-v{var}-female-t/front.txt").read_text().split("\n")[3]
     dst = A / f"companion-{c:02d}-{pose}"; dst.mkdir(parents=True, exist_ok=True)
