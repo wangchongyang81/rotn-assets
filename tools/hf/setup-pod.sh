@@ -2,8 +2,8 @@
 set -euo pipefail
 ID=${1:?pod id}; ROLE=${2:?render|judge}; KEY=${3:-$HOME/.ssh/id_ed25519}
 case "$ROLE" in
-  render) PORT=8188; HEALTH=/system_stats; BOOT=tools/hf/boot-render.sh ;;
-  judge)  PORT=8001; HEALTH=/v1/models;    BOOT=tools/hf/boot-judge.sh ;;
+  render) PORT=8188; HEALTH=/system_stats; MATCH=system; BOOT=tools/hf/boot-render.sh ;;
+  judge)  PORT=8001; HEALTH=/v1/models;    MATCH=judge; BOOT=tools/hf/boot-judge.sh ;;
   *) echo "role must be render or judge"; exit 1 ;;
 esac
 J=$(runpodctl pod get "$ID")
@@ -31,7 +31,7 @@ fi
 $SSH "cd /workspace/rotn-assets && nohup bash $BOOT > /workspace/boot.log 2>&1 &"
 echo "boot started, polling $PORT$HEALTH"
 for i in $(seq 40); do
-  $SSH "curl -sf --max-time 4 http://127.0.0.1:$PORT$HEALTH >/dev/null" && { echo "healthy $i"; exit 0; }
+  $SSH "curl -s --max-time 4 http://127.0.0.1:$PORT$HEALTH | grep -q '$MATCH'" && { echo "healthy $i"; exit 0; }
   sleep 10
 done
 echo unhealthy; $SSH 'tail -20 /workspace/boot.log'; exit 1
