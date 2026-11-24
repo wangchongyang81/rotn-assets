@@ -10,6 +10,10 @@ mkdir -p "$V"
 if [ ! -s "$V/config.json" ] || [ "${FORCE_PULL:-0}" = 1 ]; then
   bash "$R/tools/hf/pull.sh" judge
 fi
+if [ ! -s "$V/config.json" ]; then
+  echo "mirror empty, pulling public"
+  bash "$R/tools/hf/pull-public.sh" judge
+fi
 [ -s "$V/config.json" ] || { echo "no weights after pull"; exit 1; }
 export MODEL="$V"
 cd "$R"
