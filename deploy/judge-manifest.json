@@ -21,7 +21,18 @@
   "proxy": "nginx 8001 -> localhost:8000",
   "serve_script": "tools/judge/serve-fp16.sh",
   "health": "GET 8000/v1/models body contains judge",
-  "flags": ["--served-model-name judge", "--dtype float16", "--max-model-len 8192", "--gpu-memory-utilization 0.85", "--host 0.0.0.0", "--port 8000"],
-  "removed_flags": ["--guided-decoding-backend"],
-  "open": "guided decoding via --structured-outputs-config, not yet wired"
+  "flags": [
+    "--served-model-name judge",
+    "--dtype float16",
+    "--max-model-len 8192",
+    "--gpu-memory-utilization 0.85",
+    "--host 0.0.0.0",
+    "--port 8000"
+  ],
+  "removed_flags": [
+    "--guided-decoding-backend"
+  ],
+  "open": "guided decoding via --structured-outputs-config, not yet wired",
+  "vision_proven": "2026-11-24T14:18Z solid red 64x64 -> 'Red.'",
+  "vision_smoke": "tools/hf/vision-smoke.py"
 }
