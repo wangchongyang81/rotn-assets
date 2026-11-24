@@ -57,7 +57,14 @@ def main():
         if mode == "calibrate": print(json.dumps(m)); continue
         m["fail"] = verdict(m, t); bad += bool(m["fail"]); print(json.dumps(m))
     if mode == "calibrate" and paths:
-        TH.write_text(json.dumps({k: min(metrics(p).get(k, 0) for p in paths) for k in REQ} | {"min_hands": 2}, indent=1))
+        base = {k: min(metrics(p).get(k, 0) for p in paths) for k in REQ}
+        for k in ("top", "bottom", "left", "right"):
+            base[k] = round(base[k] * 0.7, 4)
+        lap0 = base["lap"]
+        base["lap"] = round(lap0 * 1.05, 1)
+        base["lap_target"] = round(lap0 * 1.2, 1)
+        base["area"] = round(base["area"] * 0.9, 4)
+        TH.write_text(json.dumps(base | {"min_hands": 2}, indent=1))
     sys.exit(1 if bad else 0)
 
 if __name__ == "__main__":
