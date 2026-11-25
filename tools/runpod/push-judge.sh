@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+cd "$(dirname "$0")"
 H=${1:?host}; P=${2:?port}; K=${KEY:-$HOME/.ssh/id_ed25519}
 S="-i $K -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 D=/workspace/judge
