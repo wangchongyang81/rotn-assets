@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 P=${1:?pose}; T=${2:?tag}; SD=${3:?seed}
+skelname(){ case $1 in tpose) echo skel-tpose.png;; *) echo skel-ppose-$1.png;; esac; }
+SKEL=$(skelname "$P")
 CFG=${CFG:-5.0}; SMP=${SMP:-dpmpp_2m}
 I=/workspace/comfy/input
-J=$(python - "$I" "$P" "$T" "$SD" "$CFG" "$SMP" <<'PY'
+J=$(python - "$I" "$P" "$T" "$SD" "$CFG" "$SMP" "$SKEL" <<'PY'
 import json,sys
 import os
-i,p,t,sd,cfg,smp=sys.argv[1:]
+i,p,t,sd,cfg,smp,skel=sys.argv[1:]
 rd=lambda f:open(f"{i}/{f}").read().strip()
 g={"3":("CheckpointLoaderSimple",{"ckpt_name":"NoobAI-XL-v1.1.safetensors"}),
 "4":("ControlNetLoader",{"control_net_name":"openpose-xinsir-sdxl.safetensors"}),
-"5":("LoadImage",{"image":f"skel-{p}.png","upload":"image"}),
+"5":("LoadImage",{"image":skel,"upload":"image"}),
 "6":("CLIPTextEncode",{"text":rd(f"prompt-{p}.txt"),"clip":["3",1]}),
 "7":("CLIPTextEncode",{"text":rd(f"neg-{p}.txt"),"clip":["3",1]}),
 "8":("ControlNetApplyAdvanced",{"strength":0.85,"start_percent":0.0,"end_percent":1.0,"positive":["6",0],"negative":["7",0],"control_net":["4",0],"image":["5",0]}),
