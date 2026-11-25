@@ -1,5 +1,6 @@
 import json, os
-d = json.load(open(os.environ.get("PROBE") or "pod-probe.json"))
+D = os.path.dirname(os.path.abspath(__file__))
+d = json.load(open(os.path.join(D, os.environ.get("PROBE") or "pod-probe.json")))
 e = os.environ
 b = {
  "name": d["name"],
