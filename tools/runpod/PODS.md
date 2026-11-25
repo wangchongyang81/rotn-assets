@@ -47,7 +47,7 @@ Fleet B never writes anchors; it may attach the volume for models only.
 
 ## Command shapes — kebab, runpodctl
 runpodctl pod create --name N --image I --gpu-id G --gpu-count 1 \
-  --cloud-type COMMUNITY --data-center-ids DC --network-volume-id V \
+  --cloud-type SECURE --data-center-ids DC --network-volume-id V \
   --volume-mount-path /workspace --container-disk-in-gb 60 \
   --ports '8188/http,22/tcp' --ssh --env '{"HF_TOKEN":"..."}' -o json
 runpodctl pod list | pod get ID | pod stop ID | pod start ID | pod delete ID
