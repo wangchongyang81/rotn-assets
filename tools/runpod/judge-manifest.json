@@ -1,0 +1,10 @@
+{
+ "name": "rotn-judge",
+ "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+ "pixels": 1024,
+ "criteria": ["full figure", "both feet", "head level", "arms correct", "no extra limbs", "clean background"],
+ "gates": {"edge": 4.0, "dark": 1.5, "bot": [1100, 1216], "fill": [75, 98], "mean": [150, 235], "dark_max": 50},
+ "poses": ["tpose", "p1", "p2", "p3", "p4", "p5", "p7", "p8", "ppose", "apose-wide"],
+ "in": "/workspace/judge/in",
+ "out": "/workspace/judge/verdicts.jsonl"
+}
