@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -uo pipefail
 cd "$(dirname "$0")"
-[ -s pod-probe.json ] || { echo NOPROBE >&2; exit 1; }
+[ -s "${PROBE:-pod-probe.json}" ] || { echo NOPROBE >&2; exit 1; }
 N=${TRIES:-4}; S=${SLEEP:-30}
 for i in $(seq 1 "$N"); do
   out=$(python3 - <<'PY'
 import json,os
-d=json.load(open("pod-probe.json")); e=os.environ
+d=json.load(open(os.environ.get("PROBE") or "pod-probe.json")); e=os.environ
 g=e.get("GPU") or d["gpu"]["id"]; c=e.get("CLOUD") or d["cloud"]
 dc=e.get("DC") or d["dataCenterIds"][0]; v=e.get("VOLUME") or d["mounts"]["network"][0]["volumeId"]
 mp=e.get("MOUNT") or d["mounts"]["network"][0]["path"]; tok=e.get("HF_TOKEN") or ""

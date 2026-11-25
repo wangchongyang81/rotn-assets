@@ -20,30 +20,20 @@ Proven live: 4090 $0.89/hr, A100-SXM4-80GB $2.19/hr, B200 $7.99/hr,
 RTX PRO 6000 $2.69/hr. All Low, all EU-RO-1. Low is orderable; a create can
 still lose the race and retry.
 
-## Fleet A — anchor lock pilot (4090)
-Purpose: per-pose anchors, skeletons and sheets for the art lock. First fleet.
-Host: SECURE EU-RO-1, 4090, volume 39dhm3ia6u at /workspace, disk 50.
-Ports 8188/http and 22/tcp.
-Order: create.sh -> up-connect.sh -> remote-boot.sh -> remote-prep.sh ->
-remote-aux.sh -> remote-dl.sh -> remote-cn.sh -> remote-smoke.sh.
-Then render: remote-tskel3.sh or remote-ppose.sh, remote-sheet.sh,
-MAX=4 loop.sh H P pose out seed, then prune.sh, then pod-down.sh.
-create.sh builds the mutation inline; it reads GPU, DC, CLOUD, VOLUME, TRIES
-from the environment. The default GPU is still `NVIDIA A100 PCIe`, so pass
-`GPU='NVIDIA GeForce RTX 4090'`. It does not read pod-probe.json yet.
-`DRY=1` prints the mutation then exits 1 "no capacity" — read the print, not the code.
-remote-boot.sh makes the five symlinks (ln -sfnT into /workspace/comfy).
-remote-prep.sh re-pins torch only. Skip neither.
-Recipe and pins: RECIPE.md. Gates: NEXT.md. Resume: RESUME.md.
-Volume record: master/anchors/checkpoint/RECORD.md — file, sha256, licence.
-
-## Fleet B — judge now, render deferred
-Judge first after the anchors: A100-SXM4-80GB at $2.19/hr, proven there.
-Render waits for the master anchor locks; no CG job runs before them.
-Judge: boot-judge.sh, setup-judge.sh, push-judge.sh, judge-eval.py,
-vision-smoke.py, judge-discrim.py. Manifest: judge-manifest.json.
-Render: boot-render.sh, setup-render.sh, pull-render.sh. ComfyUI is master; create in rotn-src deploy/render/.
-Fleet B never writes anchors; it may attach the volume for models only.
+## Fleet B — render, then judge
+One fleet, two pods. Never both roles on one pod.
+Sequential on one volume: judge follows render, never beside it.
+Render runs the master anchor lock automation first: skeletons, anchors, sheets.
+CG runs only after every master anchor lock is generated.
+Judge follows the render to score it; judge needs A100-SXM4-80GB.
+Render: 4090, SECURE EU-RO-1, volume 39dhm3ia6u at /workspace, disk 50, ports 8188/http and 22/tcp.
+Order: PROBE=render.json create.sh -> up-connect.sh -> remote-boot.sh ->
+remote-prep.sh -> remote-aux.sh -> remote-dl.sh -> remote-cn.sh -> remote-smoke.sh.
+Then remote-tskel3.sh or remote-ppose.sh, remote-sheet.sh, MAX=4 loop.sh H P pose out seed,
+prune.sh, pod-down.sh.
+Judge tooling committed 8ad199d; model Qwen2.5-VL-7B-Instruct (Apache-2.0).
+Judge pod goes up only after the render pod is down; anchors never wait on it.
+Neither role writes the other's outputs.
 
 ## Command shapes — kebab, runpodctl
 runpodctl pod create --name N --image I --gpu-id G --gpu-count 1 \
