@@ -2,7 +2,7 @@
 set -uo pipefail
 J=/workspace/judge
 F=0
-step(){ echo "=== $1"; shift; "$@"; c=$?; echo "rc=$c $1"; [ "$c" = 0 ] || F=$((F+1)); }
+step(){ n=$1; shift; echo "=== $n"; "$@"; c=$?; echo "rc=$c $n"; [ "$c" = 0 ] || F=$((F+1)); }
 step boot bash /workspace/remote-boot.sh
 step setup bash "$J/setup-judge.sh"
 step smoke python3 "$J/vision-smoke.py"

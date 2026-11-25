@@ -38,6 +38,7 @@ Judge pod goes up only after the render pod is down; anchors never wait on it.
 Neither role writes the other's outputs.
 Models: remote-dl.sh checkpoint, remote-cn.sh ControlNet; aux pin c2655d2 is real HEAD.
 No LoRA downloader exists; the anchor smoke needs none. Open.
+remote-order.sh is a fourth ComfyUI starter (comfy_kitchen fixer); it must not run after boot.
 
 ## Command shapes — kebab, runpodctl
 runpodctl pod create --name N --image I --gpu-id G --gpu-count 1 \
