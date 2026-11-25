@@ -32,7 +32,7 @@ remote-prep.sh -> remote-aux.sh -> remote-dl.sh -> remote-cn.sh -> remote-smoke.
 Then remote-tskel3.sh or remote-ppose.sh, remote-sheet.sh, MAX=4 loop.sh H P pose out seed,
 prune.sh, pod-down.sh.
 Judge tooling committed 8ad199d; model Qwen2.5-VL-7B-Instruct (Apache-2.0).
-Judge probe: judge.json, A100-SXM4-80GB, PROBE=judge.json create.sh.
+Judge probe: judge.json, A100-SXM4-80GB, `PROBE=judge.json bash create.sh`.
 Judge pod goes up only after the render pod is down; anchors never wait on it.
 Neither role writes the other's outputs.
 Models: remote-dl.sh checkpoint, remote-cn.sh ControlNet; aux pin c2655d2 is real HEAD.
