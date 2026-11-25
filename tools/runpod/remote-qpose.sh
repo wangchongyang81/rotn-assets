@@ -9,7 +9,7 @@ L+=[((341,650),(321,885)),((321,885),(301,1110)),((301,1110),(266,1142))]
 L+=[((491,650),(511,885)),((511,885),(531,1110)),((531,1110),(566,1142))]
 for a,b in L: d.line([a,b],fill=(255,255,255),width=18)
 d.line([(416,300),(416,650)],fill=(255,255,255),width=24); d.ellipse([339,120,493,266],outline=(255,255,255),width=18)
-im.save('/workspace/comfy/output/skel-qpose.png'); print('saved')
+im.save('/workspace/comfy/input/skel-qpose.png'); print('saved')
 px=im.convert('L').load(); [print('row',y,[x for x in range(0,W,2) if px[x,y]>20][:1]+[x for x in range(0,W,2) if px[x,y]>20][-1:]) for y in (270,300,330)]
 import json
 C="checkpoints/NoobAI-XL-v1.1.safetensors"

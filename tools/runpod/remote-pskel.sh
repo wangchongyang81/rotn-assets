@@ -10,7 +10,7 @@ L+=[((416,300),(416,650)),((341,650),(491,650)),((341,650),(321,885)),((321,885)
 for a,b in L: d.line([a,b],fill=(255,255,255),width=18)
 d.line([(416,300),(416,650)],fill=(255,255,255),width=24)
 d.ellipse([339,120,493,266],outline=(255,255,255),width=18)
-im.save('/workspace/comfy/output/skel-ppose.png'); print('drawn',im.size)
+im.save('/workspace/comfy/input/skel-ppose.png'); print('drawn',im.size)
 g=im.convert('L'); px=g.load()
 r=[y for y in range(H) if any(px[x,y]>20 for x in range(0,W,2))]
 print('top',r[0],'bot',r[-1],'h',r[-1]-r[0])

@@ -13,7 +13,7 @@ L+=[((491,650),(511,885)),((511,885),(531,1110)),((531,1110),(566,1142))]
 for a,b in L: d.line([a,b],fill=(255,255,255),width=18)
 d.line([(416,316),(416,650)],fill=(255,255,255),width=24); d.ellipse([339,120,493,266],outline=(255,255,255),width=18)
 d.ellipse([14,300,50,332],outline=(255,255,255),width=16)
-im.save('/workspace/comfy/output/skel-ppose3.png'); print('saved')
+im.save('/workspace/comfy/input/skel-ppose3.png'); print('saved')
 px=im.convert('L').load(); r=[y for y in range(H) if any(px[x,y]>20 for x in range(0,W,2))]; print('top',r[0],'bot',r[-1],'h',r[-1]-r[0])
 import json
 C="checkpoints/NoobAI-XL-v1.1.safetensors"

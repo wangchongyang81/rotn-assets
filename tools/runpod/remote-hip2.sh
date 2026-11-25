@@ -9,7 +9,7 @@ L+=[((341,650),(301,885)),((301,885),(261,1110)),((261,1110),(226,1142))]
 L+=[((491,650),(531,885)),((531,885),(571,1110)),((571,1110),(606,1142))]
 for a,b in L: d.line([a,b],fill=(255,255,255),width=18)
 d.line([(416,300),(416,650)],fill=(255,255,255),width=24); d.ellipse([339,120,493,266],outline=(255,255,255),width=18)
-im.save('/workspace/comfy/output/skel-ppose7.png'); print('saved')
+im.save('/workspace/comfy/input/skel-ppose7.png'); print('saved')
 import json
 C="checkpoints/NoobAI-XL-v1.1.safetensors"
 P="(standing:1.3), masterpiece, best quality, absurdres, solo, 1girl, anime style, flat colour, flat shading, cel shading, nude, completely nude, breasts, nipples, navel, vagina, labia, bare feet"

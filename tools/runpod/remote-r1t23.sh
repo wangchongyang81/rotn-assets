@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 python -c 'import torch;print("torch",torch.__version__)'; curl -s -o /dev/null -w "http %{http_code}\n" http://127.0.0.1:8188/
-cd /workspace/comfy/output; ls -l skel-tpose2.png anchor-r1t21_00001_.png
+cd /workspace/comfy/input; ls -l skel-tpose2.png anchor-r1t21_00001_.png
 python - <<'PY'
 from PIL import Image; import json
 C="checkpoints/NoobAI-XL-v1.1.safetensors"
