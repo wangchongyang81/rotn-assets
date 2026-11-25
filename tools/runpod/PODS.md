@@ -27,8 +27,9 @@ Render runs the master anchor lock automation first: skeletons, anchors, sheets.
 CG runs only after every master anchor lock is generated.
 Judge follows the render to score it; judge needs A100-SXM4-80GB.
 Render: 4090, SECURE EU-RO-1, volume 39dhm3ia6u at /workspace, disk 50, ports 8188/http and 22/tcp.
-Order: PROBE=render.json create.sh -> up-connect.sh -> remote-boot.sh ->
-remote-prep.sh -> remote-aux.sh -> remote-dl.sh -> remote-cn.sh -> remote-smoke.sh.
+Judge first to prove the VLM; render after. Judge: `PROBE=judge.json bash create.sh`
+-> up-connect.sh -> boot-judge.sh -> push-judge.sh -> setup-judge.sh -> vision-smoke.py
+-> judge-discrim.py, then pod-down.sh. Render then: `PROBE=render.json bash create.sh`
 Then remote-tskel3.sh or remote-ppose.sh, remote-sheet.sh, MAX=4 loop.sh H P pose out seed,
 prune.sh, pod-down.sh.
 Judge tooling committed 8ad199d; model Qwen2.5-VL-7B-Instruct (Apache-2.0).
