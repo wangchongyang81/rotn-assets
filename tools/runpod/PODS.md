@@ -1,7 +1,13 @@
 # PODS — two fleets, one volume
 
-Print this with WORKPLAN at every arrival. It is the tooling inventory, not a
-suggestion. No live pod is assumed: id, ip and port change every start.
+Print this with WORKPLAN and REPOS.md at every arrival. It is the tooling
+inventory, not a suggestion. No live pod is assumed: id, ip and port change
+every start.
+
+## Region — EU-RO-1 only
+The 150GB volume is there and a pod must share its datacenter to mount it.
+US-MO-1 was mooted for stock and rejected. Do not re-moot it.
+Stock sits per-datacenter under dataCenterAvailability on the gpu list.
 
 ## Fleet A — anchor lock pilot (4090)
 Purpose: per-pose anchors, skeletons and sheets for the art lock.
@@ -16,7 +22,7 @@ Never skip remote-prep.sh: it re-pins torch and makes the five symlinks.
 
 ## Fleet B — judge and render (80GB+)
 Purpose: VLM judging of renders, and ComfyUI rendering for CGs.
-Host: any EU datacenter holding the card; judge proven on A100-SXM4-80GB EU-RO-1.
+Host: EU-RO-1 only. Judge proven on A100-SXM4-80GB there.
 Judge: boot-judge.sh, setup-judge.sh, push-judge.sh, judge-eval.py,
 vision-smoke.py, judge-discrim.py. Manifest: judge-manifest.json.
 Render: boot-render.sh, setup-render.sh, pull-render.sh. ComfyUI is master.
@@ -32,7 +38,6 @@ runpodctl pod list | pod get ID | pod stop ID | pod start ID | pod delete ID
 runpodctl network-volume create --name N --size 150 --data-center-id DC
 runpodctl network-volume list | get ID | delete ID
 `create network-volume` is no verb. `pod create` is kebab; camelCase 400s.
-Stock: per-datacenter stockStatus under dataCenterAvailability on gpu list.
 The datacenter list has no available key and cannot answer stock at all.
 Runtime ip and port: gql.sh with x-api-key. runpodctl and v2.sh send Bearer, 401.
 Exec API is 403 with this key; ssh is the only route.
@@ -47,7 +52,6 @@ Never a token in a repo, image or prompt.
 ## Volume — one, never delete
 39dhm3ia6u rotn-vol, 150GB, EU-RO-1, mount /workspace.
 Holds NoobAI 7.1GB, xinsir ControlNet 2.5GB, LoRAs, outputs, ComfyUI tree.
-A pod must be created in the same datacenter or the mount fails.
 Recreate only from checkpoint/RECORD.md.
 Prune: DRY=1 DAYS=7 prune.sh HOST PORT; orphans are ids absent from attempts.jsonl.
 
