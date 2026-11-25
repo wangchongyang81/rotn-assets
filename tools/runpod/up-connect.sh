@@ -2,7 +2,7 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 for i in $(seq 1 30); do
-  r=$(bash v2.sh POST /pods "$(cat "${PROBE:-pod-probe.json}")")
+  r=$(bash v2.sh POST /pods "$(python3 probe2rest.py)")
   id=$(printf '%s' "$r" | python3 -c 'import json,sys;print(json.load(sys.stdin).get("id",""))' 2>/dev/null)
   [[ -n $id ]] && { echo "POD $id"; break; }
   echo "try $i: $(printf '%s' "$r" | head -c 90)"; sleep 20
