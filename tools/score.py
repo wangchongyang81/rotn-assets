@@ -6,5 +6,4 @@ if not c or not r: print('0 0 0 0 255');raise SystemExit
 x0,y0,x1,y1=min(c),min(r),max(c),max(r)
 em=sum(e[x,y] for y in range(y0,y1,2) for x in range(x0,x1,2))/((y1-y0)//2*(x1-x0)//2)
 v=[px[x,y] for y in range(y0,y1,4) for x in range(x0,x1,4)]
-fy0,fy1=round(y0*1216/H),round(y1*1216/H)
-print(round(em,1),round(100*sum(1 for q in v if q<90)/len(v),1),fy1,round(100*(x1-x0)*(fy1-fy0)/(W*1216),1),round(ImageStat.Stat(g).mean[0],1))
+print(round(em,1),round(100*sum(1 for q in v if q<90)/len(v),1),y1,round(100*(x1-x0)*(y1-y0)/(W*H),1),round(ImageStat.Stat(g).mean[0],1))
