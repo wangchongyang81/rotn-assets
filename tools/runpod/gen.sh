@@ -9,11 +9,12 @@ import json,sys,os
 i,p,t,sd,cfg,smp,sch,stp,ck=sys.argv[1:]
 rd=lambda f:open(f"{i}/{f}").read().strip()
 g={"3":("CheckpointLoaderSimple",{"ckpt_name":ck}),
+"4":("PixelSpaceVAELoader",{"pixel_space":"sdxl_vae.safetensors"}),
 "6":("CLIPTextEncode",{"text":rd(f"prompt-{p}.txt"),"clip":["3",1]}),
 "7":("CLIPTextEncode",{"text":rd(f"neg-{p}.txt"),"clip":["3",1]}),
 "9":("EmptyLatentImage",{"width":int(os.environ.get("W",832)),"height":int(os.environ.get("H",1216)),"batch_size":1}),
-"10":("KSampler",{"seed":int(sd),"steps":int(stp),"cfg":float(cfg),"sampler_name":smp,"scheduler":sch,"denoise":1.0,"model":["3",0],"positive":["6",0],"negative":["7",0],"latent_image":["9",0]}),
-"11":("VAEDecode",{"samples":["10",0],"vae":["3",2]}),
+"10":("KSampler",{"seed":int(sd),"steps":int(stp),"cfg":float(cfg),"sampler_name":smp,"scheduler":sch,"denoise":1.0,"model":["3",0],"positive":["6",0],"negative":["7",0],"vae":["4",0],"latent_image":["9",0]}),
+"11":("VAEDecode",{"samples":["10",0],"vae":["4",0]}),
 "12":("SaveImage",{"filename_prefix":t,"images":["11",0]})}
 print(json.dumps({"prompt":{k:{"class_type":v[0],"inputs":v[1]} for k,v in g.items()}}))
 PY
