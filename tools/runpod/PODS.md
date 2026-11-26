@@ -1,39 +1,49 @@
-# PODS — one fleet, one volume
+# PODS - one fleet, one volume
 
-Print with WORKPLAN and REPOS.md at every arrival. No live pod is assumed;
-id, ip and port change every start.
+No live pod is assumed. id, ip and port change every start.
+Print this with WORKPLAN at every arrival.
 
-## Region — EU-RO-1 only
-The 150GB volume is there and a pod must share its datacenter to mount it.
-Region is forced by the volume and never chosen; US-MO-1 was rejected for stock.
+## Region
+EU-RO-1 only. The 150GB volume is there and a pod must share its
+datacenter to mount it. Region is forced by the volume, never chosen.
 
-## Stock — runpodctl only, proven 2026-11-25
-GraphQL cannot answer stock; `dataCenterAvailability` is not a GpuType field
-and Apollo introspection is disabled. Never a GraphQL probe.
-`runpodctl gpu list` rows carry `dataCenterAvailability[].dataCenterId` and
-`securePricePerHr`; keep EU-RO-1 rows and read `stockStatus`.
-Proven live, all Low: 4090 $0.89/hr, A100 $2.19/hr, RTX PRO 6000 $2.69/hr.
+## Access - resolve, never remember
+1. id:      runpodctl pod list
+2. ip/port: bash sshinfo.sh ID
+3. ssh:     ssh -i ~/.ssh/id_ed25519 -p PORT root@IP
 
-## Fleet — rotn-render
-One fleet, one pod, one role. 4090, SECURE EU-RO-1, volume 39dhm3ia6u at
-/workspace, disk 50, ports 8188/http and 22/tcp.
-`bash create.sh` (reads pod-probe.json) -> up-connect.sh -> boot-render.sh.
-Fleet B and the judge pod are retired; judge tooling is gone. Art and CG
-direction is being replanned, so no render sequence is fixed beyond the boot.
-The volume keeps NoobAI, ControlNet, LoRAs, outputs and ComfyUI. Never delete it.
+sshinfo.sh reads runtime.ports for private 22 and prints "IP PUBLIC".
+Runtime is null while EXITED, so resolve only after RUNNING.
+ssh.md holds a stale port; trust sshinfo.sh alone.
+Proxy ssh.runpod.io rejects this key. Exec API is 403.
+ssh is the only route.
 
-## Command shapes — kebab, runpodctl
-create.sh builds `pod create`; it is kebab, camelCase 400s, and the
-`network-volume` subverb and flag set are unverified — check `--help` first.
-runpodctl pod list | pod get ID | pod stop ID | pod start ID | pod delete ID
-Runtime ip and port: gql.sh with x-api-key; runpodctl and v2.sh send Bearer, 401.
-The Exec API is 403 with this key, so ssh is the only route.
+## Stock - runpodctl only
+GraphQL cannot answer stock and GET /gpus 404s on v2.
+runpodctl gpu list > /tmp/gl.txt
+Rows carry gpuId, memoryInGb, securePricePerHr and
+dataCenterAvailability[].dataCenterId plus stockStatus.
+Parse EU-RO-1 only:
 
-## HF mirrors — private
-rotn-pilot only; rotn-judge-env and rotn-render-env are deleted.
-Token via hf auth, expires 2026-12-19; pod env HF_TOKEN at create only, never a repo.
-mirror.sh and push.sh upload; pull.sh and pull-public.sh fetch.
+python3 - <<'PY'
+import json
+for g in json.load(open('/tmp/gl.txt')):
+    for s in (g.get('dataCenterAvailability') or []):
+        if s.get('dataCenterId')=='EU-RO-1':
+            print(g.get('gpuId'),g.get('memoryInGb'),s.get('stockStatus'))
+PY
 
-## Rules
-pod-down.sh or pod stop before leaving; a stopped pod still bills its disk.
-Prune: DRY=1 DAYS=7 prune.sh HOST PORT; orphans are ids absent from attempts.jsonl.
+## Start - capacity refuses often
+runpodctl pod start ID
+Refusal reads "not enough free GPUs on the host machine".
+Retry with sleep 40, or recreate on a stocked card:
+GPU="NVIDIA GeForce RTX 4090" NAME=rotn-render bash create.sh
+NAME matters: depart.sh filters names starting rotn.
+
+## Known 404s on v2.sh
+GET /gpus
+POST /pods/ID/start  (use runpodctl pod start)
+
+## Volume
+39dhm3ia6u at /workspace, EU-RO-1, disk 50-60.
+Keeps checkpoints, mirror, LoRAs, ComfyUI, outputs. Never delete.
