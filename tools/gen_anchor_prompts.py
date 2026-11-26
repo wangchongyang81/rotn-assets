@@ -1,22 +1,16 @@
-#!/usr/bin/env python3
 import json,pathlib
 A=pathlib.Path("/workspaces/rotn-assets")
 C=json.loads((A/"master/anchors/companions.json").read_text())
-rows=[l.split("|") for l in (A/"ref/SLUGS.md").read_text().split("\n") if l.startswith("| ") and "ref/" in l]
-HDR="(t-pose:1.5), masterpiece, best quality, very aesthetic, absurdres, solo, 1girl, anime style, anime coloring, cel shading, hardcore, nude, completely nude, uncensored"
-FACE="detailed face, detailed eyes, eyelashes, face unobstructed"
-POSE="arms straight out horizontal level with shoulders, straight elbows, hands open at arm ends, five fingers"
-STAND="standing straight, legs together parallel, feet visible, straight-on front view, head level"
-BG="(neutral grey seamless backdrop:1.6), no floor shadow, even soft key light at 45 degrees, 25 percent fill"
-NEG=open(A/"master/anchors/anchor-v1-female-t/front.txt").read().split("negative:")[1].strip().replace("dark grey background, ","")
-out=A/"art/prompts/anchors"; out.mkdir(parents=True,exist_ok=True)
-idx={}
-for r in rows:
-    slug=r[1].strip(); ch=r[4].strip()
-    if ch not in C: print("SKIP",slug,ch); continue
-    e=C[ch]; add=", ".join(e["add"])
-    pos=f"{HDR}\n{FACE}\n{POSE}\n{STAND}\n{add}\n{BG}"
-    (out/f"{slug}-t.txt").write_text("positive:\n"+pos+"\nnegative:\n"+NEG+", "+", ".join(e["neg"])+"\n")
-    idx[slug]={"char":ch,"variant":e["variant"],"name":e["name"]}
-(out/"_index.json").write_text(json.dumps(idx,indent=1))
-print("slugs",len(idx)); print((out/"dhara-t.txt").read_text())
+N=json.loads((A/"ref/NAMES.json").read_text())
+B="masterpiece, best quality, absurdres, anime style, flat colour, flat shading, cel shading, 1girl, solo, single figure, female adult mid-twenties, medium build, head to body ratio 1 to 7"
+P="arms straight out horizontal level with shoulders, straight elbows, palms forward, hands open, five fingers, (thigh gap:1.1)"
+T="front view, full body, standing, feet in frame, full figure, wide shot, completely nude, uncensored, hardcore, breasts, nipples, navel, vagina, labia"
+E="sharp focus, crisp lineart, clean silhouette, (solid white background:1.6)"
+G="worst quality, bad quality, low quality, lowres, bad anatomy, bad hands, extra digits, fewer digits, signature, watermark, text, multiple views, reference sheet, scenery, props, background clutter, gradient background, visible light rays, light cone, green tint, olive background, bokeh, blurry, soft focus, halo, vignette, heavy shading, purple shadow, (ground shadow:1.5), soft airbrush, 2girls, multiple girls, twin, mannequin, 3d render, faceless, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, small head, long torso, profile view, side view, (oversized breasts:0.7), clothing, cropped feet, out of frame, bar censor, censored"
+o=A/"art/prompts/anchors"; o.mkdir(parents=True,exist_ok=True)
+for f in o.glob("*.txt"): f.unlink()
+for ch,e in sorted(C.items(),key=lambda x:int(x[0])):
+    s=N.get(ch)
+    if not s: continue
+    (o/f"{s}-t.txt").write_text("positive:\n"+f"{B}\n{P}\n"+", ".join(e["add"])+f"\n{T}\n{E}\nnegative:\n"+G+", "+", ".join(e["neg"])+"\n")
+print("n",len(list(o.glob("*.txt"))))

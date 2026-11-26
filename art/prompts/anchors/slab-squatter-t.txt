@@ -1,9 +1,0 @@
-positive:
-(t-pose:1.5), masterpiece, best quality, very aesthetic, absurdres, solo, 1girl, anime style, anime coloring, cel shading, hardcore, nude, completely nude, uncensored
-detailed face, detailed eyes, eyelashes, face unobstructed
-arms straight out horizontal level with shoulders, straight elbows, hands open at arm ends, five fingers
-standing straight, legs together parallel, feet visible, straight-on front view, head level
-pearl spring veil, water-wave teal hair, healer's wrap, strong calf, softer hips, wet skin, dripping water, heavy breasts, frank eyes
-(neutral grey seamless backdrop:1.6), no floor shadow, even soft key light at 45 degrees, 25 percent fill
-negative:
-mannequin, 3d render, base mesh, featureless, bald, flat chest, (small breasts:0.8), stretch marks, skin creases, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, ground shadow, rim light, glow, orange glow, red tint, blue tint, watermark, text, clothing, arms down, (arms angled down:1.2), a-pose, crossed ankles, cropped feet, out of frame, (halo:1.4), (cel shading:0.5), flat shading, flat colour, soft airbrush, overexposed, blown highlights, blurry lineart, sketchy lineart, cross above head, small head, long torso, long neck, profile view, side view, (oversized breasts:0.7), white background, simple background, dry skin, narrow hip

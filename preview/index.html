@@ -1,15 +1,4 @@
 <!doctype html><meta charset=utf-8><title>anchors</title>
-<style>body{background:#1b1b1b;color:#ddd;font:13px system-ui;margin:0;padding:16px}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-figure{margin:0;background:#242424;border-radius:6px;overflow:hidden}
-img{width:100%;display:block}figcaption{padding:6px 8px;color:#9c9}
-</style><h3>anchor previews</h3><div class=g id=g></div>
-<script>
-fetch('anchors/').then(r=>r.text()).catch(()=>null);
-const f=["dhara"];
-const g=document.getElementById('g');
-f.forEach(n=>{const d=document.createElement('figure');
-const i=document.createElement('img');i.src='anchors/anchor-'+n+'_00001_.png';i.loading='lazy';
-const c=document.createElement('figcaption');c.textContent=n;
-d.append(i,c);g.append(d)});
-</script>
+<style>body{background:#1b1b1b;color:#ddd;font:13px system-ui;margin:0;padding:16px}.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}figure{margin:0;background:#242424;border-radius:6px;overflow:hidden}img{width:100%;display:block}figcaption{padding:6px 8px;color:#9c9}</style>
+<h3>2 anchors</h3><div class=g><figure><img src="anchors/anchor-mitali-r1_00001_.png" loading=lazy><figcaption>anchor-mitali-r1_00001_.png</figcaption></figure>
+<figure><img src="anchors/anchor-mitali_00001_.png" loading=lazy><figcaption>anchor-mitali_00001_.png</figcaption></figure></div>

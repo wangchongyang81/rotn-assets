@@ -1,0 +1,8 @@
+positive:
+masterpiece, best quality, absurdres, anime style, flat colour, flat shading, cel shading, 1girl, solo, single figure, female adult mid-twenties, medium build, head to body ratio 1 to 7
+arms straight out horizontal level with shoulders, straight elbows, palms forward, hands open, five fingers, (thigh gap:1.1)
+wax-seal diadem, looping black hair, contract stole, warm brown skin, heavy breasts, elegant collarbone, half-lidded eyes
+front view, full body, standing, feet in frame, full figure, wide shot, completely nude, uncensored, hardcore, breasts, nipples, navel, vagina, labia
+sharp focus, crisp lineart, clean silhouette, (solid white background:1.6)
+negative:
+worst quality, bad quality, low quality, lowres, bad anatomy, bad hands, extra digits, fewer digits, signature, watermark, text, multiple views, reference sheet, scenery, props, background clutter, gradient background, visible light rays, light cone, green tint, olive background, bokeh, blurry, soft focus, halo, vignette, heavy shading, purple shadow, (ground shadow:1.5), soft airbrush, 2girls, multiple girls, twin, mannequin, 3d render, faceless, four arms, extra arms, malformed hands, extra fingers, fused fingers, distorted face, chibi, painterly, western comic, small head, long torso, profile view, side view, (oversized breasts:0.7), clothing, cropped feet, out of frame, bar censor, censored, pale skin, slender frame
