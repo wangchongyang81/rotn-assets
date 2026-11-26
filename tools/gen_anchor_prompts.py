@@ -17,7 +17,7 @@ for ch,e in sorted(C.items(),key=lambda x:int(x[0])):
     s=N.get(ch); env=get("env."+e.get("variant","").lower())
     if not s: print("NONAME",ch); continue
     if not env: print("NOENV",ch,e.get("variant")); continue
-    pos=", ".join(x for x in [get("quality"),get("anatomy"),get("pose"),get("frame"),
+    pos=", ".join(x for x in [get("quality"),get("anatomy"),(get("pose."+ch) or get("pose")),get("frame"),
         get("body.nude"),", ".join(e["add"]),get("light"),env] if x)
     neg=", ".join(get(k) for k in NK if get(k))+", "+", ".join(e["neg"])
     (o/f"{s}.txt").write_text("positive:\n"+pos+"\nnegative:\n"+neg+"\n")
