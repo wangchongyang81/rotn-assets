@@ -19,9 +19,11 @@ g={"3":("CheckpointLoaderSimple",{"ckpt_name":ck}),
 print(json.dumps({"prompt":{k:{"class_type":v[0],"inputs":v[1]} for k,v in g.items()}}))
 PY
 )
+echo "$J" > /tmp/gen-prompt.json
 PID=$(curl -s -X POST -H 'Content-Type: application/json' -d "$J" http://127.0.0.1:8188/prompt | python -c "import json,sys;print(json.load(sys.stdin)['prompt_id'])")
 for i in $(seq 1 240); do
   R=$(curl -s http://127.0.0.1:8188/history/$PID)
-  case "$R" in *'"status_str": "success"'*) break;; *'"status_str": "error"'*) echo fail; exit 1;; esac; sleep 2
+  echo "Response: $R" >> /tmp/gen-debug.log
+  case "$R" in *'"status_str": "success"'*) break;; *'"status_str": "error"'*) echo "Error: $R"; exit 1;; esac; sleep 2
 done
 echo "$T done"
