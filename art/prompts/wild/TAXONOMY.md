@@ -1,33 +1,18 @@
 # Wildcard taxonomy
-Basis: Illustrious-xl model card, read 2026-11-21. NoobAI differs only where marked.
+Basis: photoreal explicit SDXL checkpoints, read 2026-11-26. No pose axis.
 Sections are machine-concatenated later. Not prose.
 
-## LAW 0 - the skeleton owns the pose
-Openpose already draws every joint. Pose tags name the pose and stop. The card warns
-that critical composition tags conflict and confuse the model. r1t34 spent nine tags
-re-describing the skeleton and edge collapsed to 11.6.
-Hard cap four pose tags. Never write five fingers, straight elbows, hands open.
+## LAW 0 - the environment owns the frame
+No skeleton, no pose carrier. One natural stance is fixed in the dat and never
+varies. The realm environment section supplies ground, light and air. The card
+warns that critical composition tags conflict; keep pose to four tags maximum.
 
 ## quality.pos
-illus: masterpiece (quality), best quality, very aesthetic, absurdres
-noobai: masterpiece, best quality, newest, absurdres
-Two quality words maximum. Four stack into mush.
-
-## pose.carrier - exactly one per render, nothing else
-tpose      t-pose, arms out, standing, front view
-ppose      standing, arms at sides, front view
-apose-wide standing, arms out, wide stance, front view
-p1         standing, arms at sides, front view
-p2         standing, hands on hips, front view
-p3         standing, one arm up, front view
-p4         standing, arms crossed, front view
-p5         standing, fists up, front view
-p7         standing, hands clasped, front view
-p8         standing, hand on hip, front view
+masterpiece, best quality, absurdres, photorealistic, raw photo
+Five words is the ceiling. More stacks into mush.
 
 ## frame.pos - one only
-full body / cowboy shot / upper body / portrait
-close-up pairs with portrait and never with full body.
+full body, standing, feet in frame, full figure
 
 ## body.pos - ladder, stop at the rung reached
 0 clothed 1 topless 2 nude 3 completely nude 4 spread legs 5 act
@@ -37,27 +22,26 @@ close-up pairs with portrait and never with full body.
 bar censor, mosaic censoring, pixelated, censored, light censor
 uncensored as a positive is weak. The negatives do the work.
 
-## artifact.neg - lifted verbatim from the card
-worst quality, bad quality, low quality, lowres, displeasing, very displeasing,
-bad anatomy, bad hands, extra digits, fewer digits, scan artifacts, jpeg artifacts,
-signature, twitter username, guro
+## style.neg - the photoreal gate
+illustration, anime, anime style, cel shading, lineart, flat colour, flat shading,
+painting, sketch, cgi, 3d render, plastic skin, doll skin, waxy skin
+Every one is a way the model drifts back to anime. Never drop the block.
 
 ## layout.neg - vital for a single-figure anchor
 comic, multiple views, 2koma, 4koma, split screen, reference sheet, character sheet
 
-## lighting.pos
-(dim lighting:1.2) not 1.8. 1.8 flattens contrast and kills edges.
-sharp focus, crisp lineart, clean silhouette
-Never pair dim lighting with even flat light AND rim lighting.
+## lighting.pos - real light on real skin
+natural light, soft key, sharp focus, real skin texture, visible pores, sheen of sweat
+Light comes from the environment section, not from a studio rig.
 
-## background.pos
-(solid white background:1.6)
-simple background licenses scenery and is why machinery appeared. Use it only
-when the realm demands scenery. white background alone for anchors.
+## env.pos - one only, realm-matched
+Ten sections, env.v1 to env.v10, one per variant in 07. Ground, air and light in
+one line. Never pair an environment with a studio backdrop.
 
-## background.neg
-machinery, mecha, robot, industrial, scenery, props, background clutter,
-gradient background, bokeh, depth of field, blurry, soft focus
+## background.neg - scenery is wanted now
+gradient background, blurry, soft focus, oversaturated
+scenery, props and background clutter left the negative when the realm became
+the setting. Bokeh and depth of field left too; photoreal wants them.
 
 ## skin.pos - realm axis, one ladder only
 brown skin 1.3 / dark skin 1.4 are the same axis. Pick one, never both.
@@ -68,17 +52,15 @@ orange skin is a hue error, always negative at 1.5.
 long black hair
 One length, one colour, one optional detail. Three hair tags smear the head.
 
-## anatomy.pos - fixed, never varies by pose
+## anatomy.pos - fixed, never varies
 1girl, solo, female adult mid-twenties, medium build, head to body ratio 1 to 7
 solo is mandatory. No pair tags on a single-figure anchor.
 
 ## CONTRADICTIONS - never in the same string
 full body + close-up
-simple background + white background
 brown skin + dark skin
 topless + completely nude
-dim lighting + rim lighting
-standing + sitting
 3 quality words
-more than 4 pose tags
 cowboy shot + full body
+two environments
+scenery negated while an env section is present

@@ -6,24 +6,19 @@ def get(k):
         if l.startswith('['): on=l.strip()[1:-1]==k; continue
         if on and l.strip(): out.append(l.strip())
     return ', '.join(out)
-BAD=[('simple background','white background'),('topless','completely nude'),('brown skin','dark skin'),('dim lighting','rim lighting')]
+ENV=['v1','v2','v3','v4','v5','v6','v7','v8','v9','v10']
 M=sys.argv[1]; SK=sys.argv[2]; HR=sys.argv[3]
-POSES=['tpose','ppose','apose-wide','p1','p2','p3','p4','p5','p7','p8']
-Q=get('quality.'+M); ok=0
-for p in POSES:
-    parts=[Q,get('anatomy'),get('pose.'+p),get('frame'),get('body.nude')]
+ok=0
+for e in ENV:
+    parts=[get('quality'),get('anatomy'),get('pose'),get('frame'),get('body.nude')]
     if SK!='none': parts.append(get('skin.'+SK))
     if HR=='on': parts.append(get('hair'))
-    parts+=[get('face'),get('light'),get('bg.pos')]
+    parts+=[get('face'),get('light'),get('env.'+e)]
     pos=', '.join(x for x in parts if x).rstrip(', ')
-    NK=['artifact.neg','layout.neg','bg.neg','shade.neg','body.neg','fit.neg','censor.neg']
-    if get('pose.neg.'+p): NK.insert(3,'pose.neg.'+p)
+    NK=['artifact.neg','style.neg','layout.neg','bg.neg','shade.neg','body.neg','fit.neg','censor.neg']
     neg=', '.join(get(k) for k in NK if get(k))
-    s=pos+neg; bad=[]
-    if len(get('pose.'+p).split(','))>4: bad.append('pose>4')
-    for a,b in BAD:
-        if a in s and b in s: bad.append(a+'+'+b)
-    if bad: print(p,'CONTRADICTION',bad); continue
+    if not get('env.'+e): print(e,'NO ENV'); continue
+    if len(get('pose').split(','))>4: print(e,'POSE>4'); continue
     d=pathlib.Path('art/prompts/wild/%s/%s-%s'%(M,SK,HR)); d.mkdir(parents=True,exist_ok=True)
-    (d/(p+'.txt')).write_text('P: '+pos+'\nN: '+neg+'\n'); ok+=1
+    (d/(e+'.txt')).write_text('P: '+pos+'\nN: '+neg+'\n'); ok+=1
 print(M,SK,HR,'written',ok)
