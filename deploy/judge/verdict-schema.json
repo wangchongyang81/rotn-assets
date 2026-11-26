@@ -1,9 +1,0 @@
-{"type":"object","properties":{"verdict":{"type":"string","enum":["pass","fail"]},
-"scores":{"type":"object","properties":{
-"identity":{"type":"integer","minimum":0,"maximum":10},
-"anatomy":{"type":"integer","minimum":0,"maximum":10},
-"props":{"type":"integer","minimum":0,"maximum":10},
-"style":{"type":"integer","minimum":0,"maximum":10}},
-"required":["identity","anatomy","props","style"],"additionalProperties":false},
-"reason":{"type":"string"},"fix":{"type":"string"}},
-"required":["verdict","scores","reason"],"additionalProperties":false}

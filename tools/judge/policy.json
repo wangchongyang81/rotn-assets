@@ -1,3 +1,0 @@
-{"weights": {"lore": 0.18, "identity": 0.16, "anatomy": 0.14, "hands": 0.12, "explicit": 0.18, "lineart": 0.1, "artifact": 0.12},
- "accept": 3.8, "max_iter": 6,
- "hard_fail": ["extra finger", "fused finger", "missing limb", "duplicated limb", "wrong realm motif", "covered genitals", "face off entry", "watermark"]}
