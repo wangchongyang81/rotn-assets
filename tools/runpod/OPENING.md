@@ -1,7 +1,7 @@
 # Next session, first box
 No live pod; id, ip and SSH port change each start.
 1. bash tools/runpod/create.sh then cat /tmp/pod.id
-2. Poll bash gql.sh '{"query":"query{ pod(input:{podId:\"<id>\"}){ runtime{ ports{ ip public private } } } }"}'
+2. Poll runpodctl pod get <id> -o json
    until an ip and a 22xx public port print.
 3. Verify before any render:
    readlink -f all five /opt/ComfyUI links, must be /workspace/comfy

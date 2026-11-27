@@ -1,7 +1,7 @@
 # Resume point — no live pod, create fresh
 bash tools/runpod/create.sh  -> id in /tmp/pod.id
-Poll: bash gql.sh '{"query":"query{ pod(input:{podId:\"<id>\"}){ runtime{ ports{ ip public } } } }"}'
-Auth is x-api-key via gql.sh; runpodctl and v2.sh send Bearer and 401.
+Poll: runpodctl pod get <id> -o json
+runpodctl reads the key from ~/.runpod/config.toml. GraphQL x-api-key returns myself:null and 401s mutations.
 EU-RO-1 only, 4090 stock Low, create.sh retries.
 
 ## Open task

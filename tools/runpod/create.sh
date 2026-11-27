@@ -3,34 +3,36 @@ set -uo pipefail
 cd "$(dirname "$0")"
 [ -s "${PROBE:-pod-probe.json}" ] || { echo NOPROBE >&2; exit 1; }
 N=${TRIES:-4}; S=${SLEEP:-30}
-for i in $(seq 1 "$N"); do
-  out=$(python3 - <<'PY'
+mapfile -d '' A < <(python3 - <<'PY'
 import json,os
 d=json.load(open(os.environ.get("PROBE") or "pod-probe.json")); e=os.environ
 g=e.get("GPU") or d["gpu"]["id"]; c=e.get("CLOUD") or d["cloud"]
-dc=e.get("DC") or d["dataCenterIds"][0]; v=e.get("VOLUME") or d["mounts"]["network"][0]["volumeId"]
-mp=e.get("MOUNT") or d["mounts"]["network"][0]["path"]; tok=e.get("HF_TOKEN") or ""
-env="," + 'env:[{key:"HF_TOKEN",value:"%s"}]' % tok if tok else ""
-q=('mutation{ podFindAndDeployOnDemand(input:{ cloudType:%s, gpuCount:%s,'
-   ' gpuTypeId:"%s", dataCenterId:"%s", name:"%s", imageName:"%s",'
-   ' containerDiskInGb:%s, networkVolumeId:"%s", volumeMountPath:"%s",'
-   ' ports:"%s", startSsh:true%s }){ id desiredStatus } }') % (
-   c, d["gpu"]["count"], g, dc, d["name"], d["image"], d["disk"],
-   v, mp, ",".join(d["ports"]), env)
-print("POD %s %s %s" % (g, dc, c))
-print(json.dumps({"query":q}))
+dc=e.get("DC") or d["dataCenterIds"][0]
+v=e.get("VOLUME") or d["mounts"]["network"][0]["volumeId"]
+mp=e.get("MOUNT") or d["mounts"]["network"][0]["path"]
+a=["--image",d["image"],"--gpu-id",g,"--gpu-count",str(d["gpu"]["count"]),
+   "--data-center-ids",dc,"--cloud-type",c,"--container-disk-in-gb",str(d["disk"]),
+   "--network-volume-id",v,"--volume-mount-path",mp,"--ports",",".join(d["ports"]),
+   "--ssh","--name",d["name"],"--wait","--wait-timeout","8m","-o","json"]
+t=e.get("HF_TOKEN")
+if t: a+=["--env",json.dumps({"HF_TOKEN":t})]
+print("POD %s %s %s" % (g,dc,c),end="\0")
+print("\0".join(a),end="\0")
 PY
-  )
-  lab=$(printf '%s' "$out" | sed -n 1p)
-  b=$(printf '%s' "$out" | sed -n '2,$p')
-  if [[ ${DRY:-0} == 1 ]]; then echo "$lab"; printf '%s\n' "$b"; continue; fi
-  r=$(bash gql.sh "$b")
-  id=$(printf '%s' "$r" | python3 -c 'import json,sys
-d=json.load(sys.stdin);p=(d.get("data") or {}).get("podFindAndDeployOnDemand")
-print(p["id"] if p else "")' 2>/dev/null)
+)
+lab=${A[0]}; A=("${A[@]:1}")
+if [[ ${DRY:-0} == 1 ]]; then printf 'runpodctl pod create'; printf ' %q' "${A[@]}"; echo; exit 0; fi
+for i in $(seq 1 "$N"); do
+  r=$(runpodctl pod create "${A[@]}" 2>&1) && rc=0 || rc=$?
+  id=$(printf '%s' "$r" | python3 -c 'import json,sys,re
+s=sys.stdin.read()
+try: print(json.loads(s).get("id") or "")
+except Exception:
+    m=re.search(r"\b([a-z0-9]{8,20})\b",s); print(m.group(1) if m else "")' 2>/dev/null)
   [[ -n $id ]] && { echo "$lab"; echo "id $id"; echo "$id" > /tmp/pod.id; exit 0; }
-  echo "try $i $lab: $(printf '%s' "$r" | head -c 110)"; sleep "$S"
+  echo "try $i $lab: $(printf '%s' "$r" | tr '\n' ' ' | head -c 110)"
+  [ "$rc" = 0 ] && break
+  sleep "$S"
 done
 echo "no capacity" >&2
-[[ ${DRY:-0} == 1 ]] && { echo "(dry) mutations only"; exit 0; }
 exit 1

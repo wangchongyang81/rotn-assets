@@ -9,9 +9,9 @@ Second recovery path: private HF repo, text manifest plus binaries bucket.
 See pod-runbook.md.
 
 ## Resume command
-create.sh is the primary path (x-api-key via gql.sh). The runpodctl form
-below is the fallback and is unproven since the Bearer 401 on 2026-11-23;
-up-connect.sh wraps it.
+create.sh is the primary path and drives runpodctl. The GraphQL x-api-key
+route is retired: it returns myself:null and 401s mutations. up-connect.sh
+wraps create.sh.
 runpodctl pod create --name rotn-pilot \
   --network-volume-id 39dhm3ia6u \
   --volume-mount-path /workspace \

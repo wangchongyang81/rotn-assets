@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -uo pipefail
 c=$HOME/.runpod/config.toml
+mkdir -p "$HOME/.runpod"; chmod 700 "$HOME/.runpod"
+[ -f "$c" ] || : > "$c"
 k=${1:-}
-if [[ -z $k ]]; then read -r k < /dev/tty || true; fi
+if [[ -z $k ]]; then read -rsp 'apikey: ' k < /dev/tty || true; echo; fi
 k=${k//[$'\r\n\t ']/}
 [[ -z $k ]] && { echo 'empty, nothing written' >&2; exit 1; }
 python3 - "$c" "$k" <<'PY' || exit 1
