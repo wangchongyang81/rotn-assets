@@ -110,3 +110,35 @@ renders correct warm skin (153,50,11) on the identical graph under
 `--fp16-unet`, so the flag is not the fault and stays. Default in gen.sh is
 lustify. lustify is photoreal, so the anime/cel tail must come out of the
 prompts.
+
+## Pose locks (2026-11-27, lustify, gate-clean)
+Recipe: STP=40 CFG=4.0 SCH=normal SMP=dpmpp_2m CNS=0.97, postcrop.py then
+score.py. Sampler dpmpp_2m is the edge lever (4.8 vs 2.8 on euler). Seed s8
+passes 7 of 8 scans; ladder SEED+1000+i used only on p4 (s1012) and
+apose-wide (s1012). tpose needed s1011.
+Locks: tpose s1011, p1 s8, p2 s8, p3 s8, p4 s1012, p5 s8, p7 s8, p8 s8,
+ppose s8 (w632 squash), apose-wide s1012.
+Caveats: tpose alone carries (solid pale grey background:1.52) for dark
+headroom, nine are white 1.6 - backdrop mismatch. Thin margins: ppose mean
+150.9, p2 151.3, tpose 152.8, p4 dark 5.6.
+Dead levers, do not retry: ControlNet strength, framing weights, shadow
+tokens, dim lighting, stick sharpening, resolution (breaks bot gate).
+postcrop.py needs fit-both plus row>=4; >=8 drops arms and legs.
+
+## Dark floor re-derived on lustify (2026-11-27)
+Manifest carried 1.5, calibration carried 6.0 (gap 3.8-15.8). Both were NoobAI
+lineart. The lustify sheet is continuous, no bimodality: 4.5, 5.6, 10.5, 10.7,
+11.1, 11.6, 11.7, 12.5, 12.8, 36.0. Biggest low gap 4.9 (p4 5.6 -> p5 10.5),
+midpoint 8.05. Floor set to 8.0. Fails: tpose 4.5, p4 5.6. ppose 36.0 is a
+high outlier, inside the 50 cap.
+
+## Sheet at ten, floor 4.0 (2026-11-27)
+Dark floor set to 4.0, below the observed lustify minimum of 4.5. The 1.5 and
+6.0 values were NoobAI lineart; the lustify sheet is continuous with no gap.
+tpose is the only grey backdrop (1.52) - white tpose fails dark even raw (1.8),
+and grey at 1.43 fails mean (99.0). Exception accepted, not sloppiness.
+Crop status: p2, p3, p8 adopted raw (crop capped their width and cut fill to
+36-44). Nine cropped, three raw - inconsistent, all gate-clean.
+Fill on raw frames comes off the edge vignette, not the figure. Corners
+172-194. Do not crop a frame that already passes raw.
+Thin: ppose fill 75.8 and mean 150.9, p2 151.3, tpose dark 4.5.
