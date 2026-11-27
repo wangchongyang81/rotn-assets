@@ -13,7 +13,7 @@ film grain, subsurface scattering, natural lens, 35mm, true-to-life colour
 1girl, solo, female adult mid-twenties, medium build, head to body ratio 1 to 7
 
 [frame]
-full body, standing, feet in frame, full figure
+full body, feet in frame, full figure
 
 [body.nude]
 completely nude, uncensored, hardcore, breasts, nipples, navel, vagina, labia
@@ -45,15 +45,18 @@ cracked pale rock, thin air, hard sun, long shadow
 [env.v3]
 snow crust, wind-blown ice grit, low white sun, cold breath
 [env.v4]
-standing water, wet mud, overcast diffuse light, steam
+standing water, wet mud, overcast diffuse light, steam, water only here
 [env.v5]
-leaf litter, roots, dappled green shade, humid air
+leaf litter, roots, dappled green shade, humid air, dry ground, no water
 [env.v6]
-ash floor, fired clay, ember glow, smoke
+ash floor, fired clay, ember glow, smoke, dry ash, no water, crisp edge definition, sharp silhouette against the smoke
 [env.v7]
-bare soil, blue-grey stone, cloud banding overhead, flat light
+bare soil, blue-grey stone, cloud banding overhead, flat light, dry pale ground, no water
 [env.v8]
-pale bleached ground, night, hard moonlight, cold shadow
+pale bleached ground, night, hard moonlight, cold shadow, 
+[env.v8.key]
+moonlit key on the body, cool rim light, lifted shadow side, grey bounce fill, skin readable in the dark, no black crush
+
 [env.v9]
 sun-bleached stone, white-gold glare, hard shadow at the feet
 [env.v10]
@@ -83,11 +86,11 @@ watermark, clothing, cropped feet, out of frame
 [censor.neg]
 bar censor, mosaic censoring, pixelated, censored, light censor
 [pose.1]
-kneeling, thighs wide, seed falling from a cupped hand, front low view
+kneeling, thighs wide, seed falling from a cupped hand, front low view, face to camera
 [pose.2]
 bent double, palms flat on the ground, hips high, hair hanging
 [pose.3]
-kneeling upright, knees wide, one hand at the pouch, other hand at the vulva
+kneeling upright, knees wide, one hand at the pouch, other hand at the vulva, face to camera
 [pose.4]
 lying back, knees drawn up and apart, moonlight down the belly
 [pose.5]
@@ -95,17 +98,17 @@ sitting back on the heels, thighs open, chin lifted
 [pose.6]
 on all fours, chest low, hips high, face to camera
 [pose.7]
-sitting, one leg folded under, other leg out, hand between the thighs
+sitting, one leg folded under, other leg out, hand between the thighs, face to camera
 [pose.8]
 on tiptoe at the rock edge, arms overhead, stretched long
 [pose.9]
-kneeling, head back, nectar poured down the chest
+kneeling, head back, nectar poured down the chest, face visible under the pour
 [pose.10]
 bent over a stone, arms braced, hips pushed back
 [pose.11]
-crouched, knees apart, elbows on knees, low angle
+crouched, knees apart, elbows on knees, low angle, face visible
 [pose.12]
-on all fours, head down, spine dipped, mouth open
+on all fours, head down, spine dipped, mouth open, face to camera
 [pose.13]
 one arm raised against the light, hips forward, head turned
 [pose.14]
@@ -117,25 +120,25 @@ kneeling, head down, hand at the throat, chest arched
 [pose.17]
 mid-stride, one leg forward, hands at the hips
 [pose.18]
-standing tall, feet planted wide, chin up, arms at the sides
+standing tall, feet planted wide, chin up, arms at the sides, face to camera
 [pose.19]
-crouched against the wind, one shoulder forward, thighs apart
+crouched against the wind, one shoulder forward, thighs apart, face to camera, three-quarter turn
 [pose.20]
-standing in shallow water, feet apart, hands at the vulva
+standing in shallow water, feet apart, hands at the vulva, arms low, face clear
 [pose.21]
-kneeling in the water, thighs apart, water at the hips
+kneeling in the water, thighs apart, water at the hips, face to camera
 [pose.22]
 crouched, hands in the mud, hips raised
 [pose.23]
-back against a trunk, one knee up, one leg out, hand between the thighs
+back against a trunk, one knee up, one leg out, hand between the thighs, three-quarter turn, face visible
 [pose.24]
-on all fours among the roots, head low, hips high
+on all fours among the roots, head low, hips high, face to camera
 [pose.25]
-standing close to the kiln mouth, hips forward, arms back
+standing close to the kiln mouth, hips forward, arms back, face to camera
 [pose.26]
-sitting on the kiln ledge, legs spread, leaning back on the hands
+sitting on the kiln ledge, legs spread, leaning back on the hands, turned three-quarter, face visible
 [pose.27]
-kneeling, back arched hard, head back, thighs apart
+kneeling, back arched hard, head back, thighs apart, face to camera
 [pose.28]
 lying on the ash floor, one knee raised, forearm across the eyes
 [pose.29]

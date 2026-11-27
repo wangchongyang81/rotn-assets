@@ -12,31 +12,16 @@ Anchors are variant and sex. Ten variants. Companions are female only; the
 player is male only.
 
 ## Variants
-Derived from realm climate and labour, not invented. Each names the realms it
-serves.
-- V1 plains — Dhara, Kharva, Mitali, Chanda, Diva, Chandini, Stolen Songs.
-  Warm-neutral, medium build, heavy work posture.
-- V2 plateau — Nila, Soma, Cut Nectar, Pratyusha, Rahu's Maw, The One Shadow.
-  Lean, long limb, dry skin.
-- V3 high cold — Vayuni, Ushasvi, The Choking, The Wandering Star,
-  The Pledge of the Pole, The Pledge of Wind. Short limb, deep chest, weathered
-  face, chapped lip.
-- V4 wet lowland — Nishvana, Anila, The Pledge of Earth. Softer, heavier,
-  strong calf.
-- V5 forest — Roots and Rot, Soma's feral groves. Compact, broad, thick forearm.
-- V6 kiln — Anala, Kravya, Jvala, Cold Hearths, The Pledge of Flame. Sinewy,
-  ash-grey undertone, scarred hand.
-- V7 earth — The Pledge of Earth. The whole body read as the world from space:
-  blue-grey undertone, pale cloud banding across shoulder and flank, heavy
-  shoulder, broad stance.
-- V8 moon — The Pledge of the Moon. Both faces at once: bleached pale skin on
-  the lit side, hard terminator down the body, cold shadow past it, still face.
-- V9 day — The Pledge of Day. Overexposed: sun-bleached, white-gold highlight
-  on every upward plane, narrow eye, hard shadow cast at the feet.
-- V10 pole — Dhruva. Unmoved: square-set, thick neck, planted feet, vertical
-  stance, no sway in the hands.
-Mitali is a crossroads; V1 and V4 both pass through it.
-
+- V1 plains — Mitali, Chandini, Diva, Vrata, Dhata, Arya, Maitri, Varuni, Bhagya, Pushpa, Savitri.
+- V2 plateau — Nila, Ushasvi, Prabha.
+- V3 high cold — Vayuni.
+- V4 wet lowland — Nishitha, Vama.
+- V5 forest — Rutu, Bhavani, Vamika.
+- V6 kiln — Jvala, Raudri, Ugra, Takshi, Vasha.
+- V7 earth — Vidhi, Mahati, Prakriti.
+- V8 moon — Gauri, Vaishnavi.
+- V9 day — Sachi, Varchas.
+- V10 pole — Kalyani.
 ## Player
 Male only. One anchor. Class reads in cloth, accessory, light and FX — sage,
 merchant, warrior, rogue. The body does not change with class.
@@ -60,61 +45,58 @@ Where a prop already sits in the character's body list, it moves here and leaves
 the list.
 
 **V1 plains**
-- Dhara — kneeling, thighs wide, seed falling from a cupped hand, front low view.
-- Kharva — bent double, palms flat on the ground, hips high, hair hanging.
-- Mitali — kneeling upright, knees wide, one hand at the pouch, the other at the vulva.
-- Chanda — lying back, knees drawn up and apart, moonlight down the belly.
-- Diva — sitting back on the heels, thighs open, chin lifted to the sun.
-- Chandini — on all fours, chest low, hips high, face to camera.
-- Stolen Songs — sitting, one leg folded under, the other out, hand between the thighs.
+- Mitali — kneeling, thighs wide, seed falling from a cupped hand, front low view.
+- Chandini — kneeling upright, knees wide, one hand at the pouch, other hand at the vulva.
+- Diva — lying back, knees drawn up and apart, moonlight down the belly.
+- Vrata — crouched against the wind, one shoulder forward, thighs apart.
+- Dhata — standing in shallow water, feet apart, hands at the vulva.
+- Arya — kneeling in the water, thighs apart, water at the hips.
+- Maitri — crouched, hands in the mud, hips raised.
+- Varuni — back against a trunk, one knee up, one leg out, hand between the thighs.
+- Bhagya — standing close to the kiln mouth, hips forward, arms back.
+- Pushpa — kneeling, back arched hard, head back, thighs apart.
+- Savitri — lying on the ash floor, one knee raised, forearm across the eyes.
 
 **V2 plateau**
-- Nila — on tiptoe at the rock edge, arms overhead, stretched long.
-- Soma — kneeling, head back, nectar poured down the chest.
-- Cut Nectar — bent over a stone, arms braced, hips pushed back.
-- Pratyusha — crouched, knees apart, elbows on knees, low.
-- Rahu's Maw — on all fours, head down, spine dipped, mouth open.
-- The One Shadow — one arm raised against the light, hips forward, head turned.
+- Nila — bent double, palms flat on the ground, hips high, hair hanging.
+- Ushasvi — sitting, one leg folded under, other leg out, hand between the thighs.
+- Prabha — on tiptoe at the rock edge, arms overhead, stretched long.
 
 **V3 high cold**
-- Vayuni — standing, weight back, arms wide, drape and hair blown.
-- Ushasvi — seated in snow, knees up, arms round them, face lifted.
-- The Choking — kneeling, head down, hand at the throat, chest arched.
-- The Wandering Star — mid-stride, one leg forward, hands at the hips.
-- The Pledge of the Pole — standing tall, feet planted wide, chin up, arms at the sides.
-- The Pledge of Wind — crouched against the wind, one shoulder forward, thighs apart.
+- Vayuni — sitting back on the heels, thighs open, chin lifted.
 
 **V4 wet lowland**
-- Nishvana — standing in shallow water, feet apart, hands at the vulva.
-- Anila — kneeling in the water, thighs apart, water at the hips.
-- The Pledge of Earth — crouched, hands in the mud, hips raised.
+- Nishitha — crouched, knees apart, elbows on knees, low angle.
+- Vama — standing tall, feet planted wide, chin up, arms at the sides.
 
 **V5 forest**
-- Roots and Rot — back against a trunk, one knee up, one leg out, hand between the thighs.
-- Soma's feral groves — on all fours among the roots, head low, hips high.
+- Rutu — standing, weight back, arms wide, hair blown.
+- Bhavani — kneeling, head down, hand at the throat, chest arched.
+- Vamika — half-lit, one side to the light, one arm raised, other hand at the thigh.
 
 **V6 kiln**
-- Anala — standing close to the kiln mouth, hips forward, arms back.
-- Kravya — sitting on the kiln ledge, legs spread, leaning back on the hands.
-- Jvala — kneeling, back arched hard, head back, thighs apart.
-- Cold Hearths — lying on the ash floor, one knee raised, forearm across the eyes.
-- The Pledge of Flame — one hand on the kiln wall, weight on one hip, other hand at the vulva.
+- Jvala — on all fours, chest low, hips high, face to camera.
+- Raudri — kneeling, head back, nectar poured down the chest.
+- Ugra — seated in snow, knees up, arms round them, face lifted.
+- Takshi — one hand on the kiln wall, weight on one hip, other hand at the vulva.
+- Vasha — dead still, feet planted, hands at the sides, unblinking.
 
 **V7 earth**
-- The Pledge of Earth — standing, feet wide, arms low and open, the whole body presenting.
+- Vidhi — bent over a stone, arms braced, hips pushed back.
+- Mahati — on all fours, head down, spine dipped, mouth open.
+- Prakriti — square to the sun, arms slightly out, eyes narrowed.
 
 **V8 moon**
-- The Pledge of the Moon — half-lit, one side to the light, one arm raised, the other at the thigh.
+- Gauri — one arm raised against the light, hips forward, head turned.
+- Vaishnavi — standing, feet wide, arms low and open, presenting.
 
 **V9 day**
-- The Pledge of Day — square to the sun, arms slightly out, eyes narrowed, full exposure.
+- Sachi — on all fours among the roots, head low, hips high.
+- Varchas — sitting on the kiln ledge, legs spread, leaning back on the hands.
 
 **V10 pole**
-- Dhruva — dead still, feet planted, hands at the sides, unblinking.
+- Kalyani — mid-stride, one leg forward, hands at the hips.
 
-A pose is a reject if it would suit another realm, if the prop is absent and
-unimplied, or if it hides a hand or a foot. The cap is four tags; over four and
-the body stops listening.
 ## Sequence
 Nude first, always. The nude master is the body record: it renders and approves
 before any cloth exists. Clothed portraits, sprites and CGs derive from it and

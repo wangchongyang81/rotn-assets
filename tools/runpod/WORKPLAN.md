@@ -43,3 +43,32 @@ Snapshot 2026-11-22, assets 0c2cb39.
 3. Per-pose scan seeds 7-15; only tpose locked. [venice]
 4. Open faults: empty V/N arrays, dark term in CROP, p5 floor. [venice]
 5. Prune scripted, DRY default; dry run pending next bring-up. [venice]
+
+## Done 2026-11-27 (realm sheet)
+- 33 realm poses keyed one-per-realm from wild.dat pose.N, no defaults left.
+- New templates: fold (2,10), allfours_deep (6). 14 arm / 2 leg overrides.
+- Facing term on 14 poses. Env fill, dry-ground lock, water lock v4 only.
+- Skin lock per variant, halo-ring and colour-cast negatives (228 terms).
+- Dedupe of add lists (330 kept). Fill scale on 2,10,22,28,33.
+- 33 finals + MANIFEST true at review/pod-2026-11-27/final/.
+- Sheet at review/sheet-2026-11-27.png. Eyeball pass done, faults logged below.
+
+## Next
+1. VERIFY the gate rewrite (unverified, see STATE.md). Run:
+   python3 tools/runpod/gate.py review/pod-2026-11-27/final/gauri.png /tmp/skels/skel-gauri.png
+   Expect 31 pass / 2 fail (gauri, vaishnavi only).
+2. Fix validate_locks.py path (see STATE.md blockers).
+3. Re-render gauri + vaishnavi: v8 night silhouette-only, edge 2.6, mean 25.9/16.0.
+   Add fill light to v8 key, or drop both off v8.
+4. Eyeball faults still open: back-view drift 7,19,21,26,27; v8 silhouette 12,13,30,31;
+   skin cast 16 green, 23 cyan, 30 purple; halo ring 3,7,15,17,25,27,32,33;
+   one-prop realms 3,11,25; fold reads 0.63 compromise; jvala smoke edge 4.9.
+5. LoRA pass after the above.
+
+## Optimised workflow (works, use this)
+- Score: tools/score.py IMG MASK -> "edge dark bot fill mean"
+- Gate:  tools/runpod/gate.py IMG MASK -> realm block, GATE PASS/FAIL
+- MASK is required for realm work: /tmp/skels/skel-SLUG.png (drawskel output).
+- Without a mask, score.py falls back to the <120 bbox, which is degenerate on
+  dark grounds (fill 99.8, bot 1215 constant) and measures the ground, not the figure.
+- Do NOT invent a scorer mid-session. /tmp/s6.py was one; the repo runs score.py.

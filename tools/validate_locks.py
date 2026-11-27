@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import glob, json, pathlib, sys
-A = pathlib.Path(__file__).resolve().parent.parent / "master/anchors"
+A = pathlib.Path(__file__).resolve().parent.parent / "art/parked/anime/master-anchors"
 schema = json.loads((A / "anchor.schema.json").read_text())
 try:
     import jsonschema

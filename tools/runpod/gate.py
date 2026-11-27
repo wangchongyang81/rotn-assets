@@ -2,9 +2,12 @@
 import json, os, subprocess, sys
 D = os.path.dirname(os.path.abspath(__file__))
 R = subprocess.run(["git","-C",D,"rev-parse","--show-toplevel"],capture_output=True,text=True).stdout.strip()
-if len(sys.argv) != 2: sys.exit("usage: gate.py IMAGE")
-g = json.load(open(os.path.join(D, "judge-manifest.json")))["gates"]
-p = subprocess.run([sys.executable, os.path.join(R,"tools","score.py"), sys.argv[1]], capture_output=True, text=True)
+if len(sys.argv) not in (2,3): sys.exit("usage: gate.py IMAGE [MASK]")
+M = sys.argv[2] if len(sys.argv)==3 else None
+G = json.load(open(os.path.join(D,"judge-manifest.json")))["gates"]
+g = G["realm"] if M else G
+a = [sys.executable, os.path.join(R,"tools","score.py"), sys.argv[1]] + ([M] if M else [])
+p = subprocess.run(a, capture_output=True, text=True)
 if p.returncode or not p.stdout.strip(): sys.exit("score failed: " + p.stderr[:200])
 em, dk, bot, fil, mn = [float(x) for x in p.stdout.split()]
 bad = []

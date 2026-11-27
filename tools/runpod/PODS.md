@@ -142,3 +142,57 @@ Crop status: p2, p3, p8 adopted raw (crop capped their width and cut fill to
 Fill on raw frames comes off the edge vignette, not the figure. Corners
 172-194. Do not crop a frame that already passes raw.
 Thin: ppose fill 75.8 and mean 150.9, p2 151.3, tpose dark 4.5.
+
+## Diva ladder seed (2026-11-27, realm sheet)
+Diva at s8 collapses on v1: p90 76, bright 3.7, edge 2.3, sd 32.1. Savitri
+is the same stance and realm and passes at s8, so it is seed variance, not the
+lie template or the ground. Ladder SEED+1000 applied: s1008 p90 192, bright
+35.5, edge 5.8, sd 65.9, all over floor. Diva adopts s1008. bbox n is constant
+across seeds (9066) because the interior is keyed to the stick, not the frame.
+
+## Mahati ladder seed (2026-11-27, realm sheet)
+Allfours template renders flat: at s8 the correct allfours stick gives p90 123,
+bright 10.9, both under floor, though edge 6.3 and sd 49.2 clear. Stance is
+right, exposure is not. Ladder applied: s1008 p90 199, bright 33.0, edge 4.6,
+sd 74.9, all over floor. s2008 edge 3.1 fails, s3008 p90 162 thin. Mahati
+adopts s1008. Two ladder seeds now exist on the realm sheet, diva and mahati,
+both low-body stances where the figure sits against the ground.
+
+## Ladder rule (2026-11-27, realm sheet)
+Six of six low-body stances failed at s8 on a correct stick and needed a ladder
+seed: diva (lie) 1008, mahati (allfours) 1008, jvala (allfours) 2008, vidhi
+(allfours) 1008, nishitha (crouch) 3008, savitri (lie) 2008. No high stance
+needed one. The figure lies against ground, goes dark, and p90 and bright fall
+under floor together. Treat ladder as the default on lie, crouch and allfours,
+and s8 as the default on stand, kneel, seat and lean. Edge alone can fail a
+ladder seed (jvala s1008 3.2, s3008 2.8): pick the highest edge among passing
+seeds, never the highest p90.
+
+## Pose table rebuilt from wild.dat (2026-11-27)
+STANCE was seven eyeballed stances and wrong on two keys (5 Vayuni seat->kneel,
+31 Vamika lean->stand). Rebuilt from the 33 pose.N blocks, one key per realm,
+no defaults left. Two new templates: fold (2 Nila, 10 Vidhi, palms to floor,
+ratio 0.63) and allfours_deep (6 Jvala, chest low hips high, ratio 0.72).
+Fourteen arm and two leg overrides key off named limbs in the pose text.
+Fold at 0.76 regressed both to p90 95 and 66, head fell to the floor line; 0.63
+is the working ratio. Rutu arms narrowed from x141/x691 to x221/x611, edge
+3.1 -> 5.5, bbox n 10873 -> 10153.
+
+## Realm sheet closed 2026-11-27
+33 of 33 pass on the realm-backed gate set, thin list empty. Maitri laddered to
+s1008 (p90 175, bright 16.6, sd 61.3, edge 8.6) after scraping 0.6 over floor
+at s8. Seven ladder seeds total on the sheet, all low-body stances: diva, mahati,
+jvala, vidhi, nishitha, savitri, maitri. Gates retired: frame mean, dark%,
+bbox fill. Live: p90 >=135, bright >=11.0, edge >=3.5, sd >=45, all interior of
+the stick bbox.
+
+## Close 2026-11-27
+Batch v9/v10 rendered, finals rebuilt newest-source, manifest verified true.
+Close tarball pulled to review/pod-2026-11-27/ (34 files). Pod EXITED, no burn.
+Mirror tarball 130MB kept out of git, HF-only.
+
+## Resume
+- Reload volume 39dhm3ia6u. Verify input md5s against /tmp/skels before any render.
+- Rebuild /tmp/s6.py is NOT needed; use tools/score.py + gate.py with masks.
+- /tmp/jobs9.txt and /tmp/r9.sh are gone with the container; regenerate from
+  companions.json order.

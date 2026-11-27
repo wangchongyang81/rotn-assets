@@ -3,7 +3,7 @@ set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
 H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0}
 CFGPIN=${CFGPIN:-0};SMPIN=${SMPIN:-0};MAX=${MAX:-8};SS=${SS:-17}
-MODEL=${MODEL:-bigaspv25};SKIN=${SKIN:-brown};HAIR=${HAIR:-off}
+MODEL=${MODEL:-lustify};SKIN=${SKIN:-brown};HAIR=${HAIR:-off}
 SRC=${SRC:-art/prompts/base/$MODEL/$SKIN-$HAIR}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 R=root@"$H";E=/tmp/err-${POSE}.log

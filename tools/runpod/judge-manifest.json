@@ -25,7 +25,24 @@
    150,
    235
   ],
-  "dark_max": 50
+  "dark_max": 50,
+  "realm": {
+   "edge": 4.0,
+   "dark": 4.0,
+   "dark_max": 95,
+   "bot": [
+    980,
+    1216
+   ],
+   "fill": [
+    20,
+    null
+   ],
+   "mean": [
+    30,
+    235
+   ]
+  }
  },
  "poses": [
   "tpose",
