@@ -1,5 +1,5 @@
 import pathlib,sys
-D=pathlib.Path('art/prompts/wild/wild.dat').read_text()
+D=pathlib.Path('art/prompts/base/wild.dat').read_text()
 def get(k):
     out=[];on=False
     for l in D.split('\n'):
@@ -19,6 +19,6 @@ for e in ENV:
     neg=', '.join(get(k) for k in NK if get(k))
     if not get('env.'+e): print(e,'NO ENV'); continue
     if len(get('pose').split(','))>4: print(e,'POSE>4'); continue
-    d=pathlib.Path('art/prompts/wild/%s/%s-%s'%(M,SK,HR)); d.mkdir(parents=True,exist_ok=True)
+    d=pathlib.Path('art/prompts/base/%s/%s-%s'%(M,SK,HR)); d.mkdir(parents=True,exist_ok=True)
     (d/(e+'.txt')).write_text('P: '+pos+'\nN: '+neg+'\n'); ok+=1
 print(M,SK,HR,'written',ok)

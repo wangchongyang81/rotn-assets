@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 set -uo pipefail
 ROOT=/workspaces/rotn-assets; cd "$ROOT"; mkdir -p /tmp/anc
-H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0};CFGPIN=${CFGPIN:-0};SMPIN=${SMPIN:-0};MAX=${MAX:-8};SS=${SS:-17}
+H=${1:?};P=${2:?};POSE=${3:?};TAG=${4:-tst};SEED=${5:-7};DRY=${DRY:-0}
+CFGPIN=${CFGPIN:-0};SMPIN=${SMPIN:-0};MAX=${MAX:-8};SS=${SS:-17}
+MODEL=${MODEL:-bigaspv25};SKIN=${SKIN:-brown};HAIR=${HAIR:-off}
+SRC=${SRC:-art/prompts/base/$MODEL/$SKIN-$HAIR}
 S="-i $HOME/.ssh/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR"
 B=/tmp/anc/base.txt
-  cat art/prompts/wild/noobai/brown-on/$POSE.txt > "$B" || { echo NOBASE; exit 1; }
+  cat $SRC/$POSE.txt > "$B" || { echo NOBASE; exit 1; }
 best=0; keep=""
 [ "$DRY" = "1" ] || ssh $S -p "$P" root@"$H" "rm -f /workspace/comfy/output/$TAG-a*" >/dev/null 2>&1
 best=0;bestmn=999

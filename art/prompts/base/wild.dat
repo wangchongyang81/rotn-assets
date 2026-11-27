@@ -1,0 +1,150 @@
+# wild - photoreal tag library
+Source of truth. Generator: tools/gen_wild.py <model> <skin> <hair>.
+No pose axis. One file per environment; the realm supplies the environment.
+Never edit the .txt files - regenerate.
+
+[quality]
+masterpiece, best quality, absurdres, photorealistic, raw photo
+
+[style]
+film grain, subsurface scattering, natural lens, 35mm, true-to-life colour
+
+[anatomy]
+1girl, solo, female adult mid-twenties, medium build, head to body ratio 1 to 7
+
+[frame]
+full body, standing, feet in frame, full figure
+
+[body.nude]
+completely nude, uncensored, hardcore, breasts, nipples, navel, vagina, labia
+
+[body.topless]
+topless, breasts, nipples, navel
+
+[skin.brown]
+(brown skin:1.3), sun-warmed skin
+
+[skin.dark]
+(dark skin:1.4), sun-warmed skin
+
+[hair]
+long black hair
+
+[face]
+
+[pose]
+natural stance, weight on one hip, arms relaxed, front view
+
+[light]
+natural light, soft key, sharp focus, real skin texture, visible pores, sheen of sweat
+
+[env.v1]
+dry grassland ground, dust, high warm sun, heat haze
+[env.v2]
+cracked pale rock, thin air, hard sun, long shadow
+[env.v3]
+snow crust, wind-blown ice grit, low white sun, cold breath
+[env.v4]
+standing water, wet mud, overcast diffuse light, steam
+[env.v5]
+leaf litter, roots, dappled green shade, humid air
+[env.v6]
+ash floor, fired clay, ember glow, smoke
+[env.v7]
+bare soil, blue-grey stone, cloud banding overhead, flat light
+[env.v8]
+pale bleached ground, night, hard moonlight, cold shadow
+[env.v9]
+sun-bleached stone, white-gold glare, hard shadow at the feet
+[env.v10]
+packed frozen ground, still air, vertical grey light
+
+[artifact.neg]
+worst quality, bad quality, low quality, lowres, bad anatomy, bad hands, extra digits, fewer digits, scan artifacts, jpeg artifacts, signature, twitter username, guro
+
+[style.neg]
+illustration, anime, anime style, cel shading, lineart, flat colour, flat shading, painting, sketch, cgi, 3d render, plastic skin, doll skin, waxy skin, ink linework, defined outline
+
+[layout.neg]
+comic, multiple views, 2koma, 4koma, split screen, reference sheet, character sheet
+
+[bg.neg]
+gradient background, blurry, soft focus, oversaturated
+
+[shade.neg]
+halo, (blue background:1.3), (blue tint:1.3), vignette, heavy shading, purple shadow, low contrast
+
+[body.neg]
+mannequin, faceless, four arms, extra arms, malformed hands, extra fingers, distorted face, small head, long torso, profile view, oversized breasts, kitten, cat
+
+[fit.neg]
+watermark, clothing, cropped feet, out of frame
+
+[censor.neg]
+bar censor, mosaic censoring, pixelated, censored, light censor
+[pose.1]
+kneeling, thighs wide, seed falling from a cupped hand, front low view
+[pose.2]
+bent double, palms flat on the ground, hips high, hair hanging
+[pose.3]
+kneeling upright, knees wide, one hand at the pouch, other hand at the vulva
+[pose.4]
+lying back, knees drawn up and apart, moonlight down the belly
+[pose.5]
+sitting back on the heels, thighs open, chin lifted
+[pose.6]
+on all fours, chest low, hips high, face to camera
+[pose.7]
+sitting, one leg folded under, other leg out, hand between the thighs
+[pose.8]
+on tiptoe at the rock edge, arms overhead, stretched long
+[pose.9]
+kneeling, head back, nectar poured down the chest
+[pose.10]
+bent over a stone, arms braced, hips pushed back
+[pose.11]
+crouched, knees apart, elbows on knees, low angle
+[pose.12]
+on all fours, head down, spine dipped, mouth open
+[pose.13]
+one arm raised against the light, hips forward, head turned
+[pose.14]
+standing, weight back, arms wide, hair blown
+[pose.15]
+seated in snow, knees up, arms round them, face lifted
+[pose.16]
+kneeling, head down, hand at the throat, chest arched
+[pose.17]
+mid-stride, one leg forward, hands at the hips
+[pose.18]
+standing tall, feet planted wide, chin up, arms at the sides
+[pose.19]
+crouched against the wind, one shoulder forward, thighs apart
+[pose.20]
+standing in shallow water, feet apart, hands at the vulva
+[pose.21]
+kneeling in the water, thighs apart, water at the hips
+[pose.22]
+crouched, hands in the mud, hips raised
+[pose.23]
+back against a trunk, one knee up, one leg out, hand between the thighs
+[pose.24]
+on all fours among the roots, head low, hips high
+[pose.25]
+standing close to the kiln mouth, hips forward, arms back
+[pose.26]
+sitting on the kiln ledge, legs spread, leaning back on the hands
+[pose.27]
+kneeling, back arched hard, head back, thighs apart
+[pose.28]
+lying on the ash floor, one knee raised, forearm across the eyes
+[pose.29]
+one hand on the kiln wall, weight on one hip, other hand at the vulva
+[pose.30]
+standing, feet wide, arms low and open, presenting
+[pose.31]
+half-lit, one side to the light, one arm raised, other hand at the thigh
+[pose.32]
+square to the sun, arms slightly out, eyes narrowed
+[pose.33]
+dead still, feet planted, hands at the sides, unblinking

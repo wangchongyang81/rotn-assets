@@ -1,45 +1,45 @@
-# Workplan — automated anchor pipeline
-Goal: unattended, self-diagnosing anchor locks, portraits, mobs, CGs across 33 realms.
-CLI only. One in-DC card. Human role = veto, not generation.
+# Workplan - rotn-pilot photoreal render
+
+Goal: photorealistic anchors for rotn-pilot on one in-DC card. Human role is
+veto, not generation. Single pod; no judge pod and no render/judge pairing.
+gate.py scores on the same host straight after the render.
+
+Removed 2026-11-27 as obsolete: the unattended anchor pipeline (P0-P9 spine,
+scorer v1, registry, queue/supervisor, 7B VLM judge, prompt-lock phase) and
+NoobAI-XL-v1.1. The checkpoint is photoreal.
+
 ## Rules
 - Scorer quality is the ceiling. No batch before it is calibrated.
 - Hash every artefact. A prompt edit invalidates only what it should.
-- Hard gates. No phase starts until the prior gate passes.
+- Hard gate. No batch starts until the prior gate passes.
+
 ## Pins
+`CFGPIN` and `SMPIN` default to 0 and pin on separate lines: loop.sh L13 sets
+cfg, L14 sets smp. Not a duplicate; both reach the remote gen.sh as env.
+Read back from the PNG prompt chunk, not the log: gen.sh swallows its JSON
+into `J=$(...)` so the sampler never reaches stdout.
+Retry seed is `SEED+1000+i`, clear of the primary `SEED+(i-1)*SS` stride.
 
-`CFGPIN` and `SMPIN` both default to 0, leaving the case block free.
+## Current
+Own: home / venice. Photoreal render, protocol-only. Resumable cold, zero chat.
+Pod down, tree clean. Arrive `scripts/continuity/arrive.sh home`; the session
+gate departs with `scripts/continuity/depart.sh home`. `tools/runpod/depart.sh`
+is the separate job that deletes the pod.
+Records: `art-bible/07-anchors.md`, `docs/continuity/plans/anchor-lock-identity.md`.
+Probe names 4090 (rotn-pilot); 6000 deferred, not cancelled. 11 skeletons valid.
+`gen.sh` reads `skel-{pose}.png`; repo holds `skel-ppose-{pose}.png`, push renames.
+All 10 poses end `, feet in frame, full figure, wide shot`; gaps 3-32; tpose hash 0ff68e2afef569c9.
+Gate: edge>=4.0, dark>=1.5, bot 1100-1216, fill<98, mean 150-235, dark<=50. CROP checks bot only.
+Seed 7 is not project-wide; edge spans 4.4-10.9. Per-pose scan, seeds 7-15,
+floor from own distribution. Locked: tpose seed 7 only.
+Open: V=()/N=() empty. Near-black escapes CROP. p5 floor unset (12.2 seed 8, 4.4-6.0 behind).
+Prune `DRY=1 DAYS=7 bash tools/runpod/prune.sh HOST PORT`; orphans = ids absent from attempts.jsonl.
+Hold: commercial use of the photoreal checkpoint not cleared absent a separate grant.
+Snapshot 2026-11-22, assets 0c2cb39.
 
-- `CFGPIN=<cfg>` fixes cfg. Proven by s6: a1-a2 byte-identical to s5-a1-a2.
-- `SMPIN=<sampler>` fixes sampler_name. Proven by zsmp at cfg 5.0, euler_ancestral:
-  8.3/16.6/1199/91.3/200.2, PASS on every gate.
-- Read back from the PNG prompt chunk, not the log: gen.sh swallows its JSON into
-  `J=$(...)` so the sampler never reaches stdout.
-- Until SMPIN existed, the case block moved smp with cfg, so any cfg comparison was
-  also a sampler comparison. A cfg sweep is only a cfg sweep with SMPIN set.
-- Retry seed is `SEED+1000+i`, clear of the primary `SEED+(i-1)*SS` stride, so a
-  retry cannot land on the next attempt's seed.
-
-## P0 Probe — 0.5d, ~$2
-Recreate as RTX PRO 6000 in EU-RO-1, volume attached.
-Gate: one render completes, SDPA fallback works, no node crash. Fail => stay on 4090.
-## P1 Scorer v1 — 2-3d, no GPU
-DWPose output vs skeleton => PCK + joint angle error. Bbox/fill/edge secondary.
-Gate: >=90% agreement with 30-50 human labels.
-## P2 Registry — 1-2d, no GPU
-Hash(prompt+skel+model+settings+seed) => name + registry.json. Freeze slugs.
-Gate: a prompt edit re-renders exactly the affected set and nothing else.
-## P3 Image, supervisor, queue — 2-3d
-ComfyUI+nodes+models+symlinks baked. Health endpoint, auto-restart, SQLite queue.
-Gate: kill mid-batch, recovers with no duplicate work.
-## P4 Judge — 2-3d, GPU
-Quantised 7B VLM beside the generator. Fingers, limbs, face, nudity, style. Veto only.
-Gate: >=90% agreement with the P1 labels.
-## P5 Prompt lock — per realm
-Template + character overlay. 3/3 seeds pass P1+P4 with no crop before any batch.
-## P6-P9
-Anchors 33 realms -> CGs/mobs/NPCs -> LoRA mains only -> steady state.
-Each gated by a signed review sheet.
-## Cost
-$0.028/attempt => ~$140 over 500 locks; $30 on 4090. Ceiling set by you.
-## Critical path
-P1 -> P4. All else waits on scorer quality.
+## Steps
+1. Anchor specification recorded; gate calibrated on real frames, not fixtures. [venice]
+2. Framing tail on all 10 poses; p5 gap 755->21, p4 1->18. [venice]
+3. Per-pose scan seeds 7-15; only tpose locked. [venice]
+4. Open faults: empty V/N arrays, dark term in CROP, p5 floor. [venice]
+5. Prune scripted, DRY default; dry run pending next bring-up. [venice]
