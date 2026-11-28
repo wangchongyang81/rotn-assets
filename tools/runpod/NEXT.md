@@ -2,7 +2,7 @@
 bash tools/runpod/create.sh  -> id in /tmp/pod.id
 Poll: runpodctl pod get <id> -o json
 runpodctl reads the key from ~/.runpod/config.toml. GraphQL x-api-key returns myself:null and 401s mutations.
-EU-RO-1 only, 4090 stock Low, create.sh retries.
+EU-RO-1 only, 4090 stock Medium on 2026-11-28, create.sh retries.
 
 ## Open task
 `em` is a MEAN over the content box, so a CROP shrinks the denominator and inflates edge.
@@ -10,7 +10,8 @@ o3-a4 scored edge 5.4 at bot 554 / fill 9.6 while broken. Divide by box area or 
 em against fill. Nothing else in the scorer is outstanding.
 
 ## Gates
-GE 3.0 (pooled 12: 9/12), GD 3.0 (9/12), fill ceiling 98 / floor 75, bot 1100-1216, mn 150-235.
+Realm gate: edge 4.0, dark 4.0, dark_max 95, bot 980-1216, fill 20-null, mean 30-235, mask only.
+Lustify sheet floors (GE 3.0, fill 75, bot 1100) are retired.
 All one `g=` on line 39. Dark is continuous with a low tail, L19 needs amending.
 
 ## Proven

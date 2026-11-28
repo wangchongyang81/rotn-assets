@@ -18,7 +18,7 @@ checkpoints/NoobAI-XL-v1.1.safetensors
 controlnet/openpose-xinsir-sdxl.safetensors
 
 ## Steps
-1. up-connect.sh: create from pod-probe.json, retry, print ssh mapping. Key ~/.ssh/id_ed25519
+1. bash tools/runpod/up-connect.sh: create from pod-probe.json, retry, print ssh mapping. Key ~/.ssh/id_ed25519
 2. remote-boot.sh, wait for "started"
 3. remote-prep.sh: pins torch 2.8.0, both symlinks, restarts, wants "local 200"
 4. remote-aux.sh: clones github.com/Fannovel16/comfyui_controlnet_aux, installs

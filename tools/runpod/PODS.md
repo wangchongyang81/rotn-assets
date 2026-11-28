@@ -18,20 +18,24 @@ stale values; trust sshinfo.sh. Proxy ssh.runpod.io rejects this key.
 Exec API is 403. ssh is the only route.
 
 ## Auth
-Key: ~/.runpod/config.toml, mode 600, set by key-set.sh, never in the repo.
+Key: ~/.runpod/config.toml, mode 600, set by `bash tools/runpod/key-set.sh`, never in the repo.
 runpodctl reads the key from ~/.runpod/config.toml; the GraphQL x-api-key route returns myself:null and 401s mutations.
 runpodctl and v2.sh send Bearer and 401 (2026-11-23).
 UNAUTHORIZED on podFindAndDeployOnDemand means an empty or stale key:
-re-run bash key-set.sh.
+re-run `bash tools/runpod/key-set.sh`.
 
 ## Stock - runpodctl only
 GraphQL cannot answer stock; GET /gpus 404s on v2. runpodctl gpu list >
-/tmp/gl.txt, then keep EU-RO-1 rows only (gpuId, memoryInGb, stockStatus).
+/tmp/gl.txt, then keep rows whose `dataCenterAvailability[]` holds a
+`dataCenterId` of EU-RO-1; read `stockStatus` from that entry, not the row.
+A flat `dataCenterId` key does not exist.
 
 ## Start - two paths, gql first
 Both read pod-probe.json, whose name is rotn-pilot. DRY=1 prints and exits 0.
-1. TRIES=1 bash create.sh -> id in /tmp/pod.id (x-api-key)
-2. bash up-connect.sh -> runpodctl, Bearer, then polls for SSH
+create.sh cds to its own directory, so pass PROBE bare or absolute, never
+repo-relative. Invoke every script by its path from the repo root.
+1. TRIES=1 bash tools/runpod/create.sh -> id in /tmp/pod.id
+2. bash tools/runpod/up-connect.sh -> runpodctl, Bearer, then polls for SSH
 Refusal reads "not enough free GPUs on the host machine". Sleep 40 and
 retry, or recreate on a stocked card. Stop after three failed creates.
 
