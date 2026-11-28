@@ -192,7 +192,10 @@ Close tarball pulled to review/pod-2026-11-27/ (34 files). Pod EXITED, no burn.
 Mirror tarball 130MB kept out of git, HF-only.
 
 ## Resume
-- Reload volume 39dhm3ia6u. Verify input md5s against /tmp/skels before any render.
-- Rebuild /tmp/s6.py is NOT needed; use tools/score.py + gate.py with masks.
+- Reload volume 39dhm3ia6u.
+- /tmp/skels AND the pod input skels are gone with the container. Regenerate with
+  `python3 tools/drawskel.py` (writes /tmp/skels), push to /workspace/comfy/input,
+  verify md5s before any render.
+- /tmp/s6.py is NOT needed; use tools/score.py + gate.py with masks.
 - /tmp/jobs9.txt and /tmp/r9.sh are gone with the container; regenerate from
   companions.json order.
