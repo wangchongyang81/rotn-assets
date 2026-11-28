@@ -1,10 +1,12 @@
 # STATE
 
 ## Now
-realm sheet closed; push green at 00f294a. 33 of 33 pass, including the two
-v8 night frames: gauri s3008 (edge 4.2, mean 48.7), vaishnavi s4008 (edge 4.4,
-mean 50.2). No render work remains. The night fix and the anchor-path finding
-are in PODS.md "Night realms 13 and 30".
+Sheet re-rendered on the corrected skel table; 33 of 33 pass, MANIFEST true
+at review/pod-2026-11-28/final/. Night pair gauri s3008 (edge 4.2, mean 50.4)
+and vaishnavi s4008 (edge 5.2, mean 45.2). Short-stick pair nila s8 and vidhi
+s1008 needed XS 1.5, not a scale change. All 33 skels pinned at
+review/pod-2026-11-28/skels/ and md5-verified on the pod. Gate passing is NOT
+confirmation: feet clipping, identity drift and pose read still need eyes.
 
 ## Gates
 - lustify, unmasked: edge 4.0, dark 4.0, dark_max 50, bot 1100-1216,
@@ -20,10 +22,13 @@ are in PODS.md "Night realms 13 and 30".
 - Old manifest scored 0/33 (dark 57-97 vs 50, mean 9.2-103 vs 150). Floors
   were calibrated on lustify white studio. The realm block fixes the gate,
   not the sheet.
-- 33 finals, MANIFEST true, review/pod-2026-11-27/final/.
-- drawskel SCALE 1.3; overrides 2/10/22/28 = 1.35-1.4, 33 = 1.55.
-- Seven ladder seeds, all low-body: diva/mahati/vidhi/maitri 1008,
-  jvala/savitri 2008, nishitha 3008.
+- 33 finals, MANIFEST true, review/pod-2026-11-28/final/ (supersedes 11-27).
+- drawskel SCALE is an explicit per-realm table computed from raw geometry:
+  horizontals up (6/12/15/24 = 1.58-1.87), stands pulled down to fit the frame
+  (0.99-1.26), XS 1.5 on 2/10 for the short-stick fill class. Regenerate with
+  the margin script in PODS.md, never by hand.
+- Nine ladder seeds, all low-body: diva/mahati/maitri 1008, jvala/savitri 2008,
+  nishitha/gauri 3008, vaishnavi 4008.
 
 ## Resolved
 - Push refused twice on GH001: mirror/rotn-close-2026-11-27.tgz, 124.66 MB,

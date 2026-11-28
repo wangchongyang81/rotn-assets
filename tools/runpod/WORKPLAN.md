@@ -50,13 +50,13 @@ Snapshot 2026-11-22, assets 0c2cb39.
 - Facing term on 14 poses. Env fill, dry-ground lock, water lock v4 only.
 - Skin lock per variant, halo-ring and colour-cast negatives (228 terms).
 - Dedupe of add lists (330 kept). Fill scale on 2,10,22,28,33.
-- 33 finals + MANIFEST true at review/pod-2026-11-27/final/.
-- Sheet at review/sheet-2026-11-27.png. Eyeball pass done, faults logged below.
+- 33 finals + MANIFEST true at review/pod-2026-11-28/final/ (supersedes 11-27).
+- Sheet at review/sheet-2026-11-28.png. Gate-green, eyeball pass OUTSTANDING.
 
 ## Next
 1. VERIFY the gate rewrite (unverified, see STATE.md). Run:
-   python3 tools/runpod/gate.py review/pod-2026-11-27/final/gauri.png /tmp/skels/skel-gauri.png
-   Expect 31 pass / 2 fail (gauri, vaishnavi only).
+   python3 tools/runpod/gate.py review/pod-2026-11-28/final/gauri.png review/pod-2026-11-28/skels/skel-gauri.png
+   Expect 33 pass / 0 fail.
 2. Fix validate_locks.py path (see STATE.md blockers).
 3. Re-render gauri + vaishnavi: v8 night silhouette-only, edge 2.6, mean 25.9/16.0.
    Add fill light to v8 key, or drop both off v8.

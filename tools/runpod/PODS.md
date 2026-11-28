@@ -194,6 +194,9 @@ the stick bbox.
 Batch v9/v10 rendered, finals rebuilt newest-source, manifest verified true.
 Close tarball pulled to review/pod-2026-11-27/ (34 files). Pod EXITED, no burn.
 Mirror tarball 130MB kept out of git, HF-only.
+SUPERSEDED 2026-11-28 by review/pod-2026-11-28/. The 11-27 sheet was rendered
+before the skel table fix, so 25 of 33 frames have feet clipped at row 0. Keep
+it only for diffing.
 
 ## Resume
 - Reload volume 39dhm3ia6u.
@@ -235,3 +238,31 @@ clipped, passing on luck. Any stand over ~935 px raw needs a scale under 1.2.
 loop.sh now defaults SEED=8 (the pose lock) and SRC to anchors, reads either
 prompt shape, and passes the skel mask to score and gate. Its old SEED=7 never
 touched a lock seed.
+
+## Short-stick fill class and skel pins (2026-11-28)
+Mirrored to hf://buckets/wangchongyang81/rotn-bin/close/ on 2026-11-28:
+pod-2026-11-28.tgz (45.0 MB) and sheet-2026-11-28.png (3.9 MB), both exit 0.
+The tarball holds the 33 finals, 33 pinned skels, both manifests and the sheet.
+A realm whose raw stick is short cannot reach the fill 20 floor by scaling: the
+stick is already bottom-bound, so any scale that raises fill clips the feet.
+nila and vidhi raw 314x502 at scale 1.007 measured fill 15.8 and failed on fill
+alone. The fix is horizontal only, `XS={2:1.5, 10:1.5}`, which widens the
+stance without moving the bottom row. Result 23.7 fill, both pass, and the
+figures read as a planted wide stance rather than a shrunken body.
+
+Do not confuse this with the stand clip class. Stands are too TALL and take a
+scale under 1.2; short sticks are too NARROW and take XS. Both are geometry,
+neither is a seed ladder.
+
+Skels are pinned at review/pod-2026-11-28/skels/ (33 files, md5 in
+review/pod-2026-11-28/skels/MANIFEST.txt) because /tmp/skels dies with the
+codespace and the pod volume is the only other copy. On resume, push the pins
+and verify md5s before any render; never redraw from a different table and
+assume the frames still match.
+
+Scale table derivation, margin 20 top, 1156 bottom, 985 floor:
+  raw bbox from a SCALE=1.0 draw, cy = (y0+y1)/2, hh = y1-y0, ww = x1-x0
+  kmax = min(2*(cy-20)/hh, 2*(1156-cy)/hh, 832/ww), take kmax*0.98
+  assert 2*(985-cy)/hh <= kmax or the realm is impossible and keeps its scale
+A 90 px margin is too strict: it binds every stand and leaves ugra only 48 px
+above the floor. 20 is the working value.
