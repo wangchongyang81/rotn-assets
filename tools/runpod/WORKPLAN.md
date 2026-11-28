@@ -68,7 +68,7 @@ Snapshot 2026-11-22, assets 0c2cb39.
 ## Optimised workflow (works, use this)
 - Score: tools/score.py IMG MASK -> "edge dark bot fill mean"
 - Gate:  tools/runpod/gate.py IMG MASK -> realm block, GATE PASS/FAIL
-- MASK is required for realm work: Pins live at review/pod-2026-11-28/skels/skel-SLUG.png
+- MASK is required for realm work. Pins live at review/pod-2026-11-28/skels/skel-SLUG.png
   (drawskel output); push them to /workspace/comfy/input and verify md5 before any
   render, because /tmp does not survive the codespace.
 - Without a mask, score.py falls back to the <120 bbox, which is degenerate on
