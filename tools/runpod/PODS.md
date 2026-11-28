@@ -234,21 +234,14 @@ the mask crop drags in dark ground and costs ~21 mean. gauri measured 4.3/28.7
 clipped and 4.2/48.7 unclipped on the same seed. SCALE[13]=1.02 is the fix.
 Realm 30 (vaishnavi) and 33 (vasha) are still stands at 1.3 and 1.55 and are
 clipped, passing on luck. Any stand over ~935 px raw needs a scale under 1.2.
+The explicit table below supersedes those overrides: every stand now sits at
+0.99-1.26, and 30 and 33 are both 0.993.
 
 loop.sh now defaults SEED=8 (the pose lock) and SRC to anchors, reads either
 prompt shape, and passes the skel mask to score and gate. Its old SEED=7 never
 touched a lock seed.
 
 ## Short-stick fill class and skel pins (2026-11-28)
-## Close 2026-11-28
-Sheet re-rendered on the rewritten table, 33/33 pass, MANIFEST true. Pins and
-both manifests committed at 79d3a7c and pushed. Tarball and sheet mirrored to
-rotn-bin/close/, both exit 0. Pod 36zq9jmhz7ru4t STOPPED (EXITED, runtime
-stopped) at 16:05, no burn; volume 39dhm3ia6u intact at 150 GB in EU-RO-1.
-Eyeball pass on review/sheet-2026-11-28.png is OUTSTANDING and is the first
-task on resume.
-
-## Resume
 Mirrored to hf://buckets/wangchongyang81/rotn-bin/close/ on 2026-11-28:
 pod-2026-11-28.tgz (45.0 MB) and sheet-2026-11-28.png (3.9 MB), both exit 0.
 The tarball holds the 33 finals, 33 pinned skels, both manifests and the sheet.
@@ -275,3 +268,11 @@ Scale table derivation, margin 20 top, 1156 bottom, 985 floor:
   assert 2*(985-cy)/hh <= kmax or the realm is impossible and keeps its scale
 A 90 px margin is too strict: it binds every stand and leaves ugra only 48 px
 above the floor. 20 is the working value.
+
+## Close 2026-11-28
+Sheet re-rendered on the rewritten table, 33/33 pass, MANIFEST true. Pins and
+both manifests committed at 79d3a7c and pushed. Tarball and sheet mirrored to
+rotn-bin/close/, both exit 0. Pod 36zq9jmhz7ru4t STOPPED (EXITED, runtime
+stopped) at 16:05, no burn; volume 39dhm3ia6u intact at 150 GB in EU-RO-1.
+Eyeball pass on review/sheet-2026-11-28.png is OUTSTANDING and is the first
+task on resume.
