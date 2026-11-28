@@ -240,6 +240,15 @@ prompt shape, and passes the skel mask to score and gate. Its old SEED=7 never
 touched a lock seed.
 
 ## Short-stick fill class and skel pins (2026-11-28)
+## Close 2026-11-28
+Sheet re-rendered on the rewritten table, 33/33 pass, MANIFEST true. Pins and
+both manifests committed at 79d3a7c and pushed. Tarball and sheet mirrored to
+rotn-bin/close/, both exit 0. Pod 36zq9jmhz7ru4t STOPPED (EXITED, runtime
+stopped) at 16:05, no burn; volume 39dhm3ia6u intact at 150 GB in EU-RO-1.
+Eyeball pass on review/sheet-2026-11-28.png is OUTSTANDING and is the first
+task on resume.
+
+## Resume
 Mirrored to hf://buckets/wangchongyang81/rotn-bin/close/ on 2026-11-28:
 pod-2026-11-28.tgz (45.0 MB) and sheet-2026-11-28.png (3.9 MB), both exit 0.
 The tarball holds the 33 finals, 33 pinned skels, both manifests and the sheet.
