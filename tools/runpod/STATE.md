@@ -1,9 +1,10 @@
 # STATE
 
 ## Now
-realm sheet closed; push green at 00f294a. Gate verified 31 pass, 2 fail:
-gauri (edge 2.6, mean 25.9) and vaishnavi (2.6, 16.0), both v8 night
-silhouette-only. That is the only real remaining render work.
+realm sheet closed; push green at 00f294a. 33 of 33 pass, including the two
+v8 night frames: gauri s3008 (edge 4.2, mean 48.7), vaishnavi s4008 (edge 4.4,
+mean 50.2). No render work remains. The night fix and the anchor-path finding
+are in PODS.md "Night realms 13 and 30".
 
 ## Gates
 - lustify, unmasked: edge 4.0, dark 4.0, dark_max 50, bot 1100-1216,

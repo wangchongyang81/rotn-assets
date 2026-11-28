@@ -197,9 +197,41 @@ Mirror tarball 130MB kept out of git, HF-only.
 
 ## Resume
 - Reload volume 39dhm3ia6u.
-- /tmp/skels AND the pod input skels are gone with the container. Regenerate with
-  `python3 tools/drawskel.py` (writes /tmp/skels), push to /workspace/comfy/input,
-  verify md5s before any render.
+- Skels SURVIVE on the volume at /workspace/comfy/input (50, every realm). They
+  are NOT lost with the container. `ls /workspace/comfy/input/skel-*` before
+  drawing anything; redraw only a genuinely missing one with
+  `python3 tools/drawskel.py`.
 - /tmp/s6.py is NOT needed; use tools/score.py + gate.py with masks.
 - /tmp/jobs9.txt and /tmp/r9.sh are gone with the container; regenerate from
   companions.json order.
+
+## Night realms 13 and 30 (2026-11-28)
+The anchors were the live source all along: push-anchor.sh L9 strips
+`positive:`/`negative:` from art/prompts/anchors/<name>.txt. The composed
+`base/bigaspv25/dark-off/prompt-*.txt` files are DEAD, nothing reads them.
+gen_anchor_prompts.py is not the push path and must not be run casually: it
+wipes every manual anchor edit (33/33 differed) and has two bugs, it drops
+`standing` and duplicates `warm brown skin`. `[light]` and `[frame]` do not
+exist in wild.dat and `[env.v8.key]` is never read, so the v8 night frames
+rendered with no light tail at all, just `hard moonlight, cold shadow`. That
+was the black-frame cause, not the sampler.
+
+Fix, in the two anchors only: replace the cold-shadow tail with a lit ground
+and fill (`bright lit ground catching the moon`, `grey bounce fill`,
+`no black crush`, `bright rim separation`), and drop `silhouette only` from the
+neg. Recipe STP=40 CFG=4.0 SCH=normal SMP=dpmpp_2m CNS=0.97. Stand poses are
+NOT s8-safe on night: gauri peaks s3008, vaishnavi s4008. CFG 6.0 regresses
+(2.3). Under a skel mask fill and bot are constants, the mask fixes the bbox,
+so only edge, dark and mean carry signal.
+
+Stand sticks overflow the frame. A raw `stand` is ~1022 px and SCALE 1.3 makes
+it 1329 against a 1216 frame, so the paste clamps at row 0 and the FEET CLIP.
+bot then sits at 1215, inside 980-1216, so the gate cannot see the clip while
+the mask crop drags in dark ground and costs ~21 mean. gauri measured 4.3/28.7
+clipped and 4.2/48.7 unclipped on the same seed. SCALE[13]=1.02 is the fix.
+Realm 30 (vaishnavi) and 33 (vasha) are still stands at 1.3 and 1.55 and are
+clipped, passing on luck. Any stand over ~935 px raw needs a scale under 1.2.
+
+loop.sh now defaults SEED=8 (the pose lock) and SRC to anchors, reads either
+prompt shape, and passes the skel mask to score and gate. Its old SEED=7 never
+touched a lock seed.
